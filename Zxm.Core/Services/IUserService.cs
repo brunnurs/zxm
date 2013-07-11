@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Zxm.Core.Model;
 
 namespace Zxm.Core.Services
 {
-    internal interface IUserService
+    public interface IUserService
     {
-        Task<User> GetAllUsersAsync();
+        //Task<List<User>> GetAllUsersAsync();
+
+        List<User> GetAllUser();
     }
 }

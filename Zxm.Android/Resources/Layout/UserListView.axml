@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MvxListView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    local:MvxItemTemplate="@layout/useritemtemplate"
-    local:MvxBind="ItemsSource Users" />
+    android:orientation="vertical">
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Load users from Server"
+        local:MvxBind="Click LoadUsersCommand" />
+    <MvxListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        local:MvxItemTemplate="@layout/useritemtemplate"
+        local:MvxBind="ItemsSource Users" />
+</LinearLayout>

@@ -82,7 +82,7 @@
       <HintPath>..\packages\MvvmCross.PortableSupport.3.0.9-beta6\lib\MonoAndroid16\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
-      <Project>{9770195C-51B4-4177-B1C0-355426B29ECA}</Project>
+      <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
       <Name>Zxm.Core</Name>
     </ProjectReference>
   </ItemGroup>

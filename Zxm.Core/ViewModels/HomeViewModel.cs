@@ -1,16 +1,17 @@
 ﻿using Cirrious.CrossCore;
 using Cirrious.MvvmCross.ViewModels;
+using Zxm.Core.Services;
 using Zxm.Core.ViewModels.Tabs;
 
 namespace Zxm.Core.ViewModels
 {
     public class HomeViewModel : MvxViewModel
     {
-        public HomeViewModel()
+        public HomeViewModel(IUserService userService)
         {
-            SettingsViewModel = Mvx.Resolve<SettingsViewModel>();
-            UserListViewModel = Mvx.Resolve<UserListViewModel>();
-            MessagesViewModel = Mvx.Resolve<MessagesViewModel>();
+            SettingsViewModel = new SettingsViewModel();
+            UserListViewModel = new UserListViewModel(userService);
+            MessagesViewModel = new MessagesViewModel();
         }
 
         public SettingsViewModel SettingsViewModel { get; set; }
