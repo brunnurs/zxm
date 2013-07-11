@@ -85,10 +85,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppDelegate.cs.txt" />
-    <Content Include="ToDo-MvvmCross\_ Touch UI.txt" />
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">

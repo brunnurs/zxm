@@ -57,10 +57,14 @@
     <Reference Include="Cirrious.MvvmCross.Droid">
       <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.0.9-beta6\lib\MonoAndroid16\Cirrious.MvvmCross.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Droid.Fragging">
+      <HintPath>..\packages\MvvmCross.HotTuna.Droid.Fragging.3.0.9-beta6\lib\MonoAndroid16\Cirrious.MvvmCross.Droid.Fragging.dll</HintPath>
+    </Reference>
     <Reference Include="Cirrious.MvvmCross.Localization">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.0.9-beta6\lib\MonoAndroid16\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Support.v4" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
