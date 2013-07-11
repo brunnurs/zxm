@@ -11,7 +11,7 @@ namespace Zxm.Core.ViewModels.Tabs
 
         }
 
-        private ObservableCollection<User> _users = new ObservableCollection<User> { new User { Name = "Hans" }, new User { Name = "Peter" } };
+        private ObservableCollection<User> _users = new ObservableCollection<User> { new User { FirstName = "Hans" }, new User { FirstName = "Peter" } };
         public ObservableCollection<User> Users
         {
             get { return _users; }
