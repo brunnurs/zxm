@@ -84,8 +84,8 @@ namespace Zxm.Android
 			// aapt resource value: 0x7f040000
 			public const int MvxBindingTagUnique = 2130968576;
 			
-			// aapt resource value: 0x7f040001
-			public const int MyButton = 2130968577;
+			// aapt resource value: 0x01010000
+			public const int actualtabcontent = 16842752;
 			
 			static Id()
 			{
@@ -101,13 +101,19 @@ namespace Zxm.Android
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int FirstView = 2130903040;
+			public const int HomeView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
+			public const int MessagesView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int SplashScreen = 2130903042;
+			public const int SettingsView = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SplashScreen = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int UserListView = 2130903044;
 			
 			static Layout()
 			{

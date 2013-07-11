@@ -19,10 +19,10 @@ namespace Zxm.iOS.Views
             var textField = new UITextField(new RectangleF(10, 50, 300, 40));
             Add(textField);
 
-            var set = this.CreateBindingSet<FirstView, Core.ViewModels.FirstViewModel>();
-            set.Bind(label).To(vm => vm.Hello);
-            set.Bind(textField).To(vm => vm.Hello);
-            set.Apply();
+            //var set = this.CreateBindingSet<FirstView, Core.ViewModels.HomeViewModel>();
+            //set.Bind(label).To(vm => vm.Hello);
+            //set.Bind(textField).To(vm => vm.Hello);
+            //set.Apply();
         }
     }
 }
