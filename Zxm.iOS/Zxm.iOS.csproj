@@ -125,6 +125,10 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>..\packages\MvvmCross.PortableSupport.3.0.9-beta6\lib\MonoTouch40\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
+      <Project>{9770195C-51B4-4177-B1C0-355426B29ECA}</Project>
+      <Name>Zxm.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>
