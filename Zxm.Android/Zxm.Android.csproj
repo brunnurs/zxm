@@ -107,6 +107,7 @@
     <AndroidResource Include="Resources\Layout\SettingsView.axml" />
     <AndroidResource Include="Resources\Layout\UserListView.axml" />
     <AndroidResource Include="Resources\Layout\MessagesView.axml" />
+    <AndroidResource Include="Resources\Layout\UserItemTemplate.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
