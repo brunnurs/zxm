@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.iOS/Views/SettingsView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.iOS/Views/TabBarController.cs">
     <Files>
       <File FileName="Zxm.Core/App.cs" Line="1" Column="1" />
       <File FileName="Zxm.iOS/Views/SettingsView.designer.cs" Line="1" Column="1" />
       <File FileName="Zxm.iOS/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="Zxm.iOS/Views/TabBarController.cs" Line="1" Column="1" />
-      <File FileName="Zxm.iOS/Views/SettingsView.cs" Line="21" Column="42" />
+      <File FileName="Zxm.iOS/Views/TabBarController.cs" Line="32" Column="77" />
+      <File FileName="Zxm.iOS/Views/SettingsView.cs" Line="1" Column="1" />
+      <File FileName="Zxm.Android/Views/HomeView.cs" Line="1" Column="1" />
+      <File FileName="Zxm.iOS/Views/UsersView.cs" Line="1" Column="1" />
+      <File FileName="Zxm.Core/ViewModels/HomeViewModel.cs" Line="1" Column="1" />
+      <File FileName="Zxm.Core/ViewModels/Tabs/UserListViewModel.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

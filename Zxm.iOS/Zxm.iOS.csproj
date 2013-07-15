@@ -92,6 +92,10 @@
     <Compile Include="Views\MessagesView.designer.cs">
       <DependentUpon>MessagesView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UsersView.cs" />
+    <Compile Include="Views\UsersView.designer.cs">
+      <DependentUpon>UsersView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -138,5 +142,6 @@
   <ItemGroup>
     <InterfaceDefinition Include="Views\SettingsView.xib" />
     <InterfaceDefinition Include="Views\MessagesView.xib" />
+    <InterfaceDefinition Include="Views\UsersView.xib" />
   </ItemGroup>
 </Project>
