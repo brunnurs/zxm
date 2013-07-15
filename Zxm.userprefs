@@ -1,19 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.Core/Model/User.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.iOS/Views/SettingsView.cs">
     <Files>
-      <File FileName="Zxm.Android/Setup.cs" Line="16" Column="24" />
-      <File FileName="Zxm.Core/Services/UserService.cs" Line="1" Column="1" />
-      <File FileName="Zxm.Core/Model/User.cs" Line="29" Column="23" />
-      <File FileName="Zxm.Core/ViewModels/HomeViewModel.cs" Line="1" Column="1" />
-      <File FileName="Zxm.Core/ViewModels/Tabs/AddMessageViewModel.cs" Line="1" Column="1" />
-      <File FileName="Zxm.Core/ViewModels/Tabs/MessagesViewModel.cs" Line="1" Column="1" />
-      <File FileName="Zxm.Core/ViewModels/Tabs/SettingsViewModel.cs" Line="1" Column="1" />
-      <File FileName="Zxm.Core/ViewModels/Tabs/UserListViewModel.cs" Line="21" Column="10" />
+      <File FileName="Zxm.Core/App.cs" Line="15" Column="1" />
+      <File FileName="Zxm.iOS/Views/SettingsView.designer.cs" Line="1" Column="1" />
+      <File FileName="Zxm.iOS/AppDelegate.cs" Line="10" Column="18" />
+      <File FileName="Zxm.iOS/Views/TabBarController.cs" Line="45" Column="1" />
+      <File FileName="Zxm.iOS/Views/SettingsView.cs" Line="23" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Zxm.Android />
 </Properties>

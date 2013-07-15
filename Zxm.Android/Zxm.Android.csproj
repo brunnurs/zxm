@@ -25,7 +25,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -36,7 +35,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">
@@ -72,13 +70,11 @@
       <HintPath>..\packages\MvvmCross.PortableSupport.3.0.9-beta6\lib\MonoAndroid16\System.Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows">
-      <Private>True</Private>
       <HintPath>..\packages\MvvmCross.PortableSupport.3.0.9-beta6\lib\MonoAndroid16\System.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization">
-      <Private>True</Private>
       <HintPath>..\packages\MvvmCross.PortableSupport.3.0.9-beta6\lib\MonoAndroid16\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
