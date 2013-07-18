@@ -31,6 +31,8 @@ namespace Zxm.Webservice.Persistence
             }
         }
 
+        private const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 -,.";
+
         private static readonly string[] FirstNames = new[]
             {
                 "Aaron", "Abraham", "Achille", "Achim", "Ada", "Adalbert", "Adam", "Adamo", "Adela", "Adelaide",
@@ -752,14 +754,12 @@ namespace Zxm.Webservice.Persistence
         {
             var firstName = GetRandomFirstName();
             var lastName = GetRandomLastName();
-            var content = new byte[100];
-            LocalRandom.NextBytes(content);
-
+            
             return new Message(id)
             {
                 DateSent = DateTime.Now,
                 Sender = string.Format("{0} {1}", firstName, lastName),
-                Content = content,
+                Content = RandomString(160)
             };
         }
 
@@ -854,15 +854,14 @@ namespace Zxm.Webservice.Persistence
 
         private static string RandomString(int size)
         {
-            var builder = new StringBuilder();
-            char ch;
+            var buffer = new char[size];
+
             for (int i = 0; i < size; i++)
             {
-                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * LocalRandom.NextDouble() + 65)));
-                builder.Append(ch);
+                buffer[i] = Chars[LocalRandom.Next(Chars.Length)];
             }
 
-            return builder.ToString();
+            return new string(buffer);
         }
 
         private static string GetRandomCountry()

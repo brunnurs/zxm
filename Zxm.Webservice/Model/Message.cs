@@ -10,7 +10,7 @@ namespace Zxm.Webservice.Model
         public int Id { get; set; }
         public DateTime DateSent { get; set; }
         public string Sender { get; set; }
-        public byte[] Content { get; set; }
+        public string Content { get; set; }
 
         public Message(int id)
         {
