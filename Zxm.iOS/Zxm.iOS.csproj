@@ -109,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Windows">
+      <HintPath>..\libs\Mvx\Touch\System.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
@@ -153,25 +156,27 @@
     <Reference Include="Cirrious.MvvmCross.Localization" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Touch">
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Touch" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.DownloadCache.Touch.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.File.Touch">
+    <Reference Include="Cirrious.MvvmCross.Plugins.File.Touch" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.File.Touch.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
-      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite.Touch" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.Sqlite.Touch.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.File">
-      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Touch" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Plugins.DownloadCache.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File.Touch" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Plugins.File.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite.Touch" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Plugins.Sqlite.Touch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Images\Tabs\" />
-    <Folder Include="Views\Cells\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\Tabs\settings.png" />
     <Content Include="Images\Tabs\messages.png" />
