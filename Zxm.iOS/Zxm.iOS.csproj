@@ -108,28 +108,56 @@
       <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
       <Name>Zxm.Core</Name>
     </ProjectReference>
+    
     <Reference Include="Cirrious.CrossCore.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.Touch.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.CrossCore">
-      <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Binding.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Binding.Touch.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Binding">
-      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Binding.dll</HintPath>
-    </Reference>
     <Reference Include="Cirrious.MvvmCross.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Touch.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross">
-      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Localization">
-      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
-    </Reference>
+
   </ItemGroup>
+
+  <Choose>
+    <When Condition="'$(OS)' != 'Windows_NT' ">
+      <ItemGroup>
+        <Reference Include="Cirrious.CrossCore">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross.Binding">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Binding.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross.Localization">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+
+    <When Condition="'$(OS)' == 'Windows_NT' ">
+      <ItemGroup>
+        <Reference Include="Cirrious.CrossCore">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross.Binding">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Binding.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross.Localization">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+
+
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Images\" />

@@ -50,16 +50,38 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Cirrious.CrossCore">
-      <HintPath>..\libs\Mvx\Portable\Cirrious.CrossCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Localization">
-      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Localization.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross">
-      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.dll</HintPath>
-    </Reference>
   </ItemGroup>
+
+  <Choose>
+    <When Condition="'$(OS)' != 'Windows_NT' ">
+      <ItemGroup>
+        <Reference Include="Cirrious.CrossCore">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross.Localization">
+          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+
+    <When Condition="'$(OS)' == 'Windows_NT' ">
+      <ItemGroup>
+        <Reference Include="Cirrious.CrossCore">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.dll</HintPath>
+        </Reference>
+        <Reference Include="Cirrious.MvvmCross.Localization">
+          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

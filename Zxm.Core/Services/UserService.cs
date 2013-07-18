@@ -30,5 +30,10 @@ namespace Zxm.Core.Services
         {
             return new List<User> {new User {FirstName = "Stefan"}, new User {FirstName = "Hans"}};
         }
+
+        public User GetCurrentUser()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
