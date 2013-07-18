@@ -15,7 +15,10 @@ namespace Zxm.Core.ViewModels.Tabs
         {
             _messageService = messageService;
 
+            Messages = new ObservableCollection<Message>();
+
             LoadMessagesCommand = new MvxCommand(LoadMessagesCommandExecute);
+            ComposeMessageCommand = new MvxCommand(() => ShowViewModel<ComposeMessageViewModel>());
         }
 
         private void LoadMessagesCommandExecute()
@@ -40,5 +43,6 @@ namespace Zxm.Core.ViewModels.Tabs
         }
 
         public ICommand LoadMessagesCommand { get; set; }
+        public ICommand ComposeMessageCommand { get; set; }
     }
 }

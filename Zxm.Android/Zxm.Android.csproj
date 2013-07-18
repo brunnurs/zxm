@@ -108,6 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Views\ComposeMessageView.cs" />
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Views\MessagesFragment.cs" />
     <Compile Include="Views\SettingsFragment.cs" />
@@ -125,6 +126,7 @@
     <AndroidResource Include="Resources\Layout\MessagesView.axml" />
     <AndroidResource Include="Resources\Layout\UserItemTemplate.axml" />
     <AndroidResource Include="Resources\Layout\MessageItemTemplate.axml" />
+    <AndroidResource Include="Resources\Layout\ComposeMessageView.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

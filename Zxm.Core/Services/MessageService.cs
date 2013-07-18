@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Newtonsoft.Json;
 using RestSharp;
 using Zxm.Core.Model;
@@ -12,7 +13,7 @@ namespace Zxm.Core.Services
 
         // TODO: Duplicated in UserService
         private const string Url = "http://zxm.azurewebsites.net/";
-      
+
 
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
@@ -26,6 +27,7 @@ namespace Zxm.Core.Services
 
         private void RequestMessageCallback(IRestResponse restResponse, RestRequestAsyncHandle arg2)
         {
+            //TODO: RequestFormat?
             _messageCallback(JsonConvert.DeserializeObject<List<Message>>(restResponse.Content));
         }
 
@@ -33,8 +35,13 @@ namespace Zxm.Core.Services
         {
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.POST);
-            request.AddBody(JsonConvert.SerializeObject(newMessage));
-            client.ExecuteAsync(request, RequestMessageCallback);
+            //TODO: use AddBody does not seem to work
+            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage), ParameterType.RequestBody);
+            client.ExecuteAsync(request, SendMessageCallback);
+        }
+
+        private void SendMessageCallback(IRestResponse arg1, RestRequestAsyncHandle arg2)
+        {
         }
     }
 }

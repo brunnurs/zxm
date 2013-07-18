@@ -7,6 +7,11 @@
         android:layout_height="wrap_content"
         android:text="Load all messages"
         local:MvxBind="Click LoadMessagesCommand" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Compose new message"
+        local:MvxBind="Click ComposeMessageCommand" />
     <MvxListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
