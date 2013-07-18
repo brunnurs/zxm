@@ -13,16 +13,19 @@ namespace Zxm.iOS
 		public static readonly UINib Nib = UINib.FromName ("UserCell", NSBundle.MainBundle);
 		public static readonly NSString Key = new NSString ("UserCell");
 
+		MvxImageViewLoader imageLoader;
+
 		public UserCell (IntPtr handle) : base (handle)
 		{
-			var imageLoader = new MvxImageViewLoader (() => UserImageView);
+
+			imageLoader = new MvxImageViewLoader (() => UserImageView);
 
 			this.DelayBind(() => {
 				var set = this.CreateBindingSet<UserCell, User> ();
-//				set.Bind (UserTitleLabel).To (item => item.Title);
-				set.Bind (UserFirstnameLabel).To (item => item.FirstName);
-//				set.Bind (UserLastnameLabel).To (item => item.LastName);
-//				set.Bind(imageLoader.ImageUrl).To(User => User.ImageUri);
+				set.Bind (UserTitleLabel).To (item => item.Title);
+				set.Bind (UserFirstnameLabel).To (item => item.FirstName); 
+				set.Bind (UserLastnameLabel).To (item => item.LastName);
+				set.Bind(imageLoader).To(User => User.ImageUri);
 				set.Apply();
 			});
 
