@@ -1,34 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.Core/ViewModels/Tabs/UserListViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.Core/Zxm.Core.csproj">
     <Files>
-      <File FileName="Zxm.iOS/Views/Cells/UserCell.designer.cs" Line="24" Column="55" />
-      <File FileName="Zxm.Core/Services/UserService.cs" Line="30" Column="10" />
-      <File FileName="Zxm.Core/ViewModels/Tabs/UserListViewModel.cs" Line="18" Column="10" />
+      <File FileName="Zxm.iOS/Views/MessagesView.cs" Line="23" Column="19" />
+      <File FileName="Zxm.iOS/Views/Cells/UserCell.cs" Line="29" Column="4" />
+      <File FileName="Zxm.Core/Services/MessageService.cs" Line="4" Column="7" />
+      <File FileName="Zxm.Core/Zxm.Core.csproj" Line="67" Column="74" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="MonoTouchCellTutorial" expanded="True">
-            <Node name="Core" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="Dogs" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="UI" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="Cells" expanded="True">
-                  <Node name="DogCell.cs" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

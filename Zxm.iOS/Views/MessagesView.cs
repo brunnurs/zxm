@@ -19,8 +19,8 @@ namespace Zxm.iOS
 			base.ViewDidLoad ();
 
 			var set = this.CreateBindingSet<MessagesView,MessagesViewModel> ();
-			set.Bind (messageEdit).To (vm => vm.Message);
-			set.Bind (messageLabel).To (vm => vm.Message);
+//			set.Bind (messageEdit).To (vm => vm.Message);
+//			set.Bind (messageLabel).To (vm => vm.Message);
 		
 			set.Apply ();
 		}
