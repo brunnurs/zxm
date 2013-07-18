@@ -92,9 +92,13 @@
     <Compile Include="Views\MessagesView.designer.cs">
       <DependentUpon>MessagesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UsersView.cs" />
-    <Compile Include="Views\UsersView.designer.cs">
-      <DependentUpon>UsersView.cs</DependentUpon>
+    <Compile Include="Views\UserListView.cs" />
+    <Compile Include="Views\UserListView.designer.cs">
+      <DependentUpon>UserListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cells\UserCell.cs" />
+    <Compile Include="Views\Cells\UserCell.designer.cs">
+      <DependentUpon>UserCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -129,11 +133,24 @@
     <Reference Include="Cirrious.MvvmCross.Localization">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Touch">
+      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.DownloadCache.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File.Touch">
+      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.File.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Images\Tabs\" />
+    <Folder Include="Views\Cells\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Tabs\settings.png" />
@@ -142,6 +159,7 @@
   <ItemGroup>
     <InterfaceDefinition Include="Views\SettingsView.xib" />
     <InterfaceDefinition Include="Views\MessagesView.xib" />
-    <InterfaceDefinition Include="Views\UsersView.xib" />
+    <InterfaceDefinition Include="Views\UserListView.xib" />
+    <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
   </ItemGroup>
 </Project>
