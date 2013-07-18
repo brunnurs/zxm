@@ -15,20 +15,16 @@ namespace Zxm.Test
             const string message = "Hallo Stefan, hallo Ursin, hallo Oliver!";
             Assert.IsNotNull(message);
 
-            /*
-            var encryptionService = new EncryptionService();
             var random = new Random();
-            var key = new byte[1024];
-            var iv = new byte[1024];
+            var key = new byte[32];
             random.NextBytes(key);
-            random.NextBytes(iv);
-
-            var encryptedText = encryptionService.Encrypt(message, key, iv);
+            
+            var encryptedText = AesGcm.SimpleEncrypt(message, key);
             Assert.IsNotNull(encryptedText);
-            var plainText = encryptionService.Decrypt(encryptedText, key, iv);
+            Assert.AreNotEqual(message, encryptedText);
+            var plainText = AesGcm.SimpleDecrypt(encryptedText, key);
 
             Assert.AreEqual(message, plainText);
-             */
         }
     }
 }
