@@ -1,10 +1,13 @@
+using System;
 using Android.App;
 using Android.OS;
+using Android.Widget;
 using Cirrious.MvvmCross.Droid.Fragging;
 using Zxm.Core.ViewModels;
 
 namespace Zxm.Android.Views
 {
+
     [Activity]
     public class HomeView : MvxTabsFragmentActivity
     {

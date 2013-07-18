@@ -6,9 +6,9 @@ namespace Zxm.Core.ViewModels
 {
     public class HomeViewModel : MvxViewModel
     {
-        public HomeViewModel(IUserService userService, IMessageService messageService)
+        public HomeViewModel(IUserService userService, IMessageService messageService, ISettingsService settingsService)
         {
-            SettingsViewModel = new SettingsViewModel();
+            SettingsViewModel = new SettingsViewModel(settingsService);
             UserListViewModel = new UserListViewModel(userService);
             MessagesViewModel = new MessagesViewModel(messageService);
         }

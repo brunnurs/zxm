@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Newtonsoft.Json;
 using RestSharp;
 using Zxm.Core.Model;
@@ -11,7 +10,6 @@ namespace Zxm.Core.Services
     {
         // TODO: Duplicated in UserService
         private const string Url = "http://zxm.azurewebsites.net/";
-
 
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
