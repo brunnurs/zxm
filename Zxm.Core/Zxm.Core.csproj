@@ -40,9 +40,6 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CryptoStream.cs" />
-    <Compile Include="Services\CryptoStreamMode.cs" />
-    <Compile Include="Services\EncryptionService.cs" />
     <Compile Include="Services\IEncryptionService.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
