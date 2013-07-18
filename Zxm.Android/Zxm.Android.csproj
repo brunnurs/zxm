@@ -118,6 +118,7 @@
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Views\MessagesFragment.cs" />
     <Compile Include="Views\SettingsFragment.cs" />
+    <Compile Include="Views\TabPatchView.cs" />
     <Compile Include="Views\UserListFragment.cs" />
   </ItemGroup>
   <ItemGroup>
