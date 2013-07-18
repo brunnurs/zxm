@@ -1,5 +1,4 @@
-﻿using Cirrious.CrossCore;
-using Cirrious.MvvmCross.ViewModels;
+﻿using Cirrious.MvvmCross.ViewModels;
 using Zxm.Core.Services;
 using Zxm.Core.ViewModels.Tabs;
 
