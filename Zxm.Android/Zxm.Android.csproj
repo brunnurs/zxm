@@ -37,8 +37,14 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache.Droid">
       <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.DownloadCache.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.File.Droid">
       <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.File.Droid.dll</HintPath>
