@@ -14,7 +14,6 @@ namespace Zxm.Core.Services
         public DatabaseService(ISQLiteConnectionFactory sqLiteConnectionFactory)
         {
             _sqLiteConnectionFactory = sqLiteConnectionFactory;
-
             using (var connection = _sqLiteConnectionFactory.Create(DatabaseName))
             {
                 connection.CreateTable<UserSettings>();
