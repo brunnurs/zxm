@@ -120,6 +120,9 @@
     <Compile Include="Views\SettingsFragment.cs" />
     <Compile Include="Views\TabPatchView.cs" />
     <Compile Include="Views\UserListFragment.cs" />
+    <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -29,16 +29,14 @@ namespace Zxm.iOS.Views
 			if (ViewModel == null)
 				return;
 
-			var loaderService = Mvx.Resolve<IMvxViewModelLoader>(); 
-			var vm = (UserListViewModel)loaderService.LoadViewModel( new MvxViewModelRequest(typeof(UserListViewModel), null, null, null), null); 
-			
 			var viewControllers = new UIViewController[]
 			{
 	
-				CreateTabFor("Users", "settings", vm),
-//				CreateTabFor("Settings", "settings", Mvx.Resolve<SettingsViewModel>()),
-//				CreateTabFor("Messages", "messages", Mvx.Resolve<MessagesViewModel>()),
+				CreateTabFor<UserListViewModel>("Users", "settings"),
+				CreateTabFor<MessagesViewModel>("Messages", "messages"),
+				CreateTabFor<SettingsViewModel>("Settings", "settings"),
 			};
+
 			ViewControllers = viewControllers;
 
 			CustomizableViewControllers = new UIViewController[] { };
@@ -50,12 +48,15 @@ namespace Zxm.iOS.Views
 
 		private int _createdSoFarCount = 0;
 
-        private UIViewController CreateTabFor(string title, string imageName, IMvxViewModel viewModel)
+		//This method load the ViewModel
+		private UIViewController CreateTabFor<TTargetViewModel>(string title, string imageName)  
+			where TTargetViewModel : class, IMvxViewModel
         {
             var controller = new UINavigationController();
             controller.NavigationBar.TintColor = UIColor.Black;
 
-            var screen = this.CreateViewControllerFor(viewModel) as UIViewController;
+			var viewModelRequest = new MvxViewModelRequest (typeof(TTargetViewModel), null, null, null);
+			var screen = this.CreateViewControllerFor<TTargetViewModel> (viewModelRequest)  as UIViewController;
             SetTitleAndTabBarItem(screen, title, imageName);
             controller.PushViewController(screen, false);
             return controller;
@@ -64,8 +65,7 @@ namespace Zxm.iOS.Views
         private void SetTitleAndTabBarItem(UIViewController screen, string title, string imageName)
         {
 			screen.Title = title;
-            screen.TabBarItem = new UITabBarItem(title, UIImage.FromBundle("Images/Tabs/" + imageName + ".png"),
-                                                 _createdSoFarCount);
+            screen.TabBarItem = new UITabBarItem(title, UIImage.FromBundle("Images/Tabs/" + imageName + ".png"), _createdSoFarCount);
             _createdSoFarCount++;
         }
 
