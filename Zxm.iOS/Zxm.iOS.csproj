@@ -121,8 +121,23 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <Choose>
-    <When Condition="'$(OS)' != 'Windows_NT' ">
+    <!--<When Condition="'$(OS)' != 'Windows_NT' ">
       <ItemGroup>
         <Reference Include="Cirrious.CrossCore">
           <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
@@ -137,7 +152,7 @@
           <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
         </Reference>
       </ItemGroup>
-    </When>
+    </When>-->
 
     <When Condition="'$(OS)' == 'Windows_NT' ">
       <ItemGroup>
@@ -156,7 +171,6 @@
       </ItemGroup>
     </When>
   </Choose>
-
 
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
