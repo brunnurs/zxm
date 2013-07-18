@@ -100,6 +100,10 @@
     <Compile Include="Views\Cells\UserCell.designer.cs">
       <DependentUpon>UserCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cells\MessageCell.cs" />
+    <Compile Include="Views\Cells\MessageCell.designer.cs">
+      <DependentUpon>MessageCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -112,7 +116,6 @@
       <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
       <Name>Zxm.Core</Name>
     </ProjectReference>
-
     <Reference Include="Cirrious.CrossCore.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.Touch.dll</HintPath>
     </Reference>
@@ -122,9 +125,7 @@
     <Reference Include="Cirrious.MvvmCross.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Touch.dll</HintPath>
     </Reference>
-
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
@@ -139,7 +140,6 @@
       <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
@@ -166,7 +166,6 @@
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Images\" />
@@ -182,5 +181,6 @@
     <InterfaceDefinition Include="Views\MessagesView.xib" />
     <InterfaceDefinition Include="Views\UserListView.xib" />
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
+    <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
   </ItemGroup>
 </Project>
