@@ -9,8 +9,15 @@
         android:layout_width="50dp"
         local:MvxBind="ImageUrl ImageUri" />
     <TextView
+        android:id="@+id/userName"
         android:layout_toRightOf="@id/userImage"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         local:MvxBind="Text Name" />
+    <TextView
+        android:layout_toRightOf="@id/userImage"
+        android:layout_below="@id/userName"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        local:MvxBind="Text Company" />
 </RelativeLayout>

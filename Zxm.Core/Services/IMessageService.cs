@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Zxm.Core.Model;
 
 namespace Zxm.Core.Services
 {
-    interface IMessageService
-    {
-        void SendMessage(string message);
-        IEnumerable<Message> ReadMessages();
-    }
+   public  interface IMessageService
+   {
+       void RequestMessages(Action<List<Message>> messageCallback);
+       void SendMessage(Message newMessage);
+   }
 }

@@ -2,6 +2,8 @@ using Cirrious.MvvmCross.ViewModels;
 using MonoTouch.UIKit;
 using Cirrious.MvvmCross.Touch.Views;
 using Zxm.Core.ViewModels;
+using Zxm.Core.ViewModels.Tabs;
+using Cirrious.CrossCore;
 
 namespace Zxm.iOS.Views
 {
@@ -27,12 +29,15 @@ namespace Zxm.iOS.Views
 			if (ViewModel == null)
 				return;
 
+			var loaderService = Mvx.Resolve<IMvxViewModelLoader>(); 
+			var vm = (UserListViewModel)loaderService.LoadViewModel( new MvxViewModelRequest(typeof(UserListViewModel), null, null, null), null); 
+			
 			var viewControllers = new UIViewController[]
 			{
-				//TODO: use here the right ViewModel (watch the screencast about tables)
-				CreateTabFor("Users", "settings", ViewModel.SettingsViewModel),
-				CreateTabFor("Settings", "settings", ViewModel.SettingsViewModel),
-				CreateTabFor("Messages", "messages", ViewModel.MessagesViewModel),
+	
+				CreateTabFor("Users", "settings", vm),
+//				CreateTabFor("Settings", "settings", Mvx.Resolve<SettingsViewModel>()),
+//				CreateTabFor("Messages", "messages", Mvx.Resolve<MessagesViewModel>()),
 			};
 			ViewControllers = viewControllers;
 
@@ -49,6 +54,7 @@ namespace Zxm.iOS.Views
         {
             var controller = new UINavigationController();
             controller.NavigationBar.TintColor = UIColor.Black;
+
             var screen = this.CreateViewControllerFor(viewModel) as UIViewController;
             SetTitleAndTabBarItem(screen, title, imageName);
             controller.PushViewController(screen, false);
