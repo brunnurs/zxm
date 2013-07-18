@@ -64,12 +64,20 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\libs\RestSharp\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\libs\RestSharp\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="RestSharp"  Condition="'$(OS)' != 'Windows_NT'" >
+      <HintPath>..\libs\RestSharp\RestSharp.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json"  Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\RestSharp\Newtonsoft.Json.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp"  Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\RestSharp\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json"  Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\RestSharp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT' ">
@@ -88,6 +96,12 @@
     </Reference>
     <Reference Include="Cirrious.MvvmCross" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Localization" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Localization.dll</HintPath>

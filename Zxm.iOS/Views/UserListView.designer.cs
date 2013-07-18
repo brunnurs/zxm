@@ -9,7 +9,7 @@ using MonoTouch.Foundation;
 namespace Zxm.iOS
 {
 	[Register ("UsersView")]
-	partial class UsersView
+	partial class UserListView
 	{
 		void ReleaseDesignerOutlets ()
 		{
