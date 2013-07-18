@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using Cirrious.MvvmCross.ViewModels;
 using Zxm.Core.Model;
 using Zxm.Core.Services;

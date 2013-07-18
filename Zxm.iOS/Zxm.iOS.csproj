@@ -105,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Windows">
+      <HintPath>..\libs\Mvx\Touch\System.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
@@ -112,7 +115,6 @@
       <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
       <Name>Zxm.Core</Name>
     </ProjectReference>
-
     <Reference Include="Cirrious.CrossCore.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.Touch.dll</HintPath>
     </Reference>
@@ -122,9 +124,7 @@
     <Reference Include="Cirrious.MvvmCross.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Touch.dll</HintPath>
     </Reference>
-
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
@@ -139,7 +139,6 @@
       <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
@@ -166,13 +165,8 @@
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
   </ItemGroup>
-
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Images\Tabs\" />
-    <Folder Include="Views\Cells\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\Tabs\settings.png" />
     <Content Include="Images\Tabs\messages.png" />
