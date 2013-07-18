@@ -54,6 +54,9 @@
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\libs\Encryption\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
     </Reference>
