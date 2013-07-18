@@ -32,15 +32,6 @@ namespace Zxm.iOS
 		{
 			return new MyViewPresenter (_applicationDelegate, _window);
 		}
-
-		protected override void AddPluginsLoaders (Cirrious.CrossCore.Plugins.MvxLoaderPluginRegistry registry)
-		{
-			registry.AddConventionalPlugin<Cirrious.MvvmCross.Plugins.DownloadCache.Touch.Plugin>();
-			registry.AddConventionalPlugin<Cirrious.MvvmCross.Plugins.File.Touch.Plugin>();
-
-			base.AddPluginsLoaders(registry);
-		}
-
 	}
 
 	public class MyViewPresenter :MvxTouchViewPresenter

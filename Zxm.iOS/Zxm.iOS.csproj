@@ -104,6 +104,9 @@
     <Compile Include="Views\Cells\MessageCell.designer.cs">
       <DependentUpon>MessageCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -115,10 +118,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
-      <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
-      <Name>Zxm.Core</Name>
-    </ProjectReference>
     <Reference Include="Cirrious.CrossCore.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.Touch.dll</HintPath>
     </Reference>
@@ -128,6 +127,16 @@
     <Reference Include="Cirrious.MvvmCross.Touch">
       <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Touch.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite">
+      <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT'">
@@ -187,5 +196,14 @@
     <InterfaceDefinition Include="Views\UserListView.xib" />
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
     <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
+      <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
+      <Name>Zxm.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bootstrap\" />
   </ItemGroup>
 </Project>

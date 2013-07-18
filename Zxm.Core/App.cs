@@ -12,11 +12,6 @@ namespace Zxm.Core
                 .RegisterAsLazySingleton();
 				
             RegisterAppStart<ViewModels.HomeViewModel>();
-
-            //TODO: Is this the way to go?
-            Cirrious.MvvmCross.Plugins.DownloadCache.PluginLoader.Instance.EnsureLoaded();
-            Cirrious.MvvmCross.Plugins.File.PluginLoader.Instance.EnsureLoaded();
-            Cirrious.MvvmCross.Plugins.Sqlite.PluginLoader.Instance.EnsureLoaded();
         }
     }
 }
