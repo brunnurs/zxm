@@ -53,14 +53,23 @@
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
-      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.File">
-      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite">
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

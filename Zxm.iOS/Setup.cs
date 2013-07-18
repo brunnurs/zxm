@@ -41,13 +41,6 @@ namespace Zxm.iOS
 			base.AddPluginsLoaders(registry);
 		}
 
-		protected override void InitializeLastChance ()
-		{
-			Cirrious.MvvmCross.Plugins.DownloadCache.PluginLoader.Instance.EnsureLoaded();
-			Cirrious.MvvmCross.Plugins.File.PluginLoader.Instance.EnsureLoaded();
-
-			base.InitializeLastChance ();
-		}
 	}
 
 	public class MyViewPresenter :MvxTouchViewPresenter
