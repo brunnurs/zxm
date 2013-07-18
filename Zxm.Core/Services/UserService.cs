@@ -1,34 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Newtonsoft.Json;
+using RestSharp;
 using Zxm.Core.Model;
 
 namespace Zxm.Core.Services
 {
     public class UserService : IUserService
     {
-        private const string Url = "http://zxm.azurewebsites.net/user?format=json";
+        private const string Url = "http://zxm.azurewebsites.net/";
+        private Action<List<User>> _requestAllUserCallback; 
 
-        //public async Task<List<User>> GetAllUsersAsync()
-        //{
-        //    var client = new HttpClient();
-        //    var msg = await client.GetAsync(Url);
-        //    if (msg.IsSuccessStatusCode)
-        //    {
-        //        using (var stream = await msg.Content.ReadAsStreamAsync())
-        //        {
-        //            using (var streamReader = new StreamReader(stream))
-        //            {
-        //                var str = await streamReader.ReadToEndAsync();
-        //                var obj = await JsonConvert.DeserializeObjectAsync<List<User>>(str);
-        //                return obj;
-        //            }
-        //        }
-        //    }
-        //    return null;
-        //}
-
-        public List<User> GetAllUser()
+        public void RequestAllUser(Action<List<User>> callback)
         {
-            return new List<User> {new User {FirstName = "Stefan"}, new User {FirstName = "Hans"}};
+            //TODO: Better solution than an instance-variable?
+            _requestAllUserCallback = callback;
+
+            var client = new RestClient(Url);
+            var request = new RestRequest("user?format=json", Method.GET);
+            client.ExecuteAsync(request, RequestAllUserCallback);
+        }
+
+        private void RequestAllUserCallback(IRestResponse arg1, RestRequestAsyncHandle arg2)
+        {
+            _requestAllUserCallback(JsonConvert.DeserializeObject<List<User>>(arg1.Content));
         }
     }
 }

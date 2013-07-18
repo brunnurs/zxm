@@ -1,16 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.iOS/Views/Cells/UserCell.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Zxm.Core/ViewModels/Tabs/UserListViewModel.cs">
     <Files>
-      <File FileName="Zxm.iOS/Views/Cells/UserCell.cs" Line="17" Column="3" />
+      <File FileName="Zxm.iOS/Views/Cells/UserCell.designer.cs" Line="24" Column="55" />
+      <File FileName="Zxm.Core/Services/UserService.cs" Line="30" Column="10" />
+      <File FileName="Zxm.Core/ViewModels/Tabs/UserListViewModel.cs" Line="18" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Zxm.iOS" expanded="True">
-            <Node name="Views" expanded="True">
-              <Node name="Cells" expanded="True">
-                <Node name="UserCell.cs" selected="True" />
+          <Node name="MonoTouchCellTutorial" expanded="True">
+            <Node name="Core" expanded="True">
+              <Node name="Models" expanded="True">
+                <Node name="Dogs" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="UI" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="Cells" expanded="True">
+                  <Node name="DogCell.cs" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
