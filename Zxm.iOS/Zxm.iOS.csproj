@@ -122,16 +122,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Cirrious.CrossCore">
+    <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Binding">
+    <Reference Include="Cirrious.MvvmCross.Binding" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Binding.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross">
+    <Reference Include="Cirrious.MvvmCross" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Localization">
+    <Reference Include="Cirrious.MvvmCross.Localization" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
     </Reference>
   </ItemGroup>
