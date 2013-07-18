@@ -1,11 +1,33 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 using Zxm.Core.Model;
+using Zxm.Core.Services;
 
 namespace Zxm.Core.ViewModels.Tabs
 {
     public class MessagesViewModel : MvxViewModel
     {
+        private readonly IMessageService _messageService;
+
+        public MessagesViewModel(IMessageService messageService)
+        {
+            _messageService = messageService;
+
+            LoadMessagesCommand = new MvxCommand(LoadMessagesCommandExecute);
+        }
+
+        private void LoadMessagesCommandExecute()
+        {
+            _messageService.RequestMessages(LoadMessagesCallback);
+        }
+
+        private void LoadMessagesCallback(List<Message> newMessages)
+        {
+            Messages = new ObservableCollection<Message>(newMessages);
+        }
+
         private ObservableCollection<Message> _messages;
         public ObservableCollection<Message> Messages
         {
@@ -16,18 +38,7 @@ namespace Zxm.Core.ViewModels.Tabs
                 RaisePropertyChanged(() => Messages);
             }
         }
-		//TODO: just for testing purpose. Replace it with a list
-		private string message;
 
-		public string Message 
-		{
-			get { return message; }
-			set 
-			{
-				message = value;
-				RaisePropertyChanged (() => Message);
-			}
-		}
-
+        public ICommand LoadMessagesCommand { get; set; }
     }
 }
