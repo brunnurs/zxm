@@ -10,8 +10,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Zxm.Core</RootNamespace>
     <AssemblyName>Zxm.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile49</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile104</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>12.0.0</ProductVersion>
@@ -48,37 +48,43 @@
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
+      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File">
+      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\libs\RestSharp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\libs\RestSharp\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
-  <Choose>
-    <When Condition="'$(OS)' != 'Windows_NT' ">
-      <ItemGroup>
-        <Reference Include="Cirrious.CrossCore">
-          <HintPath>..\libs\MvxMac\Touch\Cirrious.CrossCore.dll</HintPath>
-        </Reference>
-        <Reference Include="Cirrious.MvvmCross">
-          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.dll</HintPath>
-        </Reference>
-        <Reference Include="Cirrious.MvvmCross.Localization">
-          <HintPath>..\libs\MvxMac\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition="'$(OS)' == 'Windows_NT' ">
-      <ItemGroup>
-        <Reference Include="Cirrious.CrossCore">
-          <HintPath>..\libs\Mvx\Touch\Cirrious.CrossCore.dll</HintPath>
-        </Reference>
-        <Reference Include="Cirrious.MvvmCross">
-          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.dll</HintPath>
-        </Reference>
-        <Reference Include="Cirrious.MvvmCross.Localization">
-          <HintPath>..\libs\Mvx\Touch\Cirrious.MvvmCross.Localization.dll</HintPath>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
+  <ItemGroup>
+    <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
