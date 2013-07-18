@@ -62,8 +62,6 @@
     <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite">
       <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\libs\RestSharp\Newtonsoft.Json.dll</HintPath>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="RestSharp"  Condition="'$(OS)' != 'Windows_NT'" >
