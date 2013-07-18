@@ -10,7 +10,8 @@
         android:text="Username:" />
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        local:MvxBind="Text UserName" />
     <TabPatchView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
