@@ -11,7 +11,7 @@
     <RootNamespace>Zxm.Core</RootNamespace>
     <AssemblyName>Zxm.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile23</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile104</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>12.0.0</ProductVersion>
@@ -54,14 +54,26 @@
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache">
-      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.File">
-      <HintPath>..\libs\Mvx\Droid\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File" Condition="'$(OS)' == 'Windows_NT' ">
+      <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite">
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\Mvx\Portable\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.DownloadCache" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.DownloadCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite" Condition="'$(OS)' != 'Windows_NT' ">
+      <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Portable.Security.Cryptography">
+      <HintPath>..\libs\Security.Cryptography\Portable.Security.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
