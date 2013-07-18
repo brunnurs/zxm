@@ -30,5 +30,7 @@ namespace Zxm.Core.Model
         public int Sales { get; set; }
         public int Margin { get; set; }
         public string ImageUri { get; set; }
+
+        public string Name { get { return string.Format("{0} {1} {2}", FirstName, MiddleName, LastName); } }
     }
 }

@@ -20,16 +20,12 @@ namespace Zxm.Core.ViewModels.Tabs
         private void LoadUsersCommandExecute()
         {
             Users = new ObservableCollection<User>(_userService.GetAllUser());
-            Debug.WriteLine("Users loaded: " + Users.Count);
         }
 
         private ObservableCollection<User> _users;
         public ObservableCollection<User> Users
         {
-            get
-            {
-                return _users;
-            }
+            get { return _users; }
             set
             {
                 _users = value;

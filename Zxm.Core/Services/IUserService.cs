@@ -8,5 +8,6 @@ namespace Zxm.Core.Services
         //Task<List<User>> GetAllUsersAsync();
 
         List<User> GetAllUser();
+        User GetCurrentUser();
     }
 }

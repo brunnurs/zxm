@@ -71,8 +71,8 @@ Global
 		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|iPhone.Build.0 = AppStore|iPhone
 		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
 		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
-		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|Mixed Platforms.ActiveCfg = AppStore|iPhone
-		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|Mixed Platforms.Build.0 = AppStore|iPhone
+		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|Mixed Platforms.ActiveCfg = AppStore|iPhoneSimulator
+		{713C1C4A-3115-4D79-874F-41C55949D566}.AppStore|Mixed Platforms.Build.0 = AppStore|iPhoneSimulator
 		{713C1C4A-3115-4D79-874F-41C55949D566}.Debug|Any CPU.ActiveCfg = Debug|iPhone
 		{713C1C4A-3115-4D79-874F-41C55949D566}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{713C1C4A-3115-4D79-874F-41C55949D566}.Debug|iPhone.Build.0 = Debug|iPhone
