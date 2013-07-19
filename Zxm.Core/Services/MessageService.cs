@@ -52,7 +52,7 @@ namespace Zxm.Core.Services
             message.Content = decryptedContent;
         }
 
-		public void SendMessage(Message newMessage,Action messageSentCallback)
+		public void SendMessage(Message newMessage, Action messageSentCallback)
         {
             // Encrypt message
             var encryptedContent = _encryptionService.Encrypt(newMessage.Content, GetKey());
@@ -97,8 +97,7 @@ namespace Zxm.Core.Services
                 _databaseService.Update(userSettings);
             }
 
-            var key = Encoding.GetBytes(userSettings.Password);
-            return key;
+            return EncryptionService.GetKeyFromPassword(userSettings.Password);
         }
     }
 }
