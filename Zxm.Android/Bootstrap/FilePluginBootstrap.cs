@@ -2,8 +2,8 @@ using Cirrious.CrossCore.Plugins;
 
 namespace Zxm.Android.Bootstrap
 {
-	public class FilePluginBootstrap
-		: MvxLoaderPluginBootstrapAction<Cirrious.MvvmCross.Plugins.File.PluginLoader, Cirrious.MvvmCross.Plugins.File.Touch.Plugin>
-	{
-	}
+    public class FilePluginBootstrap
+       : MvxPluginBootstrapAction<Cirrious.MvvmCross.Plugins.File.PluginLoader>
+    {
+    }
 }

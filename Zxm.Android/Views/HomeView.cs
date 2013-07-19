@@ -1,13 +1,12 @@
-using System;
 using Android.App;
 using Android.OS;
-using Android.Widget;
+using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Droid.Fragging;
-using Zxm.Core.ViewModels;
+using Cirrious.MvvmCross.ViewModels;
+using Zxm.Core.ViewModels.Tabs;
 
 namespace Zxm.Android.Views
 {
-
     [Activity]
     public class HomeView : MvxTabsFragmentActivity
     {
@@ -16,16 +15,18 @@ namespace Zxm.Android.Views
         {
         }
 
-        private HomeViewModel HomeViewModel
-        {
-            get { return ((HomeViewModel)ViewModel); }
-        }
-
         protected override void AddTabs(Bundle args)
         {
-            AddTab<UserListFragment>("UserList", "User List", args, HomeViewModel.UserListViewModel);
-            AddTab<MessagesFragment>("Messages", "Messages", args, HomeViewModel.MessagesViewModel);
-            AddTab<SettingsFragment>("Settings", "Settings", args, HomeViewModel.SettingsViewModel);
+            AddTab<UserListFragment, UserListViewModel>("UserList", "User List", args);
+            AddTab<MessagesFragment, MessagesViewModel>("Messages", "Messages", args);
+            AddTab<SettingsFragment, SettingsViewModel>("Settings", "Settings", args);
+        }
+
+        private void AddTab<TFragment, TViewModel>(string specName, string tabName, Bundle args) where TViewModel : IMvxViewModel
+        {
+            var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
+            var vm = (TViewModel)loaderService.LoadViewModel(new MvxViewModelRequest(typeof(TViewModel), null, null, null), null); 
+            AddTab<TFragment>(specName, tabName, args, vm);
         }
     }
 }
