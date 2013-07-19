@@ -14,7 +14,7 @@ using Fragment = Android.Support.V4.App.Fragment;
 namespace Zxm.Android.Views
 {
     //TODO: Schöb: Check supportframework usage
-    [Activity]
+    [Activity(Label = "")]
     public class HomeView : MvxFragmentActivity, ActionBar.ITabListener
     {
         private ViewPager _viewPager;

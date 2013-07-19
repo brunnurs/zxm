@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
@@ -15,10 +16,19 @@ namespace Zxm.Core.ViewModels.Tabs
         {
             _messageService = messageService;
 
+            _messageService.MessageSent += MessageServiceOnMessageSent;
+
             Messages = new ObservableCollection<Message>();
 
             LoadMessagesCommand = new MvxCommand(LoadMessagesCommandExecute);
             ComposeMessageCommand = new MvxCommand(() => ShowViewModel<ComposeMessageViewModel>());
+        }
+
+        private void MessageServiceOnMessageSent(object sender, MessageEventArgs messageEventArgs)
+        {
+            //that InvokeOnMainThread-hack is necessary because ObservableCollection is not a MvvmCross-class. See that answer:
+            //http://stackoverflow.com/questions/16142629/mvvmcross-calling-web-service-from-view-model
+            InvokeOnMainThread(() => Messages.Add(messageEventArgs.Message));
         }
 
         private void LoadMessagesCommandExecute()

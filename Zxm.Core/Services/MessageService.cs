@@ -25,6 +25,8 @@ namespace Zxm.Core.Services
         private readonly IEncryptionService _encryptionService;
         private readonly IDatabaseService _databaseService;
 
+        public event EventHandler<MessageEventArgs> MessageSent; 
+
         public MessageService(IEncryptionService encryptionService, IDatabaseService databaseService)
         {
             _encryptionService = encryptionService;
@@ -76,7 +78,10 @@ namespace Zxm.Core.Services
         }
 
 		public void SendMessage(Message newMessage, Action messageSentCallback)
-        {
+		{
+            // Make a copy which can be used for the MessageSent-Event
+		    var originalMessage = new Message(newMessage);
+
             // Encrypt message
             var encryptedContent = _encryptionService.Encrypt(newMessage.Content, GetKey());
             newMessage.Content = encryptedContent;
@@ -84,15 +89,19 @@ namespace Zxm.Core.Services
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
-            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage,SerializerSettings), ParameterType.RequestBody);
-			client.ExecuteAsync(request,(response, x) => MessageSent(response,messageSentCallback));
+                request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage,SerializerSettings), ParameterType.RequestBody);
+			client.ExecuteAsync(request,(response, x) => MessageSentCallback(response,messageSentCallback, originalMessage));
 			Debug.WriteLine ("sending new message...");
         }
 
-		void MessageSent(IRestResponse response,Action messageSentCallback)
+		private void MessageSentCallback(IRestResponse response,Action messageSentCallback, Message message)
 		{
 			if (response.StatusCode == System.Net.HttpStatusCode.OK) 
 			{
+                if (MessageSent != null)
+                {
+                    MessageSent(this, new MessageEventArgs{Message = message});
+                }
 				Debug.WriteLine ("message successfully sent");
 				messageSentCallback ();
 			} 
@@ -117,5 +126,10 @@ namespace Zxm.Core.Services
 			Debug.WriteLine("Password for key will be:" + userSettings.Password);
             return EncryptionService.GetKeyFromPassword(userSettings.Password);
         }
+    }
+
+    public class MessageEventArgs : EventArgs
+    {
+        public Message Message { get; set; }
     }
 }
