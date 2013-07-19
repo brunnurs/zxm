@@ -44,5 +44,11 @@ namespace Zxm.Core.ViewModels.Tabs
 
         public ICommand LoadMessagesCommand { get; set; }
         public ICommand ComposeMessageCommand { get; set; }
+
+        public override void Start()
+        {
+            base.Start();
+            LoadMessagesCommandExecute();
+        }
     }
 }

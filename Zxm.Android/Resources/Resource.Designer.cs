@@ -84,14 +84,17 @@ namespace Zxm.Android
 			// aapt resource value: 0x7f040000
 			public const int MvxBindingTagUnique = 2130968576;
 			
+			// aapt resource value: 0x7f040006
+			public const int menuMessageAdd = 2130968582;
+			
 			// aapt resource value: 0x7f040005
-			public const int menuMessageAdd = 2130968581;
+			public const int menuMessageRefresh = 2130968581;
 			
 			// aapt resource value: 0x7f040004
-			public const int menuMessageRefresh = 2130968580;
+			public const int menuMessageSend = 2130968580;
 			
-			// aapt resource value: 0x7f040006
-			public const int menuUserRefresh = 2130968582;
+			// aapt resource value: 0x7f040007
+			public const int menuUserRefresh = 2130968583;
 			
 			// aapt resource value: 0x7f040001
 			public const int pager = 2130968577;
@@ -153,10 +156,13 @@ namespace Zxm.Android
 		{
 			
 			// aapt resource value: 0x7f070000
-			public const int menuMessages = 2131165184;
+			public const int menuComposeMessage = 2131165184;
 			
 			// aapt resource value: 0x7f070001
-			public const int menuUser = 2131165185;
+			public const int menuMessages = 2131165185;
+			
+			// aapt resource value: 0x7f070002
+			public const int menuUser = 2131165186;
 			
 			static Menu()
 			{
