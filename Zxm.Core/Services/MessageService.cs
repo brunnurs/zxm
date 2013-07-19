@@ -37,12 +37,18 @@ namespace Zxm.Core.Services
 
 		private void MessagesLoaded(IRestResponse response, Action<List<Message>> messageCallback)
 		{
-			if (response.StatusCode == System.Net.HttpStatusCode.OK) 
+			if (response.StatusCode == System.Net.HttpStatusCode.OK)
 			{
 				var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content);
-				receivedMessages.ForEach (DecryptMessage);
-				
-				messageCallback (receivedMessages);
+                Debug.WriteLine ("received {0} new messages. Try to deserialize",receivedMessages.Count);
+				receivedMessages.ForEach(DecryptMessage);
+
+				Debug.WriteLine ("deserializing worked");
+				messageCallback(receivedMessages);
+			}
+			else
+			{
+				Debug.WriteLine ("receiving messages failed");
 			}
 		}
 

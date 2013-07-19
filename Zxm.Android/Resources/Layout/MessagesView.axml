@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<MvxListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Load all messages"
-        local:MvxBind="Click LoadMessagesCommand" />
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Compose new message"
-        local:MvxBind="Click ComposeMessageCommand" />
-    <MvxListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        local:MvxItemTemplate="@layout/messageitemtemplate"
-        local:MvxBind="ItemsSource Messages" />
-</LinearLayout>
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    local:MvxItemTemplate="@layout/messageitemtemplate"
+    local:MvxBind="ItemsSource Messages" />
