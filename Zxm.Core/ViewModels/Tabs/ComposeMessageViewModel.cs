@@ -20,7 +20,13 @@ namespace Zxm.Core.ViewModels.Tabs
         private void SendMessageCommandExecute()
         {
 			var newMessage = new Message () { Content = Message, DateTime = DateTime.Now.ToString(), Sender = "Hansii" };
-			_messageService.SendMessage(newMessage,() => ShowViewModel<MessagesViewModel>());
+			_messageService.SendMessage(newMessage,NavigateHome);
+        }
+
+        private void NavigateHome()
+        {
+            //var request = new MvxViewModelRequest<HomeViewModel>();
+            //request.
         }
 
         public string Message { get; set; }

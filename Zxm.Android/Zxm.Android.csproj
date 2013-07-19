@@ -67,6 +67,7 @@
     <Reference Include="System.Net">
       <HintPath>..\libs\Mvx\Droid\System.Net.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
@@ -124,7 +125,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
-    <Compile Include="Views\ActionBarTabs\ActionBarTabListener.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentAdapter.cs" />
     <Compile Include="Views\ComposeMessageView.cs" />
     <Compile Include="Views\HomeView.cs" />
@@ -151,6 +151,9 @@
     <AndroidResource Include="Resources\Layout\ComposeMessageView.axml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\Menu\menuUser.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +164,11 @@
     <AndroidResource Include="Resources\Values\SplashStyle.xml" />
     <AndroidResource Include="Resources\Values\MvxBindingAttributes.xml" />
     <AndroidResource Include="Resources\Drawable\splash.png" />
+    <AndroidResource Include="Resources\Menu\menuMessages.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
