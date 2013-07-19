@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using RestSharp;
 using Zxm.Core.Model;
 using System.Diagnostics;
-using Zxm.Core.Common;
 
 namespace Zxm.Core.Services
 {
@@ -17,6 +16,11 @@ namespace Zxm.Core.Services
         private const string Url = "http://zxm.azurewebsites.net/";
 
         private static readonly UnicodeEncoding Encoding = new UnicodeEncoding();
+
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        {
+            DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
+        };
 
         private readonly IEncryptionService _encryptionService;
         private readonly IDatabaseService _databaseService;
@@ -31,6 +35,7 @@ namespace Zxm.Core.Services
 
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
+			Debug.WriteLine ("RequestMessages called");
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.GET);
 			client.ExecuteAsync(request, (response, x) => MessagesLoaded(response,messageCallback));
@@ -41,7 +46,11 @@ namespace Zxm.Core.Services
 		{
 			if (response.StatusCode == System.Net.HttpStatusCode.OK)
 			{
-				var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content);
+                var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content,new JsonSerializerSettings
+                {
+                    DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
+                });
+
                 Debug.WriteLine ("received {0} new messages. Try to deserialize",receivedMessages.Count);
 				receivedMessages.ForEach(DecryptMessage);
 
@@ -56,8 +65,16 @@ namespace Zxm.Core.Services
 
         private void DecryptMessage(Message message)
         {
-            var decryptedContent = _encryptionService.Decrypt(message.Content, GetKey());
-            message.Content = decryptedContent;
+			try
+			{
+				byte[] key = GetKey();
+                var decryptedContent = _encryptionService.Decrypt(message.Content,key);
+                message.Content = decryptedContent;
+			}
+			catch(Exception ex)
+			{
+				Debug.WriteLine("failed to decrypt message from {0}. Exception: {1}", message.Sender,ex);
+			}
         }
 
 		public void SendMessage(Message newMessage, Action messageSentCallback)
@@ -72,7 +89,7 @@ namespace Zxm.Core.Services
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
-            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage), ParameterType.RequestBody);
+                request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage,SerializerSettings), ParameterType.RequestBody);
 			client.ExecuteAsync(request,(response, x) => MessageSentCallback(response,messageSentCallback, originalMessage));
 			Debug.WriteLine ("sending new message...");
         }
@@ -100,18 +117,13 @@ namespace Zxm.Core.Services
             if (userSettings == null)
             {
                 userSettings = new UserSettings();
-                var newKey = EncryptionService.NewKey();
-                userSettings.Password = Encoding.GetString(newKey, 0, newKey.Length);
+				userSettings.UserName = "John Bird";
+				userSettings.Password = UserSettings.DEFAULT_PASSWORD;
+          
                 _databaseService.Insert(userSettings);
             }
 
-            if (string.IsNullOrEmpty(userSettings.Password))
-            {
-                var newKey = EncryptionService.NewKey();
-                userSettings.Password = Encoding.GetString(newKey, 0, newKey.Length);
-                _databaseService.Update(userSettings);
-            }
-
+			Debug.WriteLine("Password for key will be:" + userSettings.Password);
             return EncryptionService.GetKeyFromPassword(userSettings.Password);
         }
     }

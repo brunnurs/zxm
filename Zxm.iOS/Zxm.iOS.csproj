@@ -99,10 +99,6 @@
     <Compile Include="Views\Cells\UserCell.designer.cs">
       <DependentUpon>UserCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Cells\MessageCell.cs" />
-    <Compile Include="Views\Cells\MessageCell.designer.cs">
-      <DependentUpon>MessageCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
@@ -112,6 +108,10 @@
     </Compile>
     <Compile Include="TabsWithNavigationControllerPresenter.cs" />
     <Compile Include="Views\ZxmTabBarController.cs" />
+    <Compile Include="Views\Cells\MessageCell.cs" />
+    <Compile Include="Views\Cells\MessageCell.designer.cs">
+      <DependentUpon>MessageCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -200,8 +200,8 @@
     <InterfaceDefinition Include="Views\MessagesView.xib" />
     <InterfaceDefinition Include="Views\UserListView.xib" />
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
-    <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
     <InterfaceDefinition Include="Views\ComposeMessageView.xib" />
+    <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">

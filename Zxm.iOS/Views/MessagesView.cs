@@ -26,7 +26,7 @@ namespace Zxm.iOS
 
 
 			var tableView = new UITableView (new RectangleF (0, 0, 320, 600), UITableViewStyle.Plain);
-			tableView.RowHeight = 100;
+			tableView.RowHeight = 201;
 
 			Add (tableView);
 

@@ -8,7 +8,7 @@ namespace Zxm.Core.Model
         {
             Content = newMessage.Content;
             Sender = newMessage.Sender;
-            DateTime = newMessage.DateTime;
+            DateSent = newMessage.DateSent;
         }
 
         public Message()
@@ -20,6 +20,6 @@ namespace Zxm.Core.Model
         public string Sender { get; set; }
         
         //TODO: This should be DateTime but Newtonsoft json.NET does not like it
-        public string DateTime { get; set; }
+        public DateTime DateSent { get; set; }
     }
 }

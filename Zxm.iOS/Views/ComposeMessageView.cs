@@ -27,6 +27,7 @@ namespace Zxm.iOS
 
 			var set = this.CreateBindingSet<ComposeMessageView,ComposeMessageViewModel> ();
 			set.Bind (sendButton).To (vm => vm.SendMessageCommand);
+            set.Bind(MessageContentTextView).To(vm => vm.Message);
 			set.Apply ();
 
 		}
