@@ -93,26 +93,32 @@ namespace Zxm.Android
 			// aapt resource value: 0x7f040000
 			public const int MvxBindingTagUnique = 2130968576;
 			
-			// aapt resource value: 0x7f040006
-			public const int menuMessageAdd = 2130968582;
+			// aapt resource value: 0x7f040003
+			public const int dateTextView = 2130968579;
 			
-			// aapt resource value: 0x7f040005
-			public const int menuMessageRefresh = 2130968581;
-			
-			// aapt resource value: 0x7f040004
-			public const int menuMessageSend = 2130968580;
+			// aapt resource value: 0x7f040008
+			public const int menuMessageAdd = 2130968584;
 			
 			// aapt resource value: 0x7f040007
-			public const int menuUserRefresh = 2130968583;
+			public const int menuMessageRefresh = 2130968583;
+			
+			// aapt resource value: 0x7f040006
+			public const int menuMessageSend = 2130968582;
+			
+			// aapt resource value: 0x7f040009
+			public const int menuUserRefresh = 2130968585;
+			
+			// aapt resource value: 0x7f040002
+			public const int nameTextView = 2130968578;
 			
 			// aapt resource value: 0x7f040001
 			public const int pager = 2130968577;
 			
-			// aapt resource value: 0x7f040002
-			public const int userImage = 2130968578;
+			// aapt resource value: 0x7f040004
+			public const int userImage = 2130968580;
 			
-			// aapt resource value: 0x7f040003
-			public const int userName = 2130968579;
+			// aapt resource value: 0x7f040005
+			public const int userName = 2130968581;
 			
 			static Id()
 			{

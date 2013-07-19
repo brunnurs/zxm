@@ -46,7 +46,7 @@ namespace Zxm.Core.ViewModels.Tabs
 
 		public override void Start() 
 		{
-			LoadUsersCommandExecute ();
+            LoadUsersCommandExecute ();
 		}
     }
 }

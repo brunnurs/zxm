@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:layout_height="50dp"
-    android:layout_width="fill_parent">
+    android:padding="10dp"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
     <MvxImageView
         android:id="@+id/userImage"
         android:layout_height="50dp"
@@ -10,6 +11,7 @@
         local:MvxBind="ImageUrl ImageUri" />
     <TextView
         android:id="@+id/userName"
+        android:textStyle="bold"
         android:layout_toRightOf="@id/userImage"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
