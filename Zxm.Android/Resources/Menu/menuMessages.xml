@@ -2,8 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item android:id="@+id/menuMessageRefresh"
         android:title="Refresh"
+        android:icon="@drawable/refresh"
         android:showAsAction="ifRoom|withText" />
   <item android:id="@+id/menuMessageAdd"
        android:title="Add"
+        android:icon="@drawable/add"
        android:showAsAction="ifRoom|withText" />
 </menu>

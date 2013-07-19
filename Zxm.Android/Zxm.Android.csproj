@@ -130,7 +130,6 @@
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Views\MessagesFragment.cs" />
     <Compile Include="Views\SettingsFragment.cs" />
-    <Compile Include="Views\TabPatchView.cs" />
     <Compile Include="Views\UserListFragment.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
@@ -157,19 +156,23 @@
     <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\SplashStyle.xml" />
     <AndroidResource Include="Resources\Values\MvxBindingAttributes.xml" />
-    <AndroidResource Include="Resources\Drawable\splash.png" />
     <AndroidResource Include="Resources\Menu\menuMessages.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Menu\menuComposeMessage.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+    <AndroidResource Include="Resources\Drawable\splash.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Refresh.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Add.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Send.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Refresh.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Add.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Send.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
