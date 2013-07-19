@@ -1,13 +1,13 @@
 using System;
 using Android.App;
-using Android.Support.V4.App;
+using Android.Support.V4.View;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.Core;
 using Cirrious.MvvmCross.Droid.Fragging;
 using Cirrious.MvvmCross.ViewModels;
+using Zxm.Android.Views.ActionBarTabs;
 using Zxm.Core.ViewModels.Tabs;
 using Fragment = Android.Support.V4.App.Fragment;
-using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace Zxm.Android.Views
 {
@@ -23,28 +23,32 @@ namespace Zxm.Android.Views
 
             ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
 
-            AddTab<UserListFragment, UserListViewModel>("UserList");
-            AddTab<MessagesFragment, MessagesViewModel>("Messages");
-            AddTab<SettingsFragment, SettingsViewModel>("Settings");
+            var viewPager = FindViewById<ViewPager>(Resource.Id.pager);
+            viewPager.PageSelected += (sender, args) => ActionBar.SetSelectedNavigationItem(args.P0);
 
+            var adapter = new TabFragmentAdapter(SupportFragmentManager);
+            AddTab<UserListFragment, UserListViewModel>("UserList", adapter, viewPager);
+            AddTab<MessagesFragment, MessagesViewModel>("Messages", adapter, viewPager);
+            AddTab<SettingsFragment, SettingsViewModel>("Settings", adapter, viewPager);
+            viewPager.Adapter = adapter;
         }
 
-        private void AddTab<TFragment, TViewModel>(string specName)
+        private void AddTab<TFragment, TViewModel>(string specName, TabFragmentAdapter adapter, ViewPager viewPager)
             where TViewModel : IMvxViewModel
             where TFragment : Fragment
         {
-
             var fragment = (TFragment)Fragment.Instantiate(this, FragmentJavaName(typeof(TFragment)));
             FixupDataContext<TFragment, TViewModel>(fragment);
+            adapter.AddFragment(fragment, specName);
 
-            ActionBar.Tab tab = ActionBar.NewTab();
-            tab.SetText(specName);
-            var tabListener = new ActionBarTabListener<TFragment>(fragment, specName, this);
-            tab.SetTabListener(tabListener);
+            var tabListener = new ActionBarTabListener(viewPager);
+            ActionBar.Tab tab = ActionBar.NewTab()
+                                         .SetText(specName)
+                                         .SetTabListener(tabListener);
             ActionBar.AddTab(tab);
         }
 
-        private void FixupDataContext<TFragment, TViewModel>(TFragment fragment)
+        private static void FixupDataContext<TFragment, TViewModel>(TFragment fragment)
         {
             var mvxDataConsumer = fragment as IMvxDataConsumer;
             if (mvxDataConsumer == null)
@@ -57,7 +61,7 @@ namespace Zxm.Android.Views
             mvxDataConsumer.DataContext = vm;
         }
 
-        private string FragmentJavaName(Type fragmentType)
+        private static string FragmentJavaName(Type fragmentType)
         {
             string str = fragmentType.Namespace ?? "";
             if (str.Length > 0)
@@ -66,53 +70,5 @@ namespace Zxm.Android.Views
             }
             return str + fragmentType.Name;
         }
-
-
-    }
-
-    public class ActionBarTabListener<TFragment> : Java.Lang.Object, ActionBar.ITabListener where TFragment : Fragment
-    {
-        private readonly TFragment _fragment;
-        private readonly string _tag;
-        private readonly FragmentActivity _activity;
-
-        public ActionBarTabListener(TFragment fragment, string tag, FragmentActivity activity)
-        {
-            _fragment = fragment;
-            _tag = tag;
-            _activity = activity;
-        }
-
-        public void OnTabReselected(ActionBar.Tab tab, global::Android.App.FragmentTransaction ft)
-        {
-        }
-
-        public void OnTabSelected(ActionBar.Tab tab, global::Android.App.FragmentTransaction ft)
-        {
-            if (!_fragment.IsAdded && !_fragment.IsDetached)
-            {
-                FragmentTransaction fragmentTransaction = _activity.SupportFragmentManager.BeginTransaction();
-                fragmentTransaction.Add(Resource.Id.homecontent, _fragment, _tag);
-                fragmentTransaction.Commit();
-            }
-            else
-            {
-                // If it exists, simply attach it in order to show it
-                FragmentTransaction fragmentTransaction = _activity.SupportFragmentManager.BeginTransaction();
-                fragmentTransaction.Attach(_fragment);
-                fragmentTransaction.Commit();
-            }
-        }
-
-        public void OnTabUnselected(ActionBar.Tab tab, global::Android.App.FragmentTransaction ft)
-        {
-            if (!_fragment.IsDetached)
-            {
-                FragmentTransaction fragmentTransaction = _activity.SupportFragmentManager.BeginTransaction();
-                fragmentTransaction.Detach(_fragment);
-                fragmentTransaction.Commit();
-            }
-        }
-
     }
 }
