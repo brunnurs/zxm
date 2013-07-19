@@ -4,21 +4,16 @@ namespace Zxm.Core.Model
 {
     public class UserSettings
     {
-		public const string DEFAULT_PASSWORD = "abcd1234abcd1234";
+        public const string DefaultPassword = "abcd1234abcd1234";
+
+        public UserSettings()
+        {
+            Password = DefaultPassword;
+        }
 
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string UserName { get; set; }
-
-		private string password = DEFAULT_PASSWORD;
-
-        public string Password {
-			get {
-				return password;
-			}
-			set {
-				password = value;
-			}
-		}
+        public string Password { get; set; }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Newtonsoft.Json;
 using RestSharp;
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using System.Diagnostics;
 
@@ -15,72 +13,70 @@ namespace Zxm.Core.Services
         // TODO: Duplicated in UserService
         private const string Url = "http://zxm.azurewebsites.net/";
 
-        private static readonly UnicodeEncoding Encoding = new UnicodeEncoding();
-
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
             DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
         };
 
         private readonly IEncryptionService _encryptionService;
-        private readonly IDatabaseService _databaseService;
+        private readonly IUserSettingsService _userSettingsService;
 
-        public event EventHandler<MessageEventArgs> MessageSent; 
+        public event EventHandler<MessageEventArgs> MessageSent;
 
-        public MessageService(IEncryptionService encryptionService, IDatabaseService databaseService)
+        public MessageService(IEncryptionService encryptionService, IUserSettingsService userSettingsService)
         {
             _encryptionService = encryptionService;
-            _databaseService = databaseService;
+            _userSettingsService = userSettingsService;
         }
 
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
-			Debug.WriteLine ("RequestMessages called");
+            Debug.WriteLine("RequestMessages called");
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.GET);
-			client.ExecuteAsync(request, (response, x) => MessagesLoaded(response,messageCallback));
+            client.ExecuteAsync(request, (response, x) => MessagesLoaded(response, messageCallback));
         }
 
 
-		private void MessagesLoaded(IRestResponse response, Action<List<Message>> messageCallback)
-		{
-			if (response.StatusCode == System.Net.HttpStatusCode.OK)
-			{
-                var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content,new JsonSerializerSettings
+        private void MessagesLoaded(IRestResponse response, Action<List<Message>> messageCallback)
+        {
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content, new JsonSerializerSettings
                 {
                     DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
                 });
 
-                Debug.WriteLine ("received {0} new messages. Try to deserialize",receivedMessages.Count);
-				receivedMessages.ForEach(DecryptMessage);
+                Debug.WriteLine("received {0} new messages. Try to deserialize", receivedMessages.Count);
+                receivedMessages.ForEachReturnList(DecryptMessage);
 
-				Debug.WriteLine ("deserializing worked");
-				messageCallback(receivedMessages);
-			}
-			else
-			{
-				Debug.WriteLine ("receiving messages failed");
-			}
-		}
+                Debug.WriteLine("deserializing worked");
+                messageCallback(receivedMessages);
+            }
+            else
+            {
+                Debug.WriteLine("receiving messages failed");
+            }
+        }
 
         private void DecryptMessage(Message message)
         {
-			try
-			{
-				byte[] key = GetKey();
-                var decryptedContent = _encryptionService.Decrypt(message.Content,key);
+            try
+            {
+                byte[] key = GetKey();
+                var decryptedContent = _encryptionService.Decrypt(message.Content, key);
                 message.Content = decryptedContent;
-			}
-			catch(Exception ex)
-			{
-				Debug.WriteLine("failed to decrypt message from {0}. Exception: {1}", message.Sender,ex);
-			}
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("failed to decrypt message from {0}. Exception: {1}", message.Sender, ex);
+            }
         }
 
-		public void SendMessage(Message newMessage, Action messageSentCallback)
-		{
+        public void SendMessage(Message newMessage, Action messageSentCallback)
+        {
             // Make a copy which can be used for the MessageSent-Event
-		    var originalMessage = new Message(newMessage);
+            var originalMessage = new Message(newMessage);
 
             // Encrypt message
             var encryptedContent = _encryptionService.Encrypt(newMessage.Content, GetKey());
@@ -89,47 +85,31 @@ namespace Zxm.Core.Services
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
-                request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage,SerializerSettings), ParameterType.RequestBody);
-			client.ExecuteAsync(request,(response, x) => MessageSentCallback(response,messageSentCallback, originalMessage));
-			Debug.WriteLine ("sending new message...");
+            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage, SerializerSettings), ParameterType.RequestBody);
+            client.ExecuteAsync(request, (response, x) => MessageSentCallback(response, messageSentCallback, originalMessage));
+            Debug.WriteLine("sending new message...");
         }
 
-		private void MessageSentCallback(IRestResponse response,Action messageSentCallback, Message message)
-		{
-			if (response.StatusCode == System.Net.HttpStatusCode.OK) 
-			{
+        private void MessageSentCallback(IRestResponse response, Action messageSentCallback, Message message)
+        {
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
                 if (MessageSent != null)
                 {
-                    MessageSent(this, new MessageEventArgs{Message = message});
+                    MessageSent(this, new MessageEventArgs { Message = message });
                 }
-				Debug.WriteLine ("message successfully sent");
-				messageSentCallback ();
-			} 
-			else 
-			{
-				Debug.WriteLine ("sending message failed {0}",response.StatusCode);
-			}
-		}
+                Debug.WriteLine("message successfully sent");
+                messageSentCallback();
+            }
+            else
+            {
+                Debug.WriteLine("sending message failed {0}", response.StatusCode);
+            }
+        }
 
         private byte[] GetKey()
         {
-            var userSettings = _databaseService.GetAll<UserSettings>().FirstOrDefault();
-            if (userSettings == null)
-            {
-                userSettings = new UserSettings();
-				userSettings.UserName = "John Bird";
-				userSettings.Password = UserSettings.DEFAULT_PASSWORD;
-          
-                _databaseService.Insert(userSettings);
-            }
-
-			Debug.WriteLine("Password for key will be:" + userSettings.Password);
-            return EncryptionService.GetKeyFromPassword(userSettings.Password);
+            return EncryptionService.GetKeyFromPassword(_userSettingsService.UserSettings.Password);
         }
-    }
-
-    public class MessageEventArgs : EventArgs
-    {
-        public Message Message { get; set; }
     }
 }

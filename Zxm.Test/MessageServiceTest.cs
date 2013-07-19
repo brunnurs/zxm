@@ -21,10 +21,12 @@ namespace Zxm.Test
             var encryptionService = new EncryptionService();
             var databaseService = Substitute.For<IDatabaseService>();
             var userSettings = new UserSettings();
-            userSettings.Password = UserSettings.DEFAULT_PASSWORD;
+            userSettings.Password = UserSettings.DefaultPassword;
             databaseService.GetAll<UserSettings>().Returns(_ => new List<UserSettings>{userSettings});
+
+            var userSettingsService = new UserSettingsService(databaseService);
             
-            var messageService = new MessageService(encryptionService, databaseService);
+            var messageService = new MessageService(encryptionService, databaseService, userSettingsService);
 
             var message = new Message();
             message.DateSent = DateTime.Now;

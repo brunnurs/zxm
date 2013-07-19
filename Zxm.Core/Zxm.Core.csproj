@@ -46,8 +46,11 @@
     <Compile Include="Services\IDatabaseService.cs" />
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\IUserSettingsService.cs" />
+    <Compile Include="Services\MessageEventArgs.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\UserSettingsService.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\Tabs\ComposeMessageViewModel.cs" />
     <Compile Include="ViewModels\Tabs\MessagesViewModel.cs" />
@@ -131,7 +134,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
