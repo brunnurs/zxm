@@ -10,6 +10,10 @@ namespace Zxm.Android.Views
         {
             base.OnViewModelSet();
             SetContentView(Resource.Layout.ComposeMessageView);
+
+            ActionBar.SetHomeButtonEnabled(true);
+
         }
+
     }
 }

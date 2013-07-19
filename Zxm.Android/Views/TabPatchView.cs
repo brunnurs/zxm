@@ -27,8 +27,9 @@ namespace Zxm.Android.Views
         {
             base.OnAttachedToWindow();
 
-            var tabHost = (TabHost)RootView.FindViewById(16908306);
-            tabHost.ViewTreeObserver.RemoveOnTouchModeChangeListener(tabHost);
+            //TODO: Delete this class when tabs gone
+            //var tabHost = (TabHost)RootView.FindViewById(16908306);
+            //tabHost.ViewTreeObserver.RemoveOnTouchModeChangeListener(tabHost);
         }
     }
 }

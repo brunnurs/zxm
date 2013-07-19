@@ -84,14 +84,14 @@ namespace Zxm.Android
 			// aapt resource value: 0x7f040000
 			public const int MvxBindingTagUnique = 2130968576;
 			
-			// aapt resource value: 0x01010000
-			public const int actualtabcontent = 16842752;
-			
 			// aapt resource value: 0x7f040001
-			public const int userImage = 2130968577;
+			public const int homecontent = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int userName = 2130968578;
+			public const int userImage = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int userName = 2130968579;
 			
 			static Id()
 			{
