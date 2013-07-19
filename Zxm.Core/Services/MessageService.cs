@@ -59,9 +59,15 @@ namespace Zxm.Core.Services
             {
                 userSettings = new UserSettings();
                 var newKey = EncryptionService.NewKey();
-                var password = Encoding.GetString(newKey, 0, newKey.Length);
-                userSettings.Password = password;
+                userSettings.Password = Encoding.GetString(newKey, 0, newKey.Length);
                 _databaseService.Insert(userSettings);
+            }
+
+            if (string.IsNullOrEmpty(userSettings.Password))
+            {
+                var newKey = EncryptionService.NewKey();
+                userSettings.Password = Encoding.GetString(newKey, 0, newKey.Length);
+                _databaseService.Update(userSettings);
             }
 
             var key = Encoding.GetBytes(userSettings.Password);
