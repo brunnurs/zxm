@@ -30,23 +30,7 @@ namespace Zxm.iOS
 
 		protected override IMvxTouchViewPresenter CreatePresenter ()
 		{
-			return new MyViewPresenter (_applicationDelegate, _window);
-		}
-	}
-
-	public class MyViewPresenter :MvxTouchViewPresenter
-	{
-		public MyViewPresenter(UIApplicationDelegate applicationDelegate, UIWindow window)
-		: base(applicationDelegate, window) 
-		{
-		}
-
-		protected override UINavigationController CreateNavigationController (UIViewController viewController)
-		{
-			var navBar = base.CreateNavigationController (viewController);
-			navBar.NavigationBarHidden = true;
-
-			return navBar;
+			return new TabsWithNavigationControllerPresenter (_applicationDelegate, _window);
 		}
 	}
 }

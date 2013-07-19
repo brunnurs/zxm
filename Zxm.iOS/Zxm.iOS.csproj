@@ -83,7 +83,6 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
-    <Compile Include="Views\TabBarController.cs" />
     <Compile Include="Views\SettingsView.cs" />
     <Compile Include="Views\SettingsView.designer.cs">
       <DependentUpon>SettingsView.cs</DependentUpon>
@@ -107,6 +106,12 @@
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
+    <Compile Include="Views\ComposeMessageView.cs" />
+    <Compile Include="Views\ComposeMessageView.designer.cs">
+      <DependentUpon>ComposeMessageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabsWithNavigationControllerPresenter.cs" />
+    <Compile Include="Views\ZxmTabBarController.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -196,6 +201,7 @@
     <InterfaceDefinition Include="Views\UserListView.xib" />
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
     <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
+    <InterfaceDefinition Include="Views\ComposeMessageView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
