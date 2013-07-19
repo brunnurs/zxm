@@ -227,17 +227,9 @@ namespace Zxm.Core.Services
                 var cipherText = cipherReader.ReadBytes(encryptedMessage.Length - nonSecretPayloadLength - nonce.Length);
                 var plainText = new byte[cipher.GetOutputSize(cipherText.Length)];
 
-                try
-                {
-                    var len = cipher.ProcessBytes(cipherText, 0, cipherText.Length, plainText, 0);
-                    cipher.DoFinal(plainText, len);
+                var len = cipher.ProcessBytes(cipherText, 0, cipherText.Length, plainText, 0);
+                cipher.DoFinal(plainText, len);
 
-                }
-                catch (InvalidCipherTextException)
-                {
-                    //Return null if it doesn't authenticate
-                    return null;
-                }
 
                 return plainText;
             }

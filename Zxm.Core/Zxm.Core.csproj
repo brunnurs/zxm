@@ -36,7 +36,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Common\ListExtensions.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserSettings.cs" />
@@ -131,4 +130,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
 </Project>

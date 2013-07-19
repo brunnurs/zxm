@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using RestSharp;
 using Zxm.Core.Model;
 using System.Diagnostics;
-using Zxm.Core.Common;
 
 namespace Zxm.Core.Services
 {
@@ -29,6 +28,7 @@ namespace Zxm.Core.Services
 
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
+			Debug.WriteLine ("RequestMessages called");
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.GET);
 			client.ExecuteAsync(request, (response, x) => MessagesLoaded(response,messageCallback));
@@ -54,8 +54,16 @@ namespace Zxm.Core.Services
 
         private void DecryptMessage(Message message)
         {
-            var decryptedContent = _encryptionService.Decrypt(message.Content, GetKey());
-            message.Content = decryptedContent;
+			try
+			{
+				byte[] key = GetKey();
+                var decryptedContent = _encryptionService.Decrypt(message.Content,key);
+                message.Content = decryptedContent;
+			}
+			catch(Exception ex)
+			{
+				Debug.WriteLine("failed to decrypt message from {0}. Exception: {1}", message.Sender,ex);
+			}
         }
 
 		public void SendMessage(Message newMessage, Action messageSentCallback)
@@ -91,18 +99,13 @@ namespace Zxm.Core.Services
             if (userSettings == null)
             {
                 userSettings = new UserSettings();
-                var newKey = EncryptionService.NewKey();
-                userSettings.Password = Encoding.GetString(newKey, 0, newKey.Length);
+				userSettings.UserName = "John Bird";
+				userSettings.Password = UserSettings.DEFAULT_PASSWORD;
+          
                 _databaseService.Insert(userSettings);
             }
 
-            if (string.IsNullOrEmpty(userSettings.Password))
-            {
-                var newKey = EncryptionService.NewKey();
-                userSettings.Password = Encoding.GetString(newKey, 0, newKey.Length);
-                _databaseService.Update(userSettings);
-            }
-
+			Debug.WriteLine("Password for key will be:" + userSettings.Password);
             return EncryptionService.GetKeyFromPassword(userSettings.Password);
         }
     }

@@ -12,29 +12,29 @@ namespace Zxm.iOS
 	partial class MessageCell
 	{
 		[Outlet]
-		MonoTouch.UIKit.UITextView MessageBody { get; set; }
+		MonoTouch.UIKit.UITextView MessageContentLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel MessageSender { get; set; }
+		MonoTouch.UIKit.UILabel MessageSenderLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel MessageTimestamp { get; set; }
+		MonoTouch.UIKit.UILabel MessageTimestampLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (MessageSender != null) {
-				MessageSender.Dispose ();
-				MessageSender = null;
+			if (MessageTimestampLabel != null) {
+				MessageTimestampLabel.Dispose ();
+				MessageTimestampLabel = null;
 			}
 
-			if (MessageBody != null) {
-				MessageBody.Dispose ();
-				MessageBody = null;
+			if (MessageSenderLabel != null) {
+				MessageSenderLabel.Dispose ();
+				MessageSenderLabel = null;
 			}
 
-			if (MessageTimestamp != null) {
-				MessageTimestamp.Dispose ();
-				MessageTimestamp = null;
+			if (MessageContentLabel != null) {
+				MessageContentLabel.Dispose ();
+				MessageContentLabel = null;
 			}
 		}
 	}
