@@ -19,8 +19,8 @@ namespace Zxm.Core.ViewModels.Tabs
 
         private void SendMessageCommandExecute()
         {
-			var newMessage = new Message () { Content = Message, DateTime = DateTime.Now.ToString(), Sender = "Hansii" };
-			_messageService.SendMessage(newMessage,() => ShowViewModel<MessagesViewModel>());
+			var newMessage = new Message { Content = Message, DateTime = DateTime.Now.ToString(), Sender = "Hansii" };
+            _messageService.SendMessage(newMessage, () => ChangePresentation(new MvxClosePresentationHint(this)));
         }
 
         public string Message { get; set; }
