@@ -1,11 +1,10 @@
 using Android.App;
-using Android.Content.PM;
 using Cirrious.MvvmCross.Droid.Views;
 
 namespace Zxm.Android
 {
     [Activity(
-		Label = "Zxm.Android"
+		Label = "ZXM"
 		, MainLauncher = true
 		, Icon = "@drawable/icon"
 		, Theme = "@style/Theme.Splash"
