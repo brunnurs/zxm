@@ -20,6 +20,7 @@ namespace Zxm.Core.Services
     public class EncryptionService : IEncryptionService
     {
         private static readonly SecureRandom Random = new SecureRandom();
+        private static readonly UnicodeEncoding UnicodeEncoding = new UnicodeEncoding();
 
         //Preconfigured Encryption Parameters
         private const int NonceBitSize = 128;
@@ -30,6 +31,12 @@ namespace Zxm.Core.Services
         private const int SaltBitSize = 128;
         private const int Iterations = 10000;
         private const int MinPasswordLength = 12;
+
+        public static byte[] GetKeyFromPassword(string password)
+        {
+            var key = UnicodeEncoding.GetBytes(password);
+            return key;
+        }
 
         /// <summary>
         /// Helper that generates a random new key on each call.

@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Zxm.Webservice.Model;
+
+using Zxm.Core.Model;
+using Zxm.Core.Services;
+
+using Message = Zxm.Webservice.Model.Message;
+using User = Zxm.Webservice.Model.User;
 
 namespace Zxm.Webservice.Persistence
 {
@@ -11,10 +16,11 @@ namespace Zxm.Webservice.Persistence
         public const string ServiceUrl = @"http://zxm.azurewebsites.net";
 
         private static readonly Random LocalRandom = new Random();
+        private static readonly EncryptionService _encryptionService = new EncryptionService();
 
         private const int NumberOfUsers = 10;
         private const int NumberOfMessages = 100;
-
+        
         public static IEnumerable<User> GenerateTestUsers()
         {
             for (int i = 1; i <= NumberOfUsers; i++)
@@ -754,12 +760,12 @@ namespace Zxm.Webservice.Persistence
         {
             var firstName = GetRandomFirstName();
             var lastName = GetRandomLastName();
-            
+
             return new Message(id)
             {
                 DateSent = DateTime.Now,
                 Sender = string.Format("{0} {1}", firstName, lastName),
-                Content = RandomString(160)
+                Content = _encryptionService.Encrypt(RandomString(160), EncryptionService.GetKeyFromPassword(UserSettings.DEFAULT_PASSWORD))
             };
         }
 

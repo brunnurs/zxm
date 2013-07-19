@@ -10,7 +10,7 @@ namespace Zxm.Test
     public class EncryptionServiceTest
     {
         [Test]
-        public void EncryptString()
+        public void EncryptAndDecryptString()
         {
             const string message = "Hallo Stefan, hallo Ursin, hallo Oliver!";
             

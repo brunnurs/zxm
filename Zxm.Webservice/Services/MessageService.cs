@@ -12,7 +12,7 @@ namespace Zxm.Webservice.Services
     {
         public MessageRepository Repository { get; set; }
 
-        public object Get(Message request)
+        public object Get(GetMessage request)
         {
             if (request.Id != default(int))
             {
@@ -22,8 +22,9 @@ namespace Zxm.Webservice.Services
             return Repository.GetAll();
         }
 
-        public object Post(Message message)
+        public object Post(CreateMessage messages)
         {
+            var message = new Message(messages);
             var maxId = Repository.Messages.Max(m => m.Id);
             maxId++;
             message.Id = maxId;
