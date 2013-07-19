@@ -15,7 +15,7 @@ namespace Zxm.Webservice
         public class HelloAppHost : AppHostBase
         {
             //Tell Service Stack the name of your application and where to find your web services
-            public HelloAppHost() : base("Hello Web Services", typeof(UserService).Assembly) { }
+            public HelloAppHost() : base("Hello Web Services", typeof(MessageService).Assembly) { }
 
             public override void Configure(Funq.Container container)
             {

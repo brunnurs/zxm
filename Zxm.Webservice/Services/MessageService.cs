@@ -28,6 +28,7 @@ namespace Zxm.Webservice.Services
             var maxId = Repository.Messages.Max(m => m.Id);
             maxId++;
             message.Id = maxId;
+            message.DateSent = DateTime.Now;
 
             return Repository.Save(message);
         }

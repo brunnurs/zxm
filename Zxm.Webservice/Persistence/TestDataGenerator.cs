@@ -19,7 +19,7 @@ namespace Zxm.Webservice.Persistence
         private static readonly EncryptionService _encryptionService = new EncryptionService();
 
         private const int NumberOfUsers = 10;
-        private const int NumberOfMessages = 100;
+        private const int NumberOfMessages = 10;
         
         public static IEnumerable<User> GenerateTestUsers()
         {
