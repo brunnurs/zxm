@@ -7,6 +7,8 @@ using NSubstitute.Core;
 
 using NUnit.Framework;
 
+using Newtonsoft.Json.Converters;
+
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -33,6 +35,17 @@ namespace Zxm.Test
 
             messageService.SendMessage(message, () => { });
             // TODO: Check if sending was successful
+        }
+
+        [Test]
+        public void ParseJsonDate()
+        {
+            const long JsonDate = 1374235079299;
+            var expectedDate = new DateTime(2013, 7, 19);
+
+            var parsedJsonDate = new DateTime(JsonDate);
+
+            Assert.AreEqual(expectedDate, parsedJsonDate);
         }
     }
 }
