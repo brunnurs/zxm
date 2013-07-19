@@ -14,11 +14,10 @@ namespace Zxm.Test
         {
             const string message = "Hallo Stefan, hallo Ursin, hallo Oliver!";
             
-            var random = new Random();
-            var key = new byte[32];
-            random.NextBytes(key);
-            var encryptedText = AesGcm.SimpleEncrypt(message, key);
-            var plainText = AesGcm.SimpleDecrypt(encryptedText, key);
+            var key = EncryptionService.NewKey();
+            var encryptionService = new EncryptionService();
+            var encryptedText = encryptionService.Encrypt(message, key);
+            var plainText = encryptionService.Decrypt(encryptedText, key);
 
             Assert.IsNotNull(encryptedText);
             Assert.IsNotNull(plainText);

@@ -14,22 +14,22 @@ using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
+
 namespace Zxm.Core.Services
 {
-    public static class AesGcm
+    public class EncryptionService : IEncryptionService
     {
         private static readonly SecureRandom Random = new SecureRandom();
 
         //Preconfigured Encryption Parameters
-        public static readonly int NonceBitSize = 128;
-        public static readonly int MacBitSize = 128;
-        public static readonly int KeyBitSize = 256;
+        private const int NonceBitSize = 128;
+        private const int MacBitSize = 128;
+        private const int KeyBitSize = 256;
 
         //Preconfigured Password Key Derivation Parameters
-        public static readonly int SaltBitSize = 128;
-        public static readonly int Iterations = 10000;
-        public static readonly int MinPasswordLength = 12;
-
+        private const int SaltBitSize = 128;
+        private const int Iterations = 10000;
+        private const int MinPasswordLength = 12;
 
         /// <summary>
         /// Helper that generates a random new key on each call.
@@ -40,6 +40,25 @@ namespace Zxm.Core.Services
             var key = new byte[KeyBitSize / 8];
             Random.NextBytes(key);
             return key;
+        }
+
+        /// <summary>
+        /// Encrypts a string with a given key.
+        /// </summary>
+        /// <returns>Encrypted message as Base64 string.</returns>
+        /// <remarks>Uses AES-GCM.</remarks>
+        public string Encrypt(string plainText, byte[] key)
+        {
+            return SimpleEncrypt(plainText, key);
+        }
+
+        /// <summary>
+        /// Decrypts a string with a given key.
+        /// </summary>
+        /// <remarks>Uses AES-GCM.</remarks>
+        public string Decrypt(string encryptedText, byte[] key)
+        {
+            return SimpleDecrypt(encryptedText, key);
         }
 
         /// <summary>
@@ -55,7 +74,7 @@ namespace Zxm.Core.Services
         /// <remarks>
         /// Adds overhead of (Optional-Payload + BlockSize(16) + Message +  HMac-Tag(16)) * 1.33 Base64
         /// </remarks>
-        public static string SimpleEncrypt(string secretMessage, byte[] key, byte[] nonSecretPayload = null)
+        private string SimpleEncrypt(string secretMessage, byte[] key, byte[] nonSecretPayload = null)
         {
             if (string.IsNullOrEmpty(secretMessage))
                 throw new ArgumentException("Secret Message Required!", "secretMessage");
@@ -73,7 +92,7 @@ namespace Zxm.Core.Services
         /// <param name="key">The key.</param>
         /// <param name="nonSecretPayloadLength">Length of the optional non-secret payload.</param>
         /// <returns>Decrypted Message</returns>
-        public static string SimpleDecrypt(string encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)
+        private string SimpleDecrypt(string encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)
         {
             if (string.IsNullOrEmpty(encryptedMessage))
                 throw new ArgumentException("Encrypted Message Required!", "encryptedMessage");
@@ -97,7 +116,7 @@ namespace Zxm.Core.Services
         /// Significantly less secure than using random binary keys.
         /// Adds additional non secret payload for key generation parameters.
         /// </remarks>
-        public static string SimpleEncryptWithPassword(string secretMessage, string password,
+        private string SimpleEncryptWithPassword(string secretMessage, string password,
                                  byte[] nonSecretPayload = null)
         {
             if (string.IsNullOrEmpty(secretMessage))
@@ -123,7 +142,7 @@ namespace Zxm.Core.Services
         /// <remarks>
         /// Significantly less secure than using random binary keys.
         /// </remarks>
-        public static string SimpleDecryptWithPassword(string encryptedMessage, string password,
+        private string SimpleDecryptWithPassword(string encryptedMessage, string password,
                                  int nonSecretPayloadLength = 0)
         {
             if (string.IsNullOrWhiteSpace(encryptedMessage))
@@ -134,7 +153,7 @@ namespace Zxm.Core.Services
             return Encoding.UTF8.GetString(plaintext, 0, plaintext.Length);
         }
 
-        public static byte[] SimpleEncrypt(byte[] secretMessage, byte[] key, byte[] nonSecretPayload = null)
+        private byte[] SimpleEncrypt(byte[] secretMessage, byte[] key, byte[] nonSecretPayload = null)
         {
             //User Error Checks
             if (key == null || key.Length != KeyBitSize / 8)
@@ -175,7 +194,7 @@ namespace Zxm.Core.Services
             }
         }
 
-        public static byte[] SimpleDecrypt(byte[] encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)
+        private byte[] SimpleDecrypt(byte[] encryptedMessage, byte[] key, int nonSecretPayloadLength = 0)
         {
             //User Error Checks
             if (key == null || key.Length != KeyBitSize / 8)
@@ -218,7 +237,7 @@ namespace Zxm.Core.Services
 
         }
 
-        public static byte[] SimpleEncryptWithPassword(byte[] secretMessage, string password, byte[] nonSecretPayload = null)
+        private byte[] SimpleEncryptWithPassword(byte[] secretMessage, string password, byte[] nonSecretPayload = null)
         {
             nonSecretPayload = nonSecretPayload ?? new byte[] { };
 
@@ -251,7 +270,7 @@ namespace Zxm.Core.Services
             return SimpleEncrypt(secretMessage, key.GetKey(), payload);
         }
 
-        public static byte[] SimpleDecryptWithPassword(byte[] encryptedMessage, string password, int nonSecretPayloadLength = 0)
+        private byte[] SimpleDecryptWithPassword(byte[] encryptedMessage, string password, int nonSecretPayloadLength = 0)
         {
             //User Error Checks
             if (string.IsNullOrWhiteSpace(password) || password.Length < MinPasswordLength)
