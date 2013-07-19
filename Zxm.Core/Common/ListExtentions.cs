@@ -5,14 +5,12 @@ namespace Zxm.Core.Common
 {
     public static class ListExtensions
     {
-        public static List<T> ForEachReturnList<T>(this List<T> enumeration, Action<T> action)
+        public static void ForEach<T>(this List<T> list, Action<T> action)
         {
-            foreach (T item in enumeration)
+            foreach (T item in list)
             {
                 action(item);
             }
-
-            return enumeration;
         }
     }
 }                                                                                                                                                         

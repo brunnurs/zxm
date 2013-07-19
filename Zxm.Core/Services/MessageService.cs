@@ -47,8 +47,8 @@ namespace Zxm.Core.Services
                     DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
                 });
 
-                Debug.WriteLine("received {0} new messages. Try to deserialize", receivedMessages.Count);
-                receivedMessages.ForEachReturnList(DecryptMessage);
+                Debug.WriteLine ("received {0} new messages. Try to deserialize",receivedMessages.Count);
+                receivedMessages.ForEach(DecryptMessage);
 
                 Debug.WriteLine("deserializing worked");
                 messageCallback(receivedMessages);
