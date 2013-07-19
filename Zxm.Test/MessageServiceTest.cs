@@ -27,7 +27,7 @@ namespace Zxm.Test
             var messageService = new MessageService(encryptionService, databaseService);
 
             var message = new Message();
-            message.DateTime = DateTime.Now.ToLongDateString();
+            message.DateSent = DateTime.Now;
             message.Sender = "Oliver Brack";
             message.Content = "Ich grüsse die ganze Welt!";
 

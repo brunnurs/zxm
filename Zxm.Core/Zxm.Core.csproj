@@ -53,6 +53,7 @@
     <Compile Include="ViewModels\Tabs\MessagesViewModel.cs" />
     <Compile Include="ViewModels\Tabs\SettingsViewModel.cs" />
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
+    <Compile Include="Common\ListExtentions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
