@@ -7,6 +7,7 @@ using NSubstitute.Core;
 
 using NUnit.Framework;
 
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 using Zxm.Core.Model;
@@ -40,12 +41,20 @@ namespace Zxm.Test
         [Test]
         public void ParseJsonDate()
         {
-            const long JsonDate = 1374235079299;
+            const string JsonMessage = "{\"DateSent\":\"/Date(1374249163470+0000)/\"}";
             var expectedDate = new DateTime(2013, 7, 19);
 
-            var parsedJsonDate = new DateTime(JsonDate);
+            var message = JsonConvert.DeserializeObject<JsonMessage>(JsonMessage, new JsonSerializerSettings
+            {
+                DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
+            });
 
-            Assert.AreEqual(expectedDate, parsedJsonDate);
+            Assert.AreEqual(expectedDate.Date, message.DateSent.Date);
+        }
+
+        public class JsonMessage
+        {
+            public DateTime DateSent { get; set; }
         }
     }
 }

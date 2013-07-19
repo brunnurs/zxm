@@ -5,6 +5,8 @@ using System.Text;
 
 using Newtonsoft.Json;
 using RestSharp;
+
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using System.Diagnostics;
 
@@ -52,7 +54,7 @@ namespace Zxm.Core.Services
                 });
 
                 Debug.WriteLine ("received {0} new messages. Try to deserialize",receivedMessages.Count);
-				receivedMessages.ForEach(DecryptMessage);
+                receivedMessages.ForEach(DecryptMessage);
 
 				Debug.WriteLine ("deserializing worked");
 				messageCallback(receivedMessages);
