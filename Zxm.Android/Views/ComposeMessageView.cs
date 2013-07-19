@@ -5,7 +5,7 @@ using Zxm.Core.ViewModels.Tabs;
 
 namespace Zxm.Android.Views
 {
-    [Activity]
+    [Activity(Label = "")]
     public class ComposeMessageView : MvxActivity
     {
         protected override void OnViewModelSet()
@@ -25,11 +25,22 @@ namespace Zxm.Android.Views
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.ItemId == Resource.Id.menuMessageSend)
+            switch (item.ItemId)
             {
-                ((ComposeMessageViewModel)ViewModel).SendMessageCommand.Execute(null);
+                case global::Android.Resource.Id.Home:
+                    Finish();
+                    return true;
+                case Resource.Id.menuMessageSend:
+                    ((ComposeMessageViewModel)ViewModel).SendMessageCommand.Execute(null);
                 return true;
             }
+
+            if (item.ItemId == Resource.Id.menuMessageSend)
+            {
+                
+            }
+
+
 
             return base.OnOptionsItemSelected(item);
         }
