@@ -7,10 +7,10 @@ using Cirrious.CrossCore;
 
 namespace Zxm.iOS.Views
 {
-    public sealed class TabBarController
+    public sealed class ZxmTabBarController
         : MvxTabBarViewController        
     {
-		public TabBarController()
+		public ZxmTabBarController()
         {
 			// because the UIKit base class does ViewDidLoad, we have to make a second call here
 			ViewDidLoad();
@@ -43,6 +43,12 @@ namespace Zxm.iOS.Views
 			SelectedViewController = ViewControllers[0];
 		}
 
+
+		public void ShowGrandChild (IMvxTouchView view)
+		{
+			var currentNav = SelectedViewController as UINavigationController;
+			currentNav.PushViewController(view as UIViewController, true);		
+		}
 
 
 

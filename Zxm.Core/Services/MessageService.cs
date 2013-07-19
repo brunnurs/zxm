@@ -6,6 +6,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 using Zxm.Core.Model;
+using System.Diagnostics;
 using Zxm.Core.Common;
 
 namespace Zxm.Core.Services
@@ -30,8 +31,20 @@ namespace Zxm.Core.Services
         {
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.GET);
-            client.ExecuteAsync(request, (response, x) => messageCallback(JsonConvert.DeserializeObject<List<Message>>(response.Content).ForEach(DecryptMessage)));
+			client.ExecuteAsync(request, (response, x) => MessagesLoaded(response,messageCallback));
         }
+
+
+		private void MessagesLoaded(IRestResponse response, Action<List<Message>> messageCallback)
+		{
+			if (response.StatusCode == System.Net.HttpStatusCode.OK) 
+			{
+				var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content);
+				receivedMessages.ForEach (DecryptMessage);
+				
+				messageCallback (receivedMessages);
+			}
+		}
 
         private void DecryptMessage(Message message)
         {
@@ -39,7 +52,7 @@ namespace Zxm.Core.Services
             message.Content = decryptedContent;
         }
 
-        public void SendMessage(Message newMessage)
+		public void SendMessage(Message newMessage,Action messageSentCallback)
         {
             // Encrypt message
             var encryptedContent = _encryptionService.Encrypt(newMessage.Content, GetKey());
@@ -49,8 +62,22 @@ namespace Zxm.Core.Services
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
             request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage), ParameterType.RequestBody);
-            client.ExecuteAsync(request, (arg1, arg2) => { });
+			client.ExecuteAsync(request,(response, x) => MessageSent(response,messageSentCallback));
+			Debug.WriteLine ("sending new message...");
         }
+
+		void MessageSent(IRestResponse response,Action messageSentCallback)
+		{
+			if (response.StatusCode == System.Net.HttpStatusCode.OK) 
+			{
+				Debug.WriteLine ("message successfully sent");
+				messageSentCallback ();
+			} 
+			else 
+			{
+				Debug.WriteLine ("sending message failed {0}",response.StatusCode);
+			}
+		}
 
         private byte[] GetKey()
         {
