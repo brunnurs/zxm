@@ -17,6 +17,11 @@ namespace Zxm.Core.Services
 
         private static readonly UnicodeEncoding Encoding = new UnicodeEncoding();
 
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        {
+            DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
+        };
+
         private readonly IEncryptionService _encryptionService;
         private readonly IDatabaseService _databaseService;
 
@@ -39,7 +44,11 @@ namespace Zxm.Core.Services
 		{
 			if (response.StatusCode == System.Net.HttpStatusCode.OK)
 			{
-				var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content);
+                var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content,new JsonSerializerSettings
+                {
+                    DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
+                });
+
                 Debug.WriteLine ("received {0} new messages. Try to deserialize",receivedMessages.Count);
 				receivedMessages.ForEach(DecryptMessage);
 
@@ -75,7 +84,7 @@ namespace Zxm.Core.Services
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
-            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage), ParameterType.RequestBody);
+            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage,SerializerSettings), ParameterType.RequestBody);
 			client.ExecuteAsync(request,(response, x) => MessageSent(response,messageSentCallback));
 			Debug.WriteLine ("sending new message...");
         }

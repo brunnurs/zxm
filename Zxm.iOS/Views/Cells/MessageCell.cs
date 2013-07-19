@@ -19,7 +19,7 @@ namespace Zxm.iOS
                 var set = this.CreateBindingSet<MessageCell, Message> ();
                 set.Bind (MessageContentLabel).To (item => item.Content);
                 set.Bind (MessageSenderLabel).To (item => item.Sender); 
-                set.Bind (MessageTimestampLabel).To (item => item.DateTime);
+                set.Bind (MessageTimestampLabel).To (item => item.DateSent);
                 set.Apply();
             });
         }

@@ -7,6 +7,7 @@ using MonoTouch.Dialog;
 using Cirrious.MvvmCross.Touch.Views.Presenters;
 using Zxm.iOS.Views;
 using Cirrious.MvvmCross.Touch.Views;
+using Cirrious.MvvmCross.ViewModels;
 
 namespace Zxm.iOS
 {
@@ -26,6 +27,17 @@ namespace Zxm.iOS
 
 			return navBar;
 		}
+
+        public override void ChangePresentation(Cirrious.MvvmCross.ViewModels.MvxPresentationHint hint)
+        {
+
+            if (hint is MvxClosePresentationHint)
+            {
+                tabBarController.GoBack();
+            }
+
+            base.ChangePresentation(hint);
+        }
 
 		public override void Show(IMvxTouchView view)
 		{
