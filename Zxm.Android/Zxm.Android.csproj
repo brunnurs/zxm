@@ -131,7 +131,9 @@
     <Compile Include="Views\ActionBarTabs\IOptionsMenuHandler.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentDescription.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentAdapter.cs" />
+    <Compile Include="Views\BindableWebView.cs" />
     <Compile Include="Views\ComposeMessageView.cs" />
+    <Compile Include="Views\UserDetailView.cs" />
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Views\MessagesFragment.cs" />
     <Compile Include="Views\SettingsFragment.cs" />
@@ -152,6 +154,7 @@
     <AndroidResource Include="Resources\Layout\UserItemTemplate.axml" />
     <AndroidResource Include="Resources\Layout\MessageItemTemplate.axml" />
     <AndroidResource Include="Resources\Layout\ComposeMessageView.axml" />
+    <AndroidResource Include="Resources\Layout\UserDetailsView.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Menu\menuUser.xml">

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 using Zxm.Core.Model;
@@ -16,6 +15,7 @@ namespace Zxm.Core.ViewModels.Tabs
         {
             _userService = userService;
             LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
+            ShowUserDetailsCommand = new MvxCommand<User>(user => ShowViewModel<UserDetailViewModel>(new {uri = user.Name}));
             Users = new ObservableCollection<User>();
         }
 
@@ -48,6 +48,7 @@ namespace Zxm.Core.ViewModels.Tabs
         }
 
         public ICommand LoadUsersCommand { get; private set; }
+        public ICommand ShowUserDetailsCommand { get; private set; }
 
 		public override void Start() 
 		{
