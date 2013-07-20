@@ -13,8 +13,7 @@ namespace Zxm.Android.Views
             base.OnViewModelSet();
             SetContentView(Resource.Layout.ComposeMessageView);
 
-            ActionBar.SetHomeButtonEnabled(true);
-
+            ActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
