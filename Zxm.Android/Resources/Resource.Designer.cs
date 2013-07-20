@@ -93,32 +93,29 @@ namespace Zxm.Android
 			// aapt resource value: 0x7f040000
 			public const int MvxBindingTagUnique = 2130968576;
 			
-			// aapt resource value: 0x7f040003
-			public const int dateTextView = 2130968579;
-			
-			// aapt resource value: 0x7f040008
-			public const int menuMessageAdd = 2130968584;
+			// aapt resource value: 0x7f040002
+			public const int dateTextView = 2130968578;
 			
 			// aapt resource value: 0x7f040007
-			public const int menuMessageRefresh = 2130968583;
+			public const int menuMessageAdd = 2130968583;
 			
 			// aapt resource value: 0x7f040006
-			public const int menuMessageSend = 2130968582;
-			
-			// aapt resource value: 0x7f040009
-			public const int menuUserRefresh = 2130968585;
-			
-			// aapt resource value: 0x7f040002
-			public const int nameTextView = 2130968578;
-			
-			// aapt resource value: 0x7f040001
-			public const int pager = 2130968577;
-			
-			// aapt resource value: 0x7f040004
-			public const int userImage = 2130968580;
+			public const int menuMessageRefresh = 2130968582;
 			
 			// aapt resource value: 0x7f040005
-			public const int userName = 2130968581;
+			public const int menuMessageSend = 2130968581;
+			
+			// aapt resource value: 0x7f040008
+			public const int menuUserRefresh = 2130968584;
+			
+			// aapt resource value: 0x7f040001
+			public const int nameTextView = 2130968577;
+			
+			// aapt resource value: 0x7f040003
+			public const int userImage = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int userName = 2130968580;
 			
 			static Id()
 			{
@@ -137,25 +134,22 @@ namespace Zxm.Android
 			public const int ComposeMessageView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int HomeView = 2130903041;
+			public const int MessageItemTemplate = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int MessageItemTemplate = 2130903042;
+			public const int MessagesView = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int MessagesView = 2130903043;
+			public const int SettingsView = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int SettingsView = 2130903044;
+			public const int SplashScreen = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int SplashScreen = 2130903045;
+			public const int UserItemTemplate = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int UserItemTemplate = 2130903046;
-			
-			// aapt resource value: 0x7f030007
-			public const int UserListView = 2130903047;
+			public const int UserListView = 2130903046;
 			
 			static Layout()
 			{
@@ -192,11 +186,17 @@ namespace Zxm.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int ApplicationName = 2131099649;
-			
 			// aapt resource value: 0x7f060000
-			public const int Hello = 2131099648;
+			public const int ApplicationName = 2131099648;
+			
+			// aapt resource value: 0x7f060002
+			public const int TabMessages = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int TabSettings = 2131099651;
+			
+			// aapt resource value: 0x7f060001
+			public const int TabUsers = 2131099649;
 			
 			static String()
 			{

@@ -8,17 +8,15 @@ namespace Zxm.Android.Views.ActionBarTabs
     public class TabFragmentAdapter : FragmentStatePagerAdapter
     {
         private readonly List<Fragment> _fragments = new List<Fragment>();
-        private readonly List<string> _fragmentTitles = new List<string>();
 
         public TabFragmentAdapter(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer)
         {
         }
 
-        public void AddFragment(Fragment fragment, string title)
+        public void AddFragment(Fragment fragment)
         {
             _fragments.Add(fragment);
-            _fragmentTitles.Add(title);
         }
 
         public TabFragmentAdapter(FragmentManager fragmentManager)
@@ -34,11 +32,6 @@ namespace Zxm.Android.Views.ActionBarTabs
         public override Fragment GetItem(int index)
         {
             return _fragments[index];
-        }
-
-        public override Java.Lang.ICharSequence GetPageTitleFormatted(int index)
-        {
-            return new Java.Lang.String(_fragmentTitles[index]);
         }
     }
 }
