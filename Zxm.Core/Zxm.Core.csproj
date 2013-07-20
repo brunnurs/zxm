@@ -11,7 +11,7 @@
     <RootNamespace>Zxm.Core</RootNamespace>
     <AssemblyName>Zxm.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile23</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile104</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>12.0.0</ProductVersion>
@@ -80,19 +80,16 @@
     <Reference Include="Cirrious.MvvmCross.Plugins.Sqlite" Condition="'$(OS)' != 'Windows_NT' ">
       <HintPath>..\libs\MvxMac\Portable\Cirrious.MvvmCross.Plugins.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\libs\RestSharp\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="RestSharp" Condition="'$(OS)' != 'Windows_NT'">
       <HintPath>..\libs\RestSharp\RestSharp.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json" Condition="'$(OS)' != 'Windows_NT' ">
-      <HintPath>..\libs\RestSharp\Newtonsoft.Json.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\RestSharp\RestSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json" Condition="'$(OS)' == 'Windows_NT' ">
-      <HintPath>..\libs\RestSharp\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -134,5 +131,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
 </Project>

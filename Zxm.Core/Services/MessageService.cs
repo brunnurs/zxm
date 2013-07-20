@@ -85,7 +85,8 @@ namespace Zxm.Core.Services
             var client = new RestClient(Url);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
-            request.AddParameter("text/json", JsonConvert.SerializeObject(newMessage, SerializerSettings), ParameterType.RequestBody);
+            string json = JsonConvert.SerializeObject(newMessage, SerializerSettings);
+            request.AddParameter("text/json", json, ParameterType.RequestBody);
             client.ExecuteAsync(request, (response, x) => MessageSentCallback(response, messageSentCallback, originalMessage));
             Debug.WriteLine("sending new message...");
         }

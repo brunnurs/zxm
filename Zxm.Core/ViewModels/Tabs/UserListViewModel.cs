@@ -28,6 +28,11 @@ namespace Zxm.Core.ViewModels.Tabs
         private void RequestUserCallback(List<User> newUserList)
         {
             //TODO: Add all instead replace collection
+            if (newUserList == null)
+            {
+                return;
+            }
+
             Users = new ObservableCollection<User>(newUserList);
         }
 
