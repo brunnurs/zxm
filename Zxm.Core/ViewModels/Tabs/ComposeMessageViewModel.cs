@@ -10,16 +10,18 @@ namespace Zxm.Core.ViewModels.Tabs
     {
 
         private readonly IMessageService _messageService;
+        private readonly IUserSettingsService _userSettingsService;
 
-        public ComposeMessageViewModel(IMessageService messageService)
+        public ComposeMessageViewModel(IMessageService messageService, IUserSettingsService userSettingsService)
         {
             _messageService = messageService;
+            _userSettingsService = userSettingsService;
             SendMessageCommand = new MvxCommand(SendMessageCommandExecute);
         }
 
         private void SendMessageCommandExecute()
         {
-			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = "Hansii" };
+			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = _userSettingsService.UserSettings.UserName };
             _messageService.SendMessage(newMessage, () => ChangePresentation(new MvxClosePresentationHint(this)));
         }
 

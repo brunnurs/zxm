@@ -5,10 +5,12 @@ namespace Zxm.Core.Model
     public class UserSettings
     {
         public const string DefaultPassword = "abcd1234abcd1234";
+        private const string DefaultUserName = "Anonymous";
 
         public UserSettings()
         {
             Password = DefaultPassword;
+            UserName = DefaultUserName;
         }
 
         [PrimaryKey, AutoIncrement]
