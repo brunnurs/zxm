@@ -13,5 +13,14 @@ namespace Zxm.Android.Views
 
             ActionBar.SetDisplayHomeAsUpEnabled(true);
         }
+
+        public override bool OnOptionsItemSelected(global::Android.Views.IMenuItem item)
+        {
+            if (item.ItemId == global::Android.Resource.Id.Home)
+            {
+                Finish();
+            }
+            return base.OnOptionsItemSelected(item);
+        }
     }
 }

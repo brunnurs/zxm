@@ -5,7 +5,7 @@ using Zxm.Core.ViewModels.Tabs;
 
 namespace Zxm.Android.Views
 {
-    [Activity(Label = "")]
+    [Activity(Label = "ZXM")]
     public class HomeView : ActionBarTabFragmentActivity
     {
         protected override List<TabFragmentDescription> GetTabDescriptions()

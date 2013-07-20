@@ -5,7 +5,7 @@ using Zxm.Core.ViewModels.Tabs;
 
 namespace Zxm.Android.Views
 {
-    [Activity(Label = "")]
+    [Activity(Label = "Compose message")]
     public class ComposeMessageView : MvxActivity
     {
         protected override void OnViewModelSet()
