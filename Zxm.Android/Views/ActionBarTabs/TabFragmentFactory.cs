@@ -18,12 +18,7 @@ namespace Zxm.Android.Views.ActionBarTabs
 
         private static void FixupDataContext(Fragment fragment, Type viewModelType)
         {
-            var mvxDataConsumer = fragment as IMvxDataConsumer;
-            if (mvxDataConsumer == null)
-            {
-                return;
-            }
-
+            var mvxDataConsumer = (IMvxDataConsumer)fragment;
             var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
             var vm = loaderService.LoadViewModel(new MvxViewModelRequest(viewModelType, null, null, null), null);
             mvxDataConsumer.DataContext = vm;
