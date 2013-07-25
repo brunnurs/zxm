@@ -8,7 +8,7 @@ namespace Zxm.Core.Services
 {
     public class UserService : IUserService
     {
-        private const string Url = "http://zxm.azurewebsites.net/";
+        private const string Url = "http://zxm.azurewebsites.net/api/";
         public void RequestAllUser(Action<List<User>> callback)
         {
             var client = new RestClient(Url);

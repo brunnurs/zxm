@@ -11,7 +11,7 @@ namespace Zxm.Core.Services
     public class MessageService : IMessageService
     {
         // TODO: Duplicated in UserService
-        private const string Url = "http://zxm.azurewebsites.net/";
+        private const string Url = "http://zxm.azurewebsites.net/api/";
 
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {

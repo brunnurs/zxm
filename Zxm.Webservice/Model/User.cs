@@ -8,7 +8,7 @@ namespace Zxm.Webservice.Model
 {
     [Route("/user", "GET")]
     [Route("/user/{Id}", "GET")]
-    public class User
+    public class User : IReturn<List<User>>
     {
         public int Id { get; set; }
         public string Title { get; set; }

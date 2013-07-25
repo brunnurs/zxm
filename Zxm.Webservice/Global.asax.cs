@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
-using ServiceStack.WebHost.Endpoints;
-using Zxm.Webservice.Persistence;
-using Zxm.Webservice.Services;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Zxm.Webservice
 {
-    public class Global : System.Web.HttpApplication
+    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
+    // visit http://go.microsoft.com/?LinkId=9394801
+    public class MvcApplication : System.Web.HttpApplication
     {
-        public class HelloAppHost : AppHostBase
+        protected void Application_Start()
         {
-            //Tell Service Stack the name of your application and where to find your web services
-            public HelloAppHost() : base("Hello Web Services", typeof(MessageService).Assembly) { }
+            RouteTable.Routes.IgnoreRoute("api/{*pathInfo}");
+            RouteTable.Routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" }); //Prevent exceptions for favicon
 
-            public override void Configure(Funq.Container container)
-            {
-                container.Register(new UserRepository());
-                container.Register(new MessageRepository());
-            }
-        }
+            AreaRegistration.RegisterAllAreas();
 
-        //Initialize your application singleton
-        protected void Application_Start(object sender, EventArgs e)
-        {
-            new HelloAppHost().Init();
+            //WebApiConfig.Register(GlobalConfiguration.Configuration);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }
