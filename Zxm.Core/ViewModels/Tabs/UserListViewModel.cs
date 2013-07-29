@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -15,7 +16,7 @@ namespace Zxm.Core.ViewModels.Tabs
         {
             _userService = userService;
             LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
-            ShowUserDetailsCommand = new MvxCommand<User>(user => ShowViewModel<UserDetailViewModel>(new {uri = user.Name}));
+            ShowUserDetailsCommand = new MvxCommand<User>(user => ShowViewModel<UserDetailViewModel>(new { uri = user.Name }));
             Users = new ObservableCollection<User>();
         }
 
@@ -27,13 +28,11 @@ namespace Zxm.Core.ViewModels.Tabs
 
         private void RequestUserCallback(List<User> newUserList)
         {
-            //TODO: Add all instead replace collection
-            if (newUserList == null)
+            if (newUserList != null)
             {
-                return;
+                Users.Clear();
+                newUserList.ForEach(Users.Add);
             }
-
-            Users = new ObservableCollection<User>(newUserList);
         }
 
         private ObservableCollection<User> _users;
@@ -50,9 +49,9 @@ namespace Zxm.Core.ViewModels.Tabs
         public ICommand LoadUsersCommand { get; private set; }
         public ICommand ShowUserDetailsCommand { get; private set; }
 
-		public override void Start() 
-		{
-            LoadUsersCommandExecute ();
-		}
+        public override void Start()
+        {
+            LoadUsersCommandExecute();
+        }
     }
 }

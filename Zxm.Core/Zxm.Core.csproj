@@ -56,7 +56,7 @@
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
     <Compile Include="Services\CachedMessageService.cs" />
     <Compile Include="Services\MessageDatabaseService.cs" />
-    <Compile Include="Services\MessageWebService.cs" />
+    <Compile Include="Services\MessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
