@@ -36,7 +36,7 @@ namespace Zxm.Test
             message.Sender = "Oliver Brack";
             message.Content = "Ich grüsse die ganze Welt!";
 
-            messageService.SendMessage(message, () => { });
+            messageService.SendMessage(message, (m, b) => { });
             // TODO: Check if sending was successful
         }
 
