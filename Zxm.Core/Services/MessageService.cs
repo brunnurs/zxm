@@ -18,7 +18,7 @@ namespace Zxm.Core.Services
         private readonly EncryptionService _encryptionService;
         private readonly UserSettingsService _userSettingsService;
 
-        public event EventHandler<MessageEventArgs> MessageSent;
+        public event EventHandler<EventArgs<Message>> MessageSent;
 
         public MessageService(EncryptionService encryptionService, UserSettingsService userSettingsService)
         {
@@ -96,7 +96,7 @@ namespace Zxm.Core.Services
             {
                 if (MessageSent != null)
                 {
-                    MessageSent(this, new MessageEventArgs { Message = message });
+                    MessageSent(this, new EventArgs<Message>(message));
                 }
                 Debug.WriteLine("message successfully sent");
                 messageSentCallback(message,true);
