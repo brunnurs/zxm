@@ -12,10 +12,10 @@ namespace Zxm.iOS
 	partial class SettingsView
 	{
 		[Outlet]
-		MonoTouch.UIKit.UITextField usernameEdit { get; set; }
+		MonoTouch.UIKit.UITextField passwordEdit { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel usernameLabel { get; set; }
+		MonoTouch.UIKit.UITextField usernameEdit { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -24,9 +24,9 @@ namespace Zxm.iOS
 				usernameEdit = null;
 			}
 
-			if (usernameLabel != null) {
-				usernameLabel.Dispose ();
-				usernameLabel = null;
+			if (passwordEdit != null) {
+				passwordEdit.Dispose ();
+				passwordEdit = null;
 			}
 		}
 	}

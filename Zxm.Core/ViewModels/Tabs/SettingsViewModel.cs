@@ -26,5 +26,16 @@ namespace Zxm.Core.ViewModels.Tabs
                 _userSettingsService.UserSettings = _userSettings;
             }
         }
+
+        public string Password
+        {
+            get { return _userSettings.Password; }
+            set
+            {
+                _userSettings.Password = value;
+                RaisePropertyChanged(() => Password);
+                _userSettingsService.UserSettings = _userSettings;
+            }
+        }
     }
 }
