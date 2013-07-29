@@ -15,7 +15,7 @@ namespace Zxm.Core.ViewModels.Tabs
         {
             _userService = userService;
             LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
-            ShowUserDetailsCommand = new MvxCommand<User>(user => ShowViewModel<UserDetailViewModel>(new {uri = user.Name}));
+            ShowUserDetailsCommand = new MvxCommand<User>(user => ShowViewModel<UserDetailViewModel>(new {userId = user.Id,username = user.Name}));
             Users = new ObservableCollection<User>();
         }
 

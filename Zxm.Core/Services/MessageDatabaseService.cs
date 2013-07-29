@@ -8,13 +8,11 @@ namespace Zxm.Core.Services
 {
     public class MessageDatabaseService : DatabaseService
     {
-        private readonly ISQLiteConnectionFactory _sqLiteConnectionFactory;
-
         public MessageDatabaseService(ISQLiteConnectionFactory sqLiteConnectionFactory) : base(sqLiteConnectionFactory) {}
 
         public Message GetMessage(Message message)
         {
-            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
+            using (var connection = SqLiteConnectionFactory.Create(Config.DatabaseName))
             {
                 return  (   
                             from m in connection.Table<Message>()

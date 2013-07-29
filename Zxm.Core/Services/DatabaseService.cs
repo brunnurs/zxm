@@ -51,5 +51,12 @@ namespace Zxm.Core.Services
             } 
         }
 
+        protected ISQLiteConnectionFactory SqLiteConnectionFactory
+        {
+            get
+            {
+                return _sqLiteConnectionFactory;
+            }
+        }
     }
 }

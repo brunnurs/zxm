@@ -112,6 +112,10 @@
     <Compile Include="Views\Cells\MessageCell.designer.cs">
       <DependentUpon>MessageCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserDetailView.cs" />
+    <Compile Include="Views\UserDetailView.designer.cs">
+      <DependentUpon>UserDetailView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -202,6 +206,7 @@
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
     <InterfaceDefinition Include="Views\ComposeMessageView.xib" />
     <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
+    <InterfaceDefinition Include="Views\UserDetailView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">

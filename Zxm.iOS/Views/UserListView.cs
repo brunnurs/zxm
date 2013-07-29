@@ -35,13 +35,13 @@ namespace Zxm.iOS
 			tableView.RowHeight = 100;
 			Add (tableView);
 
-
 			var source = new MvxSimpleTableViewSource(tableView, UserCell.Key, UserCell.Key);
 			tableView.Source = source;
 
 			var set = this.CreateBindingSet<UserListView,UserListViewModel> ();
 			set.Bind (source).To (vm => vm.Users);
 			set.Bind (refreshButton).To (vm => vm.LoadUsersCommand);
+            set.Bind (source).For(s => s.SelectionChangedCommand).To(vm => vm.ShowUserDetailsCommand);
 			set.Apply ();
 
 		}

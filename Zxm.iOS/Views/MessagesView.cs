@@ -36,11 +36,9 @@ namespace Zxm.iOS
 
 			var set = this.CreateBindingSet<MessagesView,MessagesViewModel> ();
 			set.Bind (source).To (vm => vm.Messages);
-			set.Bind (refreshButton).To (vm => vm.LoadMessagesCommand);
+            set.Bind (refreshButton).To (vm => vm.LoadMessagesCommand);
 			set.Bind (newMessageButton).To (vm => vm.ComposeMessageCommand);
 			set.Apply ();
-
-
 		}
 	}
 }

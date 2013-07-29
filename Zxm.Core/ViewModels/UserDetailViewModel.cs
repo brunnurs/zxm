@@ -1,12 +1,15 @@
 ﻿using Cirrious.MvvmCross.ViewModels;
+using Zxm.Core.Model;
+using Zxm.Core.Common;
 
 namespace Zxm.Core.ViewModels
 {
     public class UserDetailViewModel : MvxViewModel
     {
-        public void Init(string uri)
+        public void Init(string userId, string username)
         {
-            DetailUrl = uri;
+            DetailUrl = CreateURLById(userId);
+            UserName = username;
         }
 
         private string _detailUrl;
@@ -18,6 +21,22 @@ namespace Zxm.Core.ViewModels
                 _detailUrl = value;
                 RaisePropertyChanged(() => DetailUrl);
             }
+        }
+
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                RaisePropertyChanged(() => UserName);
+            }
+        }
+
+        string CreateURLById(string userId)
+        {
+            return string.Format("{0}/user/{1}", Config.WebserviceUrl, userId);
         }
     }
 }
