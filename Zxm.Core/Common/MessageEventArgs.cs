@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Zxm.Core.Model;
 
-namespace Zxm.Core.Services
+namespace Zxm.Core.Common
 {
     public class MessageEventArgs : EventArgs
     {

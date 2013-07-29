@@ -6,10 +6,10 @@ namespace Zxm.Core.ViewModels.Tabs
 {
     public class SettingsViewModel : MvxViewModel
     {
-        private readonly IUserSettingsService _userSettingsService;
+        private readonly UserSettingsService _userSettingsService;
         private readonly UserSettings _userSettings;
 
-        public SettingsViewModel(IUserSettingsService userSettingsService)
+        public SettingsViewModel(UserSettingsService userSettingsService)
         {
             _userSettingsService = userSettingsService;
 

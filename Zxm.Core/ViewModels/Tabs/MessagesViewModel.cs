@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -10,14 +10,13 @@ namespace Zxm.Core.ViewModels.Tabs
 {
     public class MessagesViewModel : MvxViewModel
     {
-        private readonly IMessageService _messageService;
+        private readonly IMessageService _cachedMessageService;
 
-        public MessagesViewModel(IMessageService messageService)
+        public MessagesViewModel(MessageService cachedMessageService)
         {
-            _messageService = messageService;
+            _cachedMessageService = cachedMessageService;
 
-
-            _messageService.WebService.MessageSent += MessageServiceOnMessageSent;
+            _cachedMessageService.MessageSent += MessageServiceOnMessageSent;
 
             Messages = new ObservableCollection<Message>();
 
@@ -34,7 +33,7 @@ namespace Zxm.Core.ViewModels.Tabs
 
         private void LoadMessagesCommandExecute()
         {
-            _messageService.WebService.RequestMessages(LoadMessagesCallback);
+            _cachedMessageService.RequestMessages(LoadMessagesCallback);
         }
 
         private void LoadMessagesCallback(List<Message> newMessages)

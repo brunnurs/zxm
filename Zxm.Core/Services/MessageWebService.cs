@@ -8,22 +8,19 @@ using System.Diagnostics;
 
 namespace Zxm.Core.Services
 {
-    public class MessageWebService : IMessageWebService
+    public class MessageService : IMessageService
     {
-        // TODO: Duplicated in UserService
-        private const string Url = "http://zxm.azurewebsites.net/api/";
-
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
             DateFormatHandling = DateFormatHandling.MicrosoftDateFormat
         };
 
-        private readonly IEncryptionService _encryptionService;
-        private readonly IUserSettingsService _userSettingsService;
+        private readonly EncryptionService _encryptionService;
+        private readonly UserSettingsService _userSettingsService;
 
         public event EventHandler<MessageEventArgs> MessageSent;
 
-        public MessageWebService(IEncryptionService encryptionService, IUserSettingsService userSettingsService)
+        public MessageService(EncryptionService encryptionService, UserSettingsService userSettingsService)
         {
             _encryptionService = encryptionService;
             _userSettingsService = userSettingsService;
@@ -32,7 +29,7 @@ namespace Zxm.Core.Services
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
             Debug.WriteLine("RequestMessages called");
-            var client = new RestClient(Url);
+            var client = new RestClient(Config.WebserviceUrl);
             var request = new RestRequest("message?format=json", Method.GET);
             client.ExecuteAsync(request, (response, x) => MessagesLoaded(response, messageCallback));
         }
@@ -46,7 +43,7 @@ namespace Zxm.Core.Services
             var encryptedContent = _encryptionService.Encrypt(newMessage.Content, GetKey());
             newMessage.Content = encryptedContent;
 
-            var client = new RestClient(Url);
+            var client = new RestClient(Config.WebserviceUrl);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
             string json = JsonConvert.SerializeObject(newMessage, SerializerSettings);

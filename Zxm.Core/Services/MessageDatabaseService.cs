@@ -1,19 +1,19 @@
-using System;
 using Cirrious.MvvmCross.Plugins.Sqlite;
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Zxm.Core.Services
 {
-    public class MessageDatabaseService :IMessageDatabaseService
+    public class MessageDatabaseService
     {
         private readonly ISQLiteConnectionFactory _sqLiteConnectionFactory;
 
         public MessageDatabaseService(ISQLiteConnectionFactory sqLiteConnectionFactory)
         {
             _sqLiteConnectionFactory = sqLiteConnectionFactory;
-            using (var connection = _sqLiteConnectionFactory.Create(DatabaseService.DatabaseName))
+            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
             {
                 connection.CreateTable<Message>();
             }
@@ -21,7 +21,7 @@ namespace Zxm.Core.Services
 
         public List<Message> GetAllMessages()
         {
-            using (var connection = _sqLiteConnectionFactory.Create(DatabaseService.DatabaseName))
+            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
             {
                 return connection.Table<Message>().ToList();
             }
@@ -29,7 +29,7 @@ namespace Zxm.Core.Services
 
         public Message GetMessage(Message message)
         {
-            using (var connection = _sqLiteConnectionFactory.Create(DatabaseService.DatabaseName))
+            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
             {
                 return  (   
                             from m in connection.Table<Message>()
@@ -43,7 +43,7 @@ namespace Zxm.Core.Services
 
         public void InsertMessage(Message message)
         {
-            using (var connection = _sqLiteConnectionFactory.Create(DatabaseService.DatabaseName))
+            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
             {
                 connection.Insert(message);
             }
@@ -51,7 +51,7 @@ namespace Zxm.Core.Services
 
         public void DeleteMessage(Message message)
         {
-            using (var connection = _sqLiteConnectionFactory.Create(DatabaseService.DatabaseName))
+            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
             {
                 connection.Delete(message);
             }

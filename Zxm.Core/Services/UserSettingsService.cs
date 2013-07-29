@@ -3,11 +3,11 @@ using Zxm.Core.Model;
 
 namespace Zxm.Core.Services
 {
-    public class UserSettingsService : IUserSettingsService
+    public class UserSettingsService 
     {
-        private readonly IDatabaseService _databaseService;
+        private readonly DatabaseService _databaseService;
 
-        public UserSettingsService(IDatabaseService databaseService)
+        public UserSettingsService(DatabaseService databaseService)
         {
             _databaseService = databaseService;
         }

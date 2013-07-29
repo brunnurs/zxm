@@ -11,9 +11,9 @@ namespace Zxm.Core.ViewModels.Tabs
     {
 
         private readonly IMessageService _messageService;
-        private readonly IUserSettingsService _userSettingsService;
+        private readonly UserSettingsService _userSettingsService;
 
-        public ComposeMessageViewModel(IMessageService messageService, IUserSettingsService userSettingsService)
+        public ComposeMessageViewModel(MessageService messageService, UserSettingsService userSettingsService)
         {
             _messageService = messageService;
             _userSettingsService = userSettingsService;
@@ -25,7 +25,7 @@ namespace Zxm.Core.ViewModels.Tabs
             Debug.WriteLine("Start sending");
 			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = _userSettingsService.UserSettings.UserName };
             Debug.WriteLine("Message created");
-            _messageService.SendMessage(newMessage, () => ChangePresentation(new MvxClosePresentationHint(this)));
+            _messageService.SendMessage(newMessage, (message, successful) =>  ChangePresentation(new MvxClosePresentationHint(this)));
         }
 
         public string Message { get; set; }

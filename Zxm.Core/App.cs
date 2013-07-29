@@ -7,8 +7,7 @@ namespace Zxm.Core
         public override void Initialize()
         {
             CreatableTypes()
-                .EndingWith("Service")
-                .AsInterfaces()
+                .EndingWith("Service").AsTypes()
                 .RegisterAsLazySingleton();
 				
             RegisterAppStart<ViewModels.HomeViewModel>();

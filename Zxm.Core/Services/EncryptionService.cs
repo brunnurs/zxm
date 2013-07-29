@@ -17,7 +17,7 @@ using Org.BouncyCastle.Security;
 
 namespace Zxm.Core.Services
 {
-    public class EncryptionService : IEncryptionService
+    public class EncryptionService
     {
         private static readonly SecureRandom Random = new SecureRandom();
         private static readonly UnicodeEncoding UnicodeEncoding = new UnicodeEncoding();

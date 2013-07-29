@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-
 using NSubstitute;
-using NSubstitute.Core;
-
 using NUnit.Framework;
 
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -22,14 +16,14 @@ namespace Zxm.Test
         public void SendMessage()
         {
             var encryptionService = new EncryptionService();
-            var databaseService = Substitute.For<IDatabaseService>();
+            var databaseService = Substitute.For<DatabaseService>();
             var userSettings = new UserSettings();
             userSettings.Password = UserSettings.DefaultPassword;
             databaseService.GetAll<UserSettings>().Returns(_ => new List<UserSettings>{userSettings});
 
             var userSettingsService = new UserSettingsService(databaseService);
             
-            var messageService = new MessageWebService(encryptionService,userSettingsService);
+            var messageService = new MessageService(encryptionService,userSettingsService);
 
             var message = new Message();
             message.DateSent = DateTime.Now;

@@ -9,9 +9,9 @@ namespace Zxm.Core.ViewModels.Tabs
 {
     public class UserListViewModel : MvxViewModel
     {
-        private readonly IUserService _userService;
+        private readonly UserService _userService;
 
-        public UserListViewModel(IUserService userService)
+        public UserListViewModel(UserService userService)
         {
             _userService = userService;
             LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
