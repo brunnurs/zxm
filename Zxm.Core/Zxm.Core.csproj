@@ -97,6 +97,7 @@
       <HintPath>..\libs\RestSharp\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
+    <Reference Include="Microsoft.Build.Utilities" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT' ">

@@ -1,6 +1,8 @@
 using System;
 using Zxm.Core.Model;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Zxm.Core.Services
 {
@@ -19,17 +21,36 @@ namespace Zxm.Core.Services
         {
             Debug.WriteLine("cache message {0} before sending", newMessage);
             databaseService.InsertMessage(newMessage);
-            messageWebService.SendMessage(newMessage, (Message message,bool success) => messageSent(message,success, messageSentCallback));
+
+            CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+
+            Action<Task> repeatAction = null;
+
+            repeatAction = t1 =>
+            {
+                TrySendingMessage(newMessage, messageSentCallback, cancelTokenSource);
+
+                Task.Delay(10000, cancelTokenSource.Token).ContinueWith( t2 => repeatAction(t2), cancelTokenSource.Token);
+
+            };
+
+            Task.Delay(0, cancelTokenSource.Token).ContinueWith(repeatAction);
         }
 
-        private void messageSent(Message message,bool success,Action messageSentCallback)
+        private void MessageSent(Message message,bool success,Action messageSentCallback,CancellationTokenSource cancelTokenSource)
         {
             if (success)
             {
-                Debug.WriteLine("Removed message {0} from cache", message);
+                Debug.WriteLine("Removed message {0} from cache, cancel Sending", message);
                 databaseService.DeleteMessage(message);
+                cancelTokenSource.Cancel();
                 messageSentCallback();
             }
+        }
+
+        private void TrySendingMessage(Message newMessage, Action messageSentCallback, CancellationTokenSource cancelTokenSource)
+        {
+            messageWebService.SendMessage(newMessage, (Message message,bool success) => MessageSent(message,success, messageSentCallback,cancelTokenSource));
         }
 
         public IMessageWebService WebService
