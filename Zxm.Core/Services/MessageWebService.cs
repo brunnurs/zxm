@@ -51,6 +51,7 @@ namespace Zxm.Core.Services
             //TODO: use AddBody does not seem to work
             string json = JsonConvert.SerializeObject(newMessage, SerializerSettings);
             request.AddParameter("text/json", json, ParameterType.RequestBody);
+
             client.ExecuteAsync(request, (response, x) => MessageSentCallback(response, messageSentCallback, originalMessage));
             Debug.WriteLine("sending new message...");
         }

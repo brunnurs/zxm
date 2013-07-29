@@ -19,7 +19,6 @@ namespace Zxm.Core.Services
 
         public void SendMessage(Message newMessage, Action messageSentCallback) 
         {
-            Debug.WriteLine("cache message {0} before sending", newMessage);
             databaseService.InsertMessage(newMessage);
 
             CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
