@@ -6,26 +6,11 @@ using System.Linq;
 
 namespace Zxm.Core.Services
 {
-    public class MessageDatabaseService
+    public class MessageDatabaseService : DatabaseService
     {
         private readonly ISQLiteConnectionFactory _sqLiteConnectionFactory;
 
-        public MessageDatabaseService(ISQLiteConnectionFactory sqLiteConnectionFactory)
-        {
-            _sqLiteConnectionFactory = sqLiteConnectionFactory;
-            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
-            {
-                connection.CreateTable<Message>();
-            }
-        }
-
-        public List<Message> GetAllMessages()
-        {
-            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
-            {
-                return connection.Table<Message>().ToList();
-            }
-        }
+        public MessageDatabaseService(ISQLiteConnectionFactory sqLiteConnectionFactory) : base(sqLiteConnectionFactory) {}
 
         public Message GetMessage(Message message)
         {
@@ -38,22 +23,6 @@ namespace Zxm.Core.Services
                             where m.DateSent.Equals(message.DateSent)
                             select m
                          ).FirstOrDefault();                                              
-            }
-        }
-
-        public void InsertMessage(Message message)
-        {
-            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
-            {
-                connection.Insert(message);
-            }
-        }
-
-        public void DeleteMessage(Message message)
-        {
-            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
-            {
-                connection.Delete(message);
             }
         }
     }

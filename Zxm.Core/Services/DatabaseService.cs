@@ -42,5 +42,14 @@ namespace Zxm.Core.Services
                 connection.Insert(value);
             } 
         }
+
+        public void Delete(object value)
+        {
+            using (var connection = _sqLiteConnectionFactory.Create(Config.DatabaseName))
+            {
+                connection.Delete(value);
+            } 
+        }
+
     }
 }
