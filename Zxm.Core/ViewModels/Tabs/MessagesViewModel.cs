@@ -16,7 +16,8 @@ namespace Zxm.Core.ViewModels.Tabs
         {
             _messageService = messageService;
 
-            _messageService.MessageSent += MessageServiceOnMessageSent;
+
+            _messageService.WebService.MessageSent += MessageServiceOnMessageSent;
 
             Messages = new ObservableCollection<Message>();
 
@@ -33,7 +34,7 @@ namespace Zxm.Core.ViewModels.Tabs
 
         private void LoadMessagesCommandExecute()
         {
-            _messageService.RequestMessages(LoadMessagesCallback);
+            _messageService.WebService.RequestMessages(LoadMessagesCallback);
         }
 
         private void LoadMessagesCallback(List<Message> newMessages)

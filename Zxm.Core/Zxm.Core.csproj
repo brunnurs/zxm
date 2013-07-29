@@ -44,11 +44,9 @@
     <Compile Include="Services\IEncryptionService.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
-    <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\IUserSettingsService.cs" />
     <Compile Include="Services\MessageEventArgs.cs" />
-    <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\UserSettingsService.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
@@ -58,6 +56,12 @@
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
     <Compile Include="Common\ListExtentions.cs" />
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
+    <Compile Include="Services\CachedMessageService.cs" />
+    <Compile Include="Services\MessageDatabaseService.cs" />
+    <Compile Include="Services\MessageWebService.cs" />
+    <Compile Include="Services\IMessageWebService.cs" />
+    <Compile Include="Services\IMessageDatabaseService.cs" />
+    <Compile Include="Services\IMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
@@ -92,6 +96,7 @@
     <Reference Include="RestSharp" Condition="'$(OS)' == 'Windows_NT' ">
       <HintPath>..\libs\RestSharp\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="mscorlib" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore" Condition="'$(OS)' != 'Windows_NT' ">

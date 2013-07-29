@@ -7,7 +7,7 @@ namespace Zxm.Core.Services
 {
     public class DatabaseService : IDatabaseService
     {
-        private const string DatabaseName = "ZxmDatabase";
+        public const string DatabaseName = "ZxmDatabase";
 
         private readonly ISQLiteConnectionFactory _sqLiteConnectionFactory;
 

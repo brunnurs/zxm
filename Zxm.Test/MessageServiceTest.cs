@@ -29,7 +29,7 @@ namespace Zxm.Test
 
             var userSettingsService = new UserSettingsService(databaseService);
             
-            var messageService = new MessageService(encryptionService,userSettingsService);
+            var messageService = new MessageWebService(encryptionService,userSettingsService);
 
             var message = new Message();
             message.DateSent = DateTime.Now;
