@@ -5,6 +5,7 @@ using MonoTouch.UIKit;
 using Cirrious.MvvmCross.Touch.Views;
 using Cirrious.MvvmCross.Binding.Touch.Views;
 using Cirrious.MvvmCross.Binding.BindingContext;
+using Zxm.Core.ViewModels;
 using Zxm.Core.ViewModels.Tabs;
 
 namespace Zxm.iOS

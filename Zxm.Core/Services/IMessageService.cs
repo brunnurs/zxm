@@ -8,7 +8,7 @@ namespace Zxm.Core.Services
     public interface IMessageService
     {
         void SendMessage(Message newMessage, Action<Message, bool> messageSentCallback);
-        event EventHandler<MessageEventArgs> MessageSent;
+        event EventHandler<EventArgs<Message>> MessageSent;
         void RequestMessages(Action<List<Message>> loadMessagesCallback);
     }
 }

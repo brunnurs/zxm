@@ -5,11 +5,10 @@ using Cirrious.MvvmCross.ViewModels;
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
-namespace Zxm.Core.ViewModels.Tabs
+namespace Zxm.Core.ViewModels
 {
     public class ComposeMessageViewModel : MvxViewModel
     {
-
         private readonly IMessageService _messageService;
         private readonly UserSettingsService _userSettingsService;
 

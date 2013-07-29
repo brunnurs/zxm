@@ -4,6 +4,7 @@ using NSubstitute;
 using NUnit.Framework;
 
 using Newtonsoft.Json;
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -18,7 +19,7 @@ namespace Zxm.Test
             var encryptionService = new EncryptionService();
             var databaseService = Substitute.For<DatabaseService>();
             var userSettings = new UserSettings();
-            userSettings.Password = UserSettings.DefaultPassword;
+            userSettings.Password = Config.DefaultUserPassword;
             databaseService.GetAll<UserSettings>().Returns(_ => new List<UserSettings>{userSettings});
 
             var userSettingsService = new UserSettingsService(databaseService);

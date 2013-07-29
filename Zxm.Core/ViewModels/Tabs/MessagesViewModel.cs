@@ -24,11 +24,11 @@ namespace Zxm.Core.ViewModels.Tabs
             ComposeMessageCommand = new MvxCommand(() => ShowViewModel<ComposeMessageViewModel>());
         }
 
-        private void MessageServiceOnMessageSent(object sender, MessageEventArgs messageEventArgs)
+        private void MessageServiceOnMessageSent(object sender, EventArgs<Message> eventArgs)
         {
             //that InvokeOnMainThread-hack is necessary because ObservableCollection is not a MvvmCross-class. See that answer:
             //http://stackoverflow.com/questions/16142629/mvvmcross-calling-web-service-from-view-model
-            InvokeOnMainThread(() => Messages.Add(messageEventArgs.Message));
+            InvokeOnMainThread(() => Messages.Add(eventArgs.Data));
         }
 
         private void LoadMessagesCommandExecute()

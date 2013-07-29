@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -765,7 +765,7 @@ namespace Zxm.Webservice.Persistence
             {
                 DateSent = DateTime.Now,
                 Sender = string.Format("{0} {1}", firstName, lastName),
-                Content = _encryptionService.Encrypt(RandomString(160), EncryptionService.GetKeyFromPassword(UserSettings.DefaultPassword))
+                Content = _encryptionService.Encrypt(RandomString(160), EncryptionService.GetKeyFromPassword(Config.DefaultUserPassword))
             };
         }
 

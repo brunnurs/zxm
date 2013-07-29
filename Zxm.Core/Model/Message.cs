@@ -49,7 +49,7 @@ namespace Zxm.Core.Model
         {
             unchecked
             {
-                return (Content != null ? Content.GetHashCode() : 0) ^ (Sender != null ? Sender.GetHashCode() : 0) ^ (DateSent != null ? DateSent.GetHashCode() : 0);
+                return (Content != null ? Content.GetHashCode() : 0) ^ (Sender != null ? Sender.GetHashCode() : 0) ^ DateSent.GetHashCode();
             }
         }
         public override string ToString()
