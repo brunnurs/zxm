@@ -1,5 +1,6 @@
 ﻿using System;
 using Cirrious.MvvmCross.Plugins.Sqlite;
+using Newtonsoft.Json;
 
 namespace Zxm.Core.Model
 {
@@ -14,11 +15,19 @@ namespace Zxm.Core.Model
 
         public Message()
         {
-            
+
         }
 
         [PrimaryKey]
         public DateTime DateSent { get; set; }
+
+        public bool ShouldSerializeDateSent()
+        {
+            // JSON.net crashes on android when serializing a DateTime-Property
+            // This is why we do not serialize it as it is set again on the webservice
+            return false;
+        }
+
 
         public string Content { get; set; }
         public string Sender { get; set; }
@@ -34,7 +43,7 @@ namespace Zxm.Core.Model
             Message other = (Message)obj;
             return Content == other.Content && Sender == other.Sender && DateSent == other.DateSent;
         }
-        
+
 
         public override int GetHashCode()
         {

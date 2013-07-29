@@ -17,7 +17,6 @@ namespace Zxm.Core.Services
 
         public void SendMessage(Message newMessage, Action messageSentCallback) 
         {
-            Debug.WriteLine("cache message {0} before sending", newMessage);
             databaseService.InsertMessage(newMessage);
             messageWebService.SendMessage(newMessage, (Message message,bool success) => messageSent(message,success, messageSentCallback));
         }

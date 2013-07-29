@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 using Zxm.Core.Model;
@@ -21,7 +22,9 @@ namespace Zxm.Core.ViewModels.Tabs
 
         private void SendMessageCommandExecute()
         {
+            Debug.WriteLine("Start sending");
 			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = _userSettingsService.UserSettings.UserName };
+            Debug.WriteLine("Message created");
             _messageService.SendMessage(newMessage, () => ChangePresentation(new MvxClosePresentationHint(this)));
         }
 
