@@ -34,13 +34,6 @@ namespace Zxm.Android.Views
                 return true;
             }
 
-            if (item.ItemId == Resource.Id.menuMessageSend)
-            {
-                
-            }
-
-
-
             return base.OnOptionsItemSelected(item);
         }
     }
