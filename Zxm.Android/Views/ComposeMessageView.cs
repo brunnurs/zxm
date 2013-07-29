@@ -1,7 +1,7 @@
 using Android.App;
 using Android.Views;
 using Cirrious.MvvmCross.Droid.Views;
-using Zxm.Core.ViewModels.Tabs;
+using Zxm.Core.ViewModels;
 
 namespace Zxm.Android.Views
 {
