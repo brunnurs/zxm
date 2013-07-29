@@ -67,7 +67,9 @@
     <Reference Include="System.Net">
       <HintPath>..\libs\Mvx\Droid\System.Net.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows">
+      <HintPath>..\libs\MvxMac\Droid\System.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">

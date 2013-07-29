@@ -40,7 +40,7 @@ namespace Zxm.Android.Views.ActionBarTabs
             _viewPager.Id = 0x02121234;
             _viewPager.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FillParent,
                                                                      ViewGroup.LayoutParams.FillParent);
-            _viewPager.PageSelected += (sender, args) => ActionBar.SetSelectedNavigationItem(args.Position);
+            _viewPager.PageSelected += (sender, args) => ActionBar.SetSelectedNavigationItem(args.P0);
         }
 
         private void CreateAndAddTab(TabFragmentDescription tabFragmentDescription, TabFragmentAdapter adapter)
