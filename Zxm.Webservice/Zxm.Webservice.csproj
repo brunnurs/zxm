@@ -173,15 +173,15 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
-      <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
-      <Name>Zxm.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\PublishProfiles\zxm - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\zxm - Web Deploy.pubxml" />
     <Content Include="Views\User\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
+      <Project>{e81e4528-0f31-461f-801d-21e52d6d3878}</Project>
+      <Name>Zxm.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
