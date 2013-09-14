@@ -10,16 +10,6 @@ namespace Zxm.iOS
 {
 	[Register ("ComposeMessageView")]
 	partial class ComposeMessageView
-	{
-		[Outlet]
-		MonoTouch.UIKit.UITextView MessageContentTextView { get; set; }
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (MessageContentTextView != null) {
-				MessageContentTextView.Dispose ();
-				MessageContentTextView = null;
-			}
-		}
+	{		
 	}
 }

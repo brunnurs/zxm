@@ -26,9 +26,12 @@ namespace Zxm.iOS
 			NavigationItem.RightBarButtonItem = sendButton;
 			NavigationItem.Title = "New message";
 
+            var messageContentTextView = new UITextView(new RectangleF(0, 0, 320, 342));
+            Add(messageContentTextView);
+
 			var set = this.CreateBindingSet<ComposeMessageView,ComposeMessageViewModel> ();
 			set.Bind (sendButton).To (vm => vm.SendMessageCommand);
-            set.Bind(MessageContentTextView).To(vm => vm.Message);
+            set.Bind(messageContentTextView).To(vm => vm.Message);
 			set.Apply ();
 
 		}

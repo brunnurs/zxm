@@ -11,6 +11,12 @@ namespace Zxm.iOS
 {
 	public partial class MessagesView : MvxViewController
 	{
+        UIBarButtonItem refreshButton;
+
+        UIBarButtonItem newMessageButton;
+
+        UITableView tableView;
+
 		public MessagesView () : base ("MessagesView", null)
 		{
 		}
@@ -19,17 +25,7 @@ namespace Zxm.iOS
 		{
 			base.ViewDidLoad ();
 
-			var refreshButton = new UIBarButtonItem (UIBarButtonSystemItem.Refresh);
-			var newMessageButton = new UIBarButtonItem (UIBarButtonSystemItem.Add);
-
-			NavigationItem.RightBarButtonItems = new UIBarButtonItem[] {newMessageButton,refreshButton};
-
-
-			var tableView = new UITableView (new RectangleF (0, 0, 320, 600), UITableViewStyle.Plain);
-			tableView.RowHeight = 201;
-
-			Add (tableView);
-
+            createUI();
 
 			var source = new MvxSimpleTableViewSource(tableView, MessageCell.Key, MessageCell.Key);
 			tableView.Source = source;
@@ -40,6 +36,23 @@ namespace Zxm.iOS
 			set.Bind (newMessageButton).To (vm => vm.ComposeMessageCommand);
 			set.Apply ();
 		}
+
+        void createUI()
+        {
+            refreshButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh);
+
+            newMessageButton = new UIBarButtonItem(UIBarButtonSystemItem.Add);
+
+            NavigationItem.RightBarButtonItems = new UIBarButtonItem[] {
+                newMessageButton,
+                refreshButton
+            };
+
+            tableView = new UITableView(new RectangleF(0, 0, 320, 600), UITableViewStyle.Plain);
+            tableView.RowHeight = 201;
+
+            Add(tableView);
+        }
 	}
 }
 
