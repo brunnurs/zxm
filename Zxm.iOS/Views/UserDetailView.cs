@@ -32,7 +32,7 @@ namespace Zxm.iOS
 
         void CreateUI()
         {
-            webView = new UIWebView(new RectangleF(0, 0, 320, 600));
+            webView = new UIWebView(new RectangleF(0, 0, 320, ViewSettings.REMAINING_VIEW_HEIGHT));
             this.Add(webView);
         }
     }

@@ -48,7 +48,7 @@ namespace Zxm.iOS
                 refreshButton
             };
 
-            tableView = new UITableView(new RectangleF(0, 0, 320, 600), UITableViewStyle.Plain);
+            tableView = new UITableView(new RectangleF(0, 0, 320, ViewSettings.REMAINING_VIEW_HEIGHT), UITableViewStyle.Plain);
             tableView.RowHeight = 201;
 
             Add(tableView);

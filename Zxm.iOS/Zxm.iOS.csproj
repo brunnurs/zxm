@@ -106,8 +106,6 @@
     <Compile Include="Views\ComposeMessageView.designer.cs">
       <DependentUpon>ComposeMessageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="TabsWithNavigationControllerPresenter.cs" />
-    <Compile Include="Views\ZxmTabBarController.cs" />
     <Compile Include="Views\Cells\MessageCell.cs" />
     <Compile Include="Views\Cells\MessageCell.designer.cs">
       <DependentUpon>MessageCell.cs</DependentUpon>
@@ -116,6 +114,9 @@
     <Compile Include="Views\UserDetailView.designer.cs">
       <DependentUpon>UserDetailView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tabs\ZxmTabBarController.cs" />
+    <Compile Include="Views\Tabs\TabsWithNavigationControllerPresenter.cs" />
+    <Compile Include="Views\ViewSettings.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -216,5 +217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bootstrap\" />
+    <Folder Include="Views\Tabs\" />
   </ItemGroup>
 </Project>

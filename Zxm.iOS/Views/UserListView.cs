@@ -41,7 +41,7 @@ namespace Zxm.iOS
             refreshButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh);
             NavigationItem.RightBarButtonItem = refreshButton;
 
-            tableView = new UITableView(new RectangleF(0, 0, 320, 600), UITableViewStyle.Plain);
+            tableView = new UITableView(new RectangleF(0, 0, 320, ViewSettings.REMAINING_VIEW_HEIGHT), UITableViewStyle.Plain);
             tableView.RowHeight = 100;
             Add(tableView);
         }
