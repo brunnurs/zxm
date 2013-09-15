@@ -36,7 +36,8 @@ namespace Zxm.Core.ViewModels
 
         string CreateURLById(string userId)
         {
-            return string.Format("{0}/user/{1}", Config.WebserviceUrl, userId);
+
+            return string.Format("{0}user/details?userId={1}", Config.WebserviceUrl, userId);
         }
     }
 }

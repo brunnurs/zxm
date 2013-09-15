@@ -10,6 +10,9 @@ namespace Zxm.iOS
 {
 	public partial class SettingsView : MvxViewController
 	{
+        UITextField passwordEdit;
+        UITextField usernameEdit;
+
 		public SettingsView () : base ("SettingsView", null)
 		{
 		}
@@ -17,6 +20,9 @@ namespace Zxm.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+            CreateUI();
+
 
 			var set = this.CreateBindingSet<SettingsView,SettingsViewModel> ();
 			set.Bind (usernameEdit).To (vm => vm.UserName);
@@ -35,6 +41,18 @@ namespace Zxm.iOS
         {
             base.TouchesBegan(touches, evt);
             this.View.EndEditing(true);
+        }
+
+        void CreateUI()
+        {
+            usernameEdit = new UITextField(new RectangleF(20, 20, 280, 30));
+            usernameEdit.Placeholder = "username";
+            usernameEdit.BorderStyle = UITextBorderStyle.RoundedRect;
+            Add(usernameEdit);
+            passwordEdit = new UITextField(new RectangleF(20, 70, 280, 30));
+            passwordEdit.Placeholder = "crypto password";
+            passwordEdit.BorderStyle = UITextBorderStyle.RoundedRect;
+            Add(passwordEdit);
         }
 	}
 }

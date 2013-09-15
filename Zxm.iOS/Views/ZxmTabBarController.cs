@@ -76,7 +76,6 @@ namespace Zxm.iOS.Views
         }
 
 
-
         public bool GoBack()
         {
             var subNavigation = this.SelectedViewController as UINavigationController;

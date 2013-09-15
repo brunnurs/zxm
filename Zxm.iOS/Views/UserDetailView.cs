@@ -10,6 +10,8 @@ namespace Zxm.iOS
 {
     public partial class UserDetailView : MvxViewController
     {
+        UIWebView webView;
+
         public UserDetailView() : base ("UserDetailView", null)
         {
         }
@@ -18,15 +20,20 @@ namespace Zxm.iOS
         {
             base.ViewDidLoad();
 			
-            var webView = new UIWebView(new RectangleF (0, 0, 320, 600));
+            CreateUI();
+
+            var userViewModel = (UserDetailViewModel)ViewModel;
+
+            this.NavigationItem.Title = userViewModel.UserName;
+
+            webView.LoadRequest(new NSUrlRequest(new NSUrl(userViewModel.DetailUrl)));
+
+        }
+
+        void CreateUI()
+        {
+            webView = new UIWebView(new RectangleF(0, 0, 320, 600));
             this.Add(webView);
-
-            var myViewModel = (UserDetailViewModel)ViewModel;
-
-            this.NavigationItem.Title = myViewModel.UserName;
-
-            webView.LoadRequest(new NSUrlRequest(new NSUrl(myViewModel.DetailUrl)));
-
         }
     }
 }

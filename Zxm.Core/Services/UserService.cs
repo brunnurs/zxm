@@ -11,7 +11,7 @@ namespace Zxm.Core.Services
     {
         public void RequestAllUser(Action<List<User>> callback)
         {
-            var client = new RestClient(Config.WebserviceUrl);
+            var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("user?format=json", Method.GET);
             client.ExecuteAsync(request, (response, x) => callback(JsonConvert.DeserializeObject<List<User>>(response.Content)));
         }

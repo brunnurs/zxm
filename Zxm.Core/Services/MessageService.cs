@@ -29,7 +29,7 @@ namespace Zxm.Core.Services
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
             Debug.WriteLine("RequestMessages called");
-            var client = new RestClient(Config.WebserviceUrl);
+            var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("message?format=json", Method.GET);
             client.ExecuteAsync(request, (response, x) => MessagesLoaded(response, messageCallback));
         }
@@ -43,7 +43,7 @@ namespace Zxm.Core.Services
             var encryptedContent = _encryptionService.Encrypt(newMessage.Content, GetKey());
             newMessage.Content = encryptedContent;
 
-            var client = new RestClient(Config.WebserviceUrl);
+            var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("message?format=json", Method.POST);
             //TODO: use AddBody does not seem to work
             string json = JsonConvert.SerializeObject(newMessage, SerializerSettings);

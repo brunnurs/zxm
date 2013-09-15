@@ -12,6 +12,10 @@ namespace Zxm.iOS
 {
 	public partial class ComposeMessageView : MvxViewController
 	{
+        UIBarButtonItem sendButton;
+
+        UITextView messageContentTextView;
+
 		public ComposeMessageView () : base ("ComposeMessageView", null)
 		{
 		}
@@ -20,14 +24,7 @@ namespace Zxm.iOS
 		{
 			base.ViewDidLoad ();
 			
-			var sendButton = new UIBarButtonItem();
-			sendButton.Title = "send";
-
-			NavigationItem.RightBarButtonItem = sendButton;
-			NavigationItem.Title = "New message";
-
-            var messageContentTextView = new UITextView(new RectangleF(0, 0, 320, 342));
-            Add(messageContentTextView);
+            CreateUI();
 
 			var set = this.CreateBindingSet<ComposeMessageView,ComposeMessageViewModel> ();
 			set.Bind (sendButton).To (vm => vm.SendMessageCommand);
@@ -35,6 +32,16 @@ namespace Zxm.iOS
 			set.Apply ();
 
 		}
+
+        void CreateUI()
+        {
+            sendButton = new UIBarButtonItem();
+            sendButton.Title = "send";
+            NavigationItem.RightBarButtonItem = sendButton;
+            NavigationItem.Title = "New message";
+            messageContentTextView = new UITextView(new RectangleF(0, 0, 320, 342));
+            Add(messageContentTextView);
+        }
 	}
 }
 

@@ -11,29 +11,19 @@ namespace Zxm.iOS
 {
 	public partial class UserListView : MvxViewController
 	{
+        UIBarButtonItem refreshButton;
+
+        UITableView tableView;
+
 		public UserListView () : base ("UserListView", null)
 		{
-		}
-
-		public override void DidReceiveMemoryWarning ()
-		{
-			// Releases the view if it doesn't have a superview.
-			base.DidReceiveMemoryWarning ();
-			
-			// Release any cached data, images, etc that aren't in use.
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			var refreshButton = new UIBarButtonItem (UIBarButtonSystemItem.Refresh);
-			NavigationItem.RightBarButtonItem = refreshButton;
-
-
-			var tableView = new UITableView (new RectangleF (0, 0, 320, 600), UITableViewStyle.Plain);
-			tableView.RowHeight = 100;
-			Add (tableView);
+            CreateUI();
 
 			var source = new MvxSimpleTableViewSource(tableView, UserCell.Key, UserCell.Key);
 			tableView.Source = source;
@@ -45,6 +35,16 @@ namespace Zxm.iOS
 			set.Apply ();
 
 		}
+
+        void CreateUI()
+        {
+            refreshButton = new UIBarButtonItem(UIBarButtonSystemItem.Refresh);
+            NavigationItem.RightBarButtonItem = refreshButton;
+
+            tableView = new UITableView(new RectangleF(0, 0, 320, 600), UITableViewStyle.Plain);
+            tableView.RowHeight = 100;
+            Add(tableView);
+        }
 	}
 }
 
