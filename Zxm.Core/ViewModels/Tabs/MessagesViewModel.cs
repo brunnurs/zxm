@@ -10,13 +10,13 @@ namespace Zxm.Core.ViewModels.Tabs
 {
     public class MessagesViewModel : MvxViewModel
     {
-        private readonly MessageService _cachedMessageService;
+        private readonly EncryptedMessageService _encryptedMessageService;
 
-        public MessagesViewModel(MessageService cachedMessageService)
+        public MessagesViewModel(EncryptedMessageService encryptedMessageService)
         {
-            _cachedMessageService = cachedMessageService;
+            _encryptedMessageService = encryptedMessageService;
 
-            _cachedMessageService.MessageSent += MessageServiceOnMessageSent;
+            _encryptedMessageService.MessageSent += MessageServiceOnMessageSent;
 
             Messages = new ObservableCollection<Message>();
 
@@ -33,7 +33,7 @@ namespace Zxm.Core.ViewModels.Tabs
 
         private void LoadMessagesCommandExecute()
         {
-            _cachedMessageService.RequestMessages(LoadMessagesCallback);
+            _encryptedMessageService.RequestMessages(LoadMessagesCallback);
         }
 
         private void LoadMessagesCallback(List<Message> newMessages)
