@@ -13,8 +13,6 @@ namespace Zxm.Android.Views
             var list = new List<TabFragmentDescription>
                 {
                     new TabFragmentDescription( "UserListView",Resource.String.TabUsers, typeof(UserListFragment), typeof(UserListViewModel)) {MenueResourceId = Resource.Menu.menuUser},
-                    new TabFragmentDescription( "MessagesView",Resource.String.TabMessages, typeof(MessagesFragment), typeof(MessagesViewModel)) {MenueResourceId = Resource.Menu.menuMessages},
-                    new TabFragmentDescription( "SettingsView",Resource.String.TabSettings, typeof(SettingsFragment), typeof(SettingsViewModel)) 
                 };
             return list;
         }
