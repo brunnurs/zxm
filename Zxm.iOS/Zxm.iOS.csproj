@@ -83,10 +83,6 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
-    <Compile Include="Views\SettingsView.cs" />
-    <Compile Include="Views\SettingsView.designer.cs">
-      <DependentUpon>SettingsView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\MessagesView.cs" />
     <Compile Include="Views\MessagesView.designer.cs">
       <DependentUpon>MessagesView.cs</DependentUpon>
@@ -201,7 +197,6 @@
     <Content Include="Images\Tabs\messages.png" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Views\SettingsView.xib" />
     <InterfaceDefinition Include="Views\MessagesView.xib" />
     <InterfaceDefinition Include="Views\UserListView.xib" />
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />

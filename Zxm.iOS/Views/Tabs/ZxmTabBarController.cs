@@ -34,7 +34,6 @@ namespace Zxm.iOS.Views
 	
 				CreateTabFor<UserListViewModel>("Users", "settings"),
 				CreateTabFor<MessagesViewModel>("Messages", "messages"),
-				CreateTabFor<SettingsViewModel>("Settings", "settings"),
 			};
 
 			ViewControllers = viewControllers;
