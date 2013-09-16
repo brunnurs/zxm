@@ -54,8 +54,6 @@
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
     <Compile Include="Common\ListExtentions.cs" />
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
-    <Compile Include="Services\CachedMessageService.cs" />
-    <Compile Include="Services\MessageDatabaseService.cs" />
     <Compile Include="Services\MessageService.cs" />
   </ItemGroup>
   <ItemGroup>
