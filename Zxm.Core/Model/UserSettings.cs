@@ -5,15 +5,7 @@ namespace Zxm.Core.Model
 {
     public class UserSettings
     {
-        public UserSettings()
-        {
-            Password = Config.DefaultUserPassword;
-            UserName = Config.DefaultUserName;
-        }
-
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        //TODO Pos9: 1 Implement proeprty for Username and Password (zxm_usersetting)
+        
     }
 }

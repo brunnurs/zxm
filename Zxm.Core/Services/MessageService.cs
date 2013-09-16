@@ -29,7 +29,6 @@ namespace Zxm.Core.Services
         {
             var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("message?format=json", Method.POST);
-            //TODO: use AddBody does not seem to work
             string json = JsonConvert.SerializeObject(message, SerializerSettings);
             request.AddParameter("text/json", json, ParameterType.RequestBody);
 

@@ -9,15 +9,13 @@ namespace Zxm.Core.Services
     public class EncrytedMessageService
     {
         private readonly EncryptionService _encryptionService;
-        private readonly UserSettingsService _userSettingsService;
         private readonly MessageService _messageService;
 
         public EncrytedMessageService(EncryptionService encryptionService,
-                                      UserSettingsService userSettingsService,
                                       MessageService messageService)
         {
+            //TODO Pos9: 7 Get User Settings Service
             _encryptionService = encryptionService;
-            _userSettingsService = userSettingsService;
             _messageService = messageService;
         }
 
@@ -52,7 +50,8 @@ namespace Zxm.Core.Services
 
         private byte[] GetKey()
         {
-            return EncryptionService.GetKeyFromPassword(_userSettingsService.UserSettings.Password);
+            //TODO Pos9: 6 Do use UserSettingsService
+            return EncryptionService.GetKeyFromPassword(Config.DefaultUserPassword);
         }
 
         private void DecryptMessage(Message message)
