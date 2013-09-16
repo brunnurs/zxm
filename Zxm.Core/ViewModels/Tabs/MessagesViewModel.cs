@@ -10,9 +10,9 @@ namespace Zxm.Core.ViewModels.Tabs
 {
     public class MessagesViewModel : MvxViewModel
     {
-        private readonly EncryptedMessageService _encryptedMessageService;
+        private readonly EncrytedMessageService _encryptedMessageService;
 
-        public MessagesViewModel(EncryptedMessageService encryptedMessageService)
+        public MessagesViewModel(EncrytedMessageService encryptedMessageService)
         {
             _encryptedMessageService = encryptedMessageService;
 
