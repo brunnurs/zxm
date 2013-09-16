@@ -44,7 +44,6 @@ namespace Zxm.Core.ViewModels.Tabs
         }
 
         public ICommand LoadUsersCommand { get; private set; }
-        public ICommand ShowUserDetailsCommand { get; private set; }
 
         public override void Start()
         {
