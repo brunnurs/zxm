@@ -133,12 +133,7 @@
     <Compile Include="Views\ActionBarTabs\IOptionsMenuHandler.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentDescription.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentAdapter.cs" />
-    <Compile Include="Views\BindableWebView.cs" />
-    <Compile Include="Views\ComposeMessageView.cs" />
-    <Compile Include="Views\UserDetailView.cs" />
     <Compile Include="Views\HomeView.cs" />
-    <Compile Include="Views\MessagesFragment.cs" />
-    <Compile Include="Views\SettingsFragment.cs" />
     <Compile Include="Views\UserListFragment.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
@@ -150,15 +145,8 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
-    <AndroidResource Include="Resources\Layout\SettingsView.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\Layout\UserListView.axml" />
-    <AndroidResource Include="Resources\Layout\MessagesView.axml" />
     <AndroidResource Include="Resources\Layout\UserItemTemplate.axml" />
-    <AndroidResource Include="Resources\Layout\MessageItemTemplate.axml" />
-    <AndroidResource Include="Resources\Layout\ComposeMessageView.axml" />
-    <AndroidResource Include="Resources\Layout\UserDetailsView.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Menu\menuUser.xml">
@@ -170,12 +158,6 @@
     <Content Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\Values\SplashStyle.xml" />
     <AndroidResource Include="Resources\Values\MvxBindingAttributes.xml" />
-    <AndroidResource Include="Resources\Menu\menuMessages.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\Menu\menuComposeMessage.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\Drawable-mdpi\Refresh.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\Add.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\Send.png" />
