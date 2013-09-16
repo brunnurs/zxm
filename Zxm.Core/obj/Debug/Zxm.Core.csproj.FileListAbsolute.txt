@@ -1,0 +1,5 @@
+C:\Projects\zxm\Zxm.Core\bin\Debug\Zxm.Core.dll
+C:\Projects\zxm\Zxm.Core\bin\Debug\Zxm.Core.pdb
+C:\Projects\zxm\Zxm.Core\obj\Debug\Zxm.Core.dll
+C:\Projects\zxm\Zxm.Core\obj\Debug\Zxm.Core.pdb
+C:\Projects\zxm\Zxm.Core\obj\Debug\Zxm.Core.csprojResolveAssemblyReference.cache

@@ -1,0 +1,17 @@
+C:\Projects\zxm\Zxm.Android\obj\Debug\Zxm.Android.csprojResolveAssemblyReference.cache
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Android.dll
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Android.pdb
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Android.dll.mdb
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Android.apk
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Android-Signed.apk
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Core.dll
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Core.pdb
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Core.dll.mdb
+C:\Projects\zxm\Zxm.Android\obj\Debug\Zxm.Android.dll
+C:\Projects\zxm\Zxm.Android\obj\Debug\Zxm.Android.pdb
+C:\Projects\zxm\Zxm.Android\obj\Debug\android\bin\Zxm.Android.apk
+C:\Projects\zxm\Zxm.Android\obj\Debug\res\values\strings.xml
+C:\Projects\zxm\Zxm.Android\obj\Debug\res\drawable\icon.png
+C:\Projects\zxm\Zxm.Android\obj\Debug\R.cs.flag
+C:\Projects\zxm\Zxm.Android\obj\Debug\uploadflags.txt
+C:\Projects\zxm\Zxm.Android\obj\Debug\res\layout\main.xml

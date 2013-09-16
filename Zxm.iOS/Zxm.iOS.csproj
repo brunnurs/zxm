@@ -80,6 +80,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
+      <Project>{3286d02d-fa8e-490e-9ceb-1abe6b150469}</Project>
+      <Name>Zxm.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

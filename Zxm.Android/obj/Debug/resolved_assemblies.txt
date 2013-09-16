@@ -1,0 +1,2 @@
+C:\Projects\zxm\Zxm.Android\bin\Debug\Zxm.Android.dll
+C:\Projects\zxm\Zxm.Core\bin\Debug\Zxm.Core.dll

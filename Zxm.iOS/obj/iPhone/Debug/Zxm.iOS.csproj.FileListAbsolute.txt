@@ -1,0 +1,8 @@
+C:\Projects\zxm\Zxm.iOS\bin\iPhone\Debug\ZxmiOS.exe
+C:\Projects\zxm\Zxm.iOS\bin\iPhone\Debug\ZxmiOS.pdb
+C:\Projects\zxm\Zxm.iOS\bin\iPhone\Debug\Zxm.Core.dll
+C:\Projects\zxm\Zxm.iOS\bin\iPhone\Debug\Zxm.Core.pdb
+C:\Projects\zxm\Zxm.iOS\bin\iPhone\Debug\Zxm.Core.dll.mdb
+C:\Projects\zxm\Zxm.iOS\obj\iPhone\Debug\Zxm.iOS.csprojResolveAssemblyReference.cache
+C:\Projects\zxm\Zxm.iOS\obj\iPhone\Debug\ZxmiOS.exe
+C:\Projects\zxm\Zxm.iOS\obj\iPhone\Debug\ZxmiOS.pdb
