@@ -9,12 +9,12 @@ namespace Zxm.Core.ViewModels
 {
     public class ComposeMessageViewModel : MvxViewModel
     {
-        private readonly MessageService _messageService;
+        private readonly EncrytedMessageService _encryptedMessageService;
         private readonly UserSettingsService _userSettingsService;
 
-        public ComposeMessageViewModel(MessageService messageService, UserSettingsService userSettingsService)
+        public ComposeMessageViewModel(EncrytedMessageService encryptedMessageService, UserSettingsService userSettingsService)
         {
-            _messageService = messageService;
+            _encryptedMessageService = encryptedMessageService;
             _userSettingsService = userSettingsService;
             SendMessageCommand = new MvxCommand(SendMessageCommandExecute);
         }
@@ -24,7 +24,7 @@ namespace Zxm.Core.ViewModels
             Debug.WriteLine("Start sending");
 			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = _userSettingsService.UserSettings.UserName };
             Debug.WriteLine("Message created");
-            _messageService.SendMessage(newMessage, (message, successful) =>  ChangePresentation(new MvxClosePresentationHint(this)));
+            _encryptedMessageService.SendMessage(newMessage, (message, successful) =>  ChangePresentation(new MvxClosePresentationHint(this)));
         }
 
         public string Message { get; set; }
