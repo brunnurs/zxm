@@ -16,15 +16,12 @@ namespace Zxm.Test
         [Test]
         public void SendMessage()
         {
-            var encryptionService = new EncryptionService();
             var databaseService = Substitute.For<DatabaseService>();
             var userSettings = new UserSettings();
             userSettings.Password = Config.DefaultUserPassword;
             databaseService.GetAll<UserSettings>().Returns(_ => new List<UserSettings>{userSettings});
 
-            var userSettingsService = new UserSettingsService(databaseService);
-            
-            var messageService = new MessageService(encryptionService,userSettingsService);
+            var messageService = new MessageService();
 
             var message = new Message();
             message.DateSent = DateTime.Now;

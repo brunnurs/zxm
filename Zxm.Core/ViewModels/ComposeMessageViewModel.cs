@@ -9,7 +9,7 @@ namespace Zxm.Core.ViewModels
 {
     public class ComposeMessageViewModel : MvxViewModel
     {
-        private readonly IMessageService _messageService;
+        private readonly MessageService _messageService;
         private readonly UserSettingsService _userSettingsService;
 
         public ComposeMessageViewModel(MessageService messageService, UserSettingsService userSettingsService)
