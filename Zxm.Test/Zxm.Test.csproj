@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="EncryptionServiceTest.cs" />
     <Compile Include="MessageServiceTest.cs" />
+    <Compile Include="EncryptedMessageServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -90,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
-      <Project>{e81e4528-0f31-461f-801d-21e52d6d3878}</Project>
+      <Project>{E81E4528-0F31-461F-801D-21E52D6D3878}</Project>
       <Name>Zxm.Core</Name>
     </ProjectReference>
   </ItemGroup>
