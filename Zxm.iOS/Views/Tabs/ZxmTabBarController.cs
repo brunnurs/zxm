@@ -2,7 +2,6 @@ using Cirrious.MvvmCross.ViewModels;
 using MonoTouch.UIKit;
 using Cirrious.MvvmCross.Touch.Views;
 using Zxm.Core.ViewModels;
-using Zxm.Core.ViewModels.Tabs;
 using Cirrious.CrossCore;
 
 namespace Zxm.iOS.Views
@@ -30,11 +29,8 @@ namespace Zxm.iOS.Views
 				return;
 
 			var viewControllers = new UIViewController[]
-			{
-	
-				CreateTabFor<UserListViewModel>("Users", "settings"),
-				CreateTabFor<MessagesViewModel>("Messages", "messages"),
-				CreateTabFor<SettingsViewModel>("Settings", "settings"),
+			{	
+//				CreateTabFor<UserListViewModel>("Users", "settings")
 			};
 
 			ViewControllers = viewControllers;
