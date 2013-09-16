@@ -10,7 +10,7 @@ namespace Zxm.Core.ViewModels.Tabs
 {
     public class MessagesViewModel : MvxViewModel
     {
-        private readonly IMessageService _cachedMessageService;
+        private readonly MessageService _cachedMessageService;
 
         public MessagesViewModel(MessageService cachedMessageService)
         {
