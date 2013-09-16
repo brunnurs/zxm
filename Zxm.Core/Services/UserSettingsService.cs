@@ -7,13 +7,15 @@ namespace Zxm.Core.Services
     {
         private readonly DatabaseService _databaseService;
 
+        public UserSettingsService() {}
+
         public UserSettingsService(DatabaseService databaseService)
         {
             _databaseService = databaseService;
         }
 
         private UserSettings _userSettings;
-        public UserSettings UserSettings
+        public virtual UserSettings UserSettings
         {
             get
             {

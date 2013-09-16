@@ -54,7 +54,7 @@ namespace Zxm.Core.Services
         /// </summary>
         /// <returns>Encrypted message as Base64 string.</returns>
         /// <remarks>Uses AES-GCM.</remarks>
-        public string Encrypt(string plainText, byte[] key)
+        public virtual string Encrypt(string plainText, byte[] key)
         {
             return SimpleEncrypt(plainText, key);
         }

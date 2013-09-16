@@ -9,8 +9,6 @@ namespace Zxm.Test
     [TestFixture]
     public class EncryptedMessageServiceTest
     {
-        const string EncryptedMessageString = "XXXXi'mEncryptedXXXX";
-
         EncrytedMessageService testee;
 
         EncryptionService encryptionServiceMock;
@@ -32,25 +30,35 @@ namespace Zxm.Test
         [Test]
         public void MessageEncrypition()
         {
-            /* when */
-            encryptionServiceMock.Encrypt(Arg.Any<String>(), Arg.Any<Byte[]>()).Returns(EncryptedMessageString);
-
-            messageServiceMock.SendMessage(Arg.Is<Message>(m => m.Content == EncryptedMessageString), Arg.Invoke(new Message(), true));
-//            messageServiceMock
-//                .When(x=>x.SendMessage(Arg.Is<Message>(m => m.Content == EncryptedMessageString),Arg.Any<Action<Message,bool>>()))
-//                    .Do(x=>{
-//                        challengeAttemptRESTStoreMock.OnNetworkingError += Raise.Event<Action<Exception>>(new Exception("communication failed"));
-//                    });
-
-            var testmessage = new Message(){ Content = "This is the unencrypted text" };
-
-            bool result = false;
-
             /* given */
-            testee.SendMessage(testmessage, (Message m, bool wasSuccessfull) => result = wasSuccessfull);
+            string encryptedMessageText = "XXXXi'mEncryptedXXXX";
+            string messageText = "This is the unencrypted text";
+            string password = "1234";
+
+            var message = new Message(){ Content = messageText };
+
+            MockSetup(encryptedMessageText,password);
+
+            bool messageSuccessfullySent = false;
+            Message resultMessage = null;
+
+            /* when */
+            testee.SendMessage(message, (msg, wasSuccessfull) => {messageSuccessfullySent = wasSuccessfull; resultMessage = msg;});
 
             /* then */
-            Assert.IsTrue(result);
+            Assert.IsTrue(messageSuccessfullySent);
+            Assert.AreEqual(messageText, resultMessage.Content);
+        }
+
+        void MockSetup(string encryptedMessasgeString, string password)
+        {
+            encryptionServiceMock.Encrypt(Arg.Any<String>(), Arg.Any<Byte[]>()).Returns(encryptedMessasgeString);
+
+            userSettingsServiceMock.UserSettings.Returns(new UserSettings() {
+                Password = password
+            });
+
+            messageServiceMock.SendMessage(Arg.Is<Message>(m => m.Content == encryptedMessasgeString), Arg.Invoke(new Message(), true));
         }
     }
 }

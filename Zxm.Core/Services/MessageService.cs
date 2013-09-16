@@ -25,7 +25,7 @@ namespace Zxm.Core.Services
             client.ExecuteAsync(request, (response, x) => MessagesLoadedCallback(response, messageCallback));
         }
 
-        public void SendMessage(Message message, Action<Message, bool> messageSentCallback)
+        public virtual void SendMessage(Message message, Action<Message, bool> messageSentCallback)
         {
             var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("message?format=json", Method.POST);

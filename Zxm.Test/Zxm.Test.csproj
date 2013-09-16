@@ -68,8 +68,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EncryptionServiceTest.cs" />
-    <Compile Include="MessageServiceTest.cs" />
     <Compile Include="EncryptedMessageServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
