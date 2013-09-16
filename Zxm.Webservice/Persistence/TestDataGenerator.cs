@@ -887,7 +887,7 @@ namespace Zxm.Webservice.Persistence
 
         private static string GetRandomImage()
         {
-            return string.Format("{0}/Images/{1}.png", ServiceUrl, LocalRandom.Next(1, 40));
+            return string.Format("{0}/Content/Images/{1}.png", ServiceUrl, LocalRandom.Next(1, 40));
         }
 
         private static string GetRandomFirstName()
