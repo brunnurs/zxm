@@ -1,40 +1,34 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
-using Zxm.Core.Common;
 using Zxm.Core.Model;
-using Zxm.Core.Services;
 
 namespace Zxm.Core.ViewModels.Tabs
 {
     public class UserListViewModel : MvxViewModel
     {
-        private readonly UserService _userService;
-
-        public UserListViewModel(UserService userService)
+        public UserListViewModel()
         {
-            _userService = userService;
+            //TODO Pos5: Get UserService
             LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
-            ShowUserDetailsCommand = new MvxCommand<User>(user => ShowViewModel<UserDetailViewModel>(new {userId = user.Id,username = user.Name}));
-            Users = new ObservableCollection<User>();
+            Users = new List<User>();
         }
 
         private void LoadUsersCommandExecute()
         {
-            _userService.RequestAllUser(RequestUserCallback);
+            //TODO Pos5: Request Users
         }
 
         private void RequestUserCallback(List<User> newUserList)
         {
             if (newUserList != null)
             {
-                Users = new ObservableCollection<User>(newUserList);
+                Users = newUserList;
             }
         }
 
-        private ObservableCollection<User> _users;
-        public ObservableCollection<User> Users
+        private List<User> _users;
+        public List<User> Users
         {
             get { return _users; }
             set
@@ -45,7 +39,6 @@ namespace Zxm.Core.ViewModels.Tabs
         }
 
         public ICommand LoadUsersCommand { get; private set; }
-        public ICommand ShowUserDetailsCommand { get; private set; }
 
         public override void Start()
         {

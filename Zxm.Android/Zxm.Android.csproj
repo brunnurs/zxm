@@ -133,12 +133,7 @@
     <Compile Include="Views\ActionBarTabs\IOptionsMenuHandler.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentDescription.cs" />
     <Compile Include="Views\ActionBarTabs\TabFragmentAdapter.cs" />
-    <Compile Include="Views\BindableWebView.cs" />
-    <Compile Include="Views\ComposeMessageView.cs" />
-    <Compile Include="Views\UserDetailView.cs" />
     <Compile Include="Views\HomeView.cs" />
-    <Compile Include="Views\MessagesFragment.cs" />
-    <Compile Include="Views\SettingsFragment.cs" />
     <Compile Include="Views\UserListFragment.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />

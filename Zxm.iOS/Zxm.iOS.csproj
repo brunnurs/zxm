@@ -79,18 +79,11 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Views\ViewSettings.cs" />
     <None Include="app.config" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
-    <Compile Include="Views\SettingsView.cs" />
-    <Compile Include="Views\SettingsView.designer.cs">
-      <DependentUpon>SettingsView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MessagesView.cs" />
-    <Compile Include="Views\MessagesView.designer.cs">
-      <DependentUpon>MessagesView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserListView.cs" />
     <Compile Include="Views\UserListView.designer.cs">
       <DependentUpon>UserListView.cs</DependentUpon>
@@ -102,21 +95,8 @@
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\SqlitePluginBootstrap.cs" />
-    <Compile Include="Views\ComposeMessageView.cs" />
-    <Compile Include="Views\ComposeMessageView.designer.cs">
-      <DependentUpon>ComposeMessageView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cells\MessageCell.cs" />
-    <Compile Include="Views\Cells\MessageCell.designer.cs">
-      <DependentUpon>MessageCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserDetailView.cs" />
-    <Compile Include="Views\UserDetailView.designer.cs">
-      <DependentUpon>UserDetailView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Tabs\ZxmTabBarController.cs" />
     <Compile Include="Views\Tabs\TabsWithNavigationControllerPresenter.cs" />
-    <Compile Include="Views\ViewSettings.cs" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -201,13 +181,8 @@
     <Content Include="Images\Tabs\messages.png" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Views\SettingsView.xib" />
-    <InterfaceDefinition Include="Views\MessagesView.xib" />
     <InterfaceDefinition Include="Views\UserListView.xib" />
     <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
-    <InterfaceDefinition Include="Views\ComposeMessageView.xib" />
-    <InterfaceDefinition Include="Views\Cells\MessageCell.xib" />
-    <InterfaceDefinition Include="Views\UserDetailView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zxm.Core\Zxm.Core.csproj">
@@ -215,8 +190,5 @@
       <Name>Zxm.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bootstrap\" />
-    <Folder Include="Views\Tabs\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

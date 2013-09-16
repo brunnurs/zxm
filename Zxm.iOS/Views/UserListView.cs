@@ -31,7 +31,6 @@ namespace Zxm.iOS
 			var set = this.CreateBindingSet<UserListView,UserListViewModel> ();
 			set.Bind (source).To (vm => vm.Users);
 			set.Bind (refreshButton).To (vm => vm.LoadUsersCommand);
-            set.Bind (source).For(s => s.SelectionChangedCommand).To(vm => vm.ShowUserDetailsCommand);
 			set.Apply ();
 
 		}
