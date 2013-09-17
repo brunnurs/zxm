@@ -89,6 +89,10 @@
     <Compile Include="Views\Tabs\ZxmTabBarController.cs" />
     <Compile Include="Views\Tabs\TabsWithNavigationControllerPresenter.cs" />
     <Compile Include="ViewSettings.cs" />
+    <Compile Include="Views\Cells\UserCell.cs" />
+    <Compile Include="Views\Cells\UserCell.designer.cs">
+      <DependentUpon>UserCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
@@ -182,5 +186,8 @@
     <Folder Include="Bootstrap\" />
     <Folder Include="Views\Tabs\" />
     <Folder Include="Views\Cells\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\Cells\UserCell.xib" />
   </ItemGroup>
 </Project>
