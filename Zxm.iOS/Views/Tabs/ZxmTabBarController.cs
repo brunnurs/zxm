@@ -30,7 +30,7 @@ namespace Zxm.iOS.Views
 
 			var viewControllers = new UIViewController[]
 			{	
-//				CreateTabFor<UserListViewModel>("Users", "settings")
+                CreateTabFor<UserListViewModel>("Users", "settings"),
 			};
 
 			ViewControllers = viewControllers;
