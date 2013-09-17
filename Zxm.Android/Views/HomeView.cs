@@ -14,7 +14,7 @@ namespace Zxm.Android.Views
                 {
                     new TabFragmentDescription( "UserListView",Resource.String.TabUsers, typeof(UserListFragment), typeof(UserListViewModel)) {MenueResourceId = Resource.Menu.menuUser},
                     new TabFragmentDescription( "MessagesView",Resource.String.TabMessages, typeof(MessagesFragment), typeof(MessagesViewModel)) {MenueResourceId = Resource.Menu.menuMessages},
-                   //TODO Pos9: 5 Add Settings Tab 
+                    new TabFragmentDescription( "SettingsView",Resource.String.TabSettings, typeof(SettingsFragment), typeof(SettingsViewModel))
                 };
             return list;
         }
