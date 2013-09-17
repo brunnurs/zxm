@@ -138,7 +138,6 @@
     <Compile Include="Views\UserDetailView.cs" />
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Views\MessagesFragment.cs" />
-    <Compile Include="Views\SettingsFragment.cs" />
     <Compile Include="Views\UserListFragment.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
@@ -150,9 +149,6 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
-    <AndroidResource Include="Resources\Layout\SettingsView.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\Layout\UserListView.axml" />
     <AndroidResource Include="Resources\Layout\MessagesView.axml" />
     <AndroidResource Include="Resources\Layout\UserItemTemplate.axml" />
