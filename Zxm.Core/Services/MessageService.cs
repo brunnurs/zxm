@@ -19,7 +19,6 @@ namespace Zxm.Core.Services
 
         public void RequestMessages(Action<List<Message>> messageCallback)
         {
-            Debug.WriteLine("RequestMessages called");
             var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("message?format=json", Method.GET);
             client.ExecuteAsync(request, (response, x) => MessagesLoadedCallback(response, messageCallback));
@@ -29,43 +28,32 @@ namespace Zxm.Core.Services
         {
             var client = new RestClient(Config.WebserviceUrlApi);
             var request = new RestRequest("message?format=json", Method.POST);
-            //TODO: use AddBody does not seem to work
+            
             string json = JsonConvert.SerializeObject(message, SerializerSettings);
             request.AddParameter("text/json", json, ParameterType.RequestBody);
 
             client.ExecuteAsync(request, (response, x) => MessageSentCallback(response, messageSentCallback, message));
-            Debug.WriteLine("sending new message...");
         }
+
 
         private void MessagesLoadedCallback(IRestResponse response, Action<List<Message>> messageCallback)
         {
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content, SerializerSettings);
-                messageCallback(receivedMessages);
-            }
-            else
-            {
-                Debug.WriteLine("receiving messages failed");
-            }
+            var receivedMessages = JsonConvert.DeserializeObject<List<Message>>(response.Content, SerializerSettings);
+            messageCallback(receivedMessages);
         }
 
         private void MessageSentCallback(IRestResponse response, Action<Message, bool> messageSentCallback, Message message)
         {
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            bool wasSuccessfully = response.StatusCode == System.Net.HttpStatusCode.OK;
+            if (wasSuccessfully)
             {
                 if (MessageSent != null)
                 {
                     MessageSent(this, new EventArgs<Message>(message));
                 }
-                Debug.WriteLine("message successfully sent");
-                messageSentCallback(message, true);
             }
-            else
-            {
-                Debug.WriteLine("sending message failed {0}", response.StatusCode);
-                messageSentCallback(message, false);
-            }
+
+            messageSentCallback(message, wasSuccessfully);
         }
     }
 }
