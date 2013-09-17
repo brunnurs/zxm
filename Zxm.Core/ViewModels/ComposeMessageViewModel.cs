@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
+using Zxm.Core.Common;
 using Zxm.Core.Model;
 using Zxm.Core.Services;
 
@@ -9,20 +10,18 @@ namespace Zxm.Core.ViewModels
 {
     public class ComposeMessageViewModel : MvxViewModel
     {
-        private readonly EncrytedMessageService _encryptedMessageService;
-        private readonly UserSettingsService _userSettingsService;
+        private readonly MessageService _encryptedMessageService;
 
-        public ComposeMessageViewModel(EncrytedMessageService encryptedMessageService, UserSettingsService userSettingsService)
+        public ComposeMessageViewModel(MessageService encryptedMessageService)
         {
             _encryptedMessageService = encryptedMessageService;
-            _userSettingsService = userSettingsService;
             SendMessageCommand = new MvxCommand(SendMessageCommandExecute);
         }
 
         private void SendMessageCommandExecute()
         {
             Debug.WriteLine("Start sending");
-			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = _userSettingsService.UserSettings.UserName };
+			var newMessage = new Message { Content = Message, DateSent = DateTime.Now, Sender = Config.DefaultUserName };
             Debug.WriteLine("Message created");
             _encryptedMessageService.SendMessage(newMessage, (message, successful) =>  ChangePresentation(new MvxClosePresentationHint(this)));
         }

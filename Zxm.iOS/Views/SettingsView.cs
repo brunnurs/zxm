@@ -24,11 +24,6 @@ namespace Zxm.iOS
             CreateUI();
 
 
-			var set = this.CreateBindingSet<SettingsView,SettingsViewModel> ();
-			set.Bind (usernameEdit).To (vm => vm.UserName);
-			set.Bind (passwordEdit).To (vm => vm.Password);
-
-			set.Apply ();
 		}
 
 
