@@ -3,6 +3,7 @@ using MonoTouch.UIKit;
 using Cirrious.MvvmCross.Touch.Views;
 using Zxm.Core.ViewModels;
 using Cirrious.CrossCore;
+using Zxm.Core;
 
 namespace Zxm.iOS.Views
 {
