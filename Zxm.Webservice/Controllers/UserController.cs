@@ -23,17 +23,6 @@ namespace Zxm.Webservice.Controllers
             var userRepository = container.Resolve<UserRepository>();
             var user = userRepository.GetById(userId);
 
-            // Get all properties using reflection
-            var userProperties = new Dictionary<string, object>();
-            var userType = typeof(User);
-            foreach (var property in userType.GetProperties())
-            {
-                var propertyName = property.Name;
-                var propertyValue = property.GetValue(user);
-
-                userProperties.Add(propertyName, propertyValue);
-            }
-            ViewBag.UserProperties = userProperties;
             ViewBag.User = user;
 
             return View();

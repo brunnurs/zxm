@@ -192,6 +192,7 @@
     <Content Include="Content\Images\7.png" />
     <Content Include="Content\Images\8.png" />
     <Content Include="Content\Images\9.png" />
+    <Content Include="Content\Images\zuhlke.png" />
     <Content Include="Content\js\ss-validation.js" />
     <Content Include="default.htm" />
     <Content Include="Global.asax" />
@@ -243,7 +244,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>65219</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50573/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
