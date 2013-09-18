@@ -39,6 +39,21 @@ namespace Zxm.Webservice.Persistence
 
         private const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 -,.";
 
+        private static readonly string[] Messages = new[]
+            {
+                "Hi there. I like this chat very much. A lot better than WhatsApp!",
+                "Whats up today? Do you guys fancy an after work beer?",
+                "Excellent sessions at the SWE Days so far!",
+                "The part of the SWE Days I am liking the most, is only a couple of minutes ahead: Socialicing with a beer!",
+                "Nothing to say today.",
+                "Xamarin and MvvmCross rock!",
+                "No need to touch Objective-C code again!",
+                "Is C# the best programming language of them all?",
+                "Please fasten your seatbelts, we are going to rock the SWE Days!",
+                "Please visit Belgrade soon!",
+                "Zühlke is an amazing employer!"
+            };
+
         private static readonly string[] FirstNames = new[]
             {
                 "Aaron", "Abraham", "Achille", "Achim", "Ada", "Adalbert", "Adam", "Adamo", "Adela", "Adelaide",
@@ -760,12 +775,13 @@ namespace Zxm.Webservice.Persistence
         {
             var firstName = GetRandomFirstName();
             var lastName = GetRandomLastName();
+            var message = Messages[LocalRandom.Next(0, Messages.Length)];
 
             return new Message(id)
             {
                 DateSent = DateTime.Now,
                 Sender = string.Format("{0} {1}", firstName, lastName),
-                Content = _encryptionService.Encrypt(RandomString(160), EncryptionService.GetKeyFromPassword(Config.DefaultUserPassword))
+                Content = _encryptionService.Encrypt(message, EncryptionService.GetKeyFromPassword(Config.DefaultUserPassword))
             };
         }
 
