@@ -49,6 +49,7 @@
     <Compile Include="Common\ListExtentions.cs" />
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
     <Compile Include="Services\MessageService.cs" />
+    <Compile Include="Services\EncryptionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
