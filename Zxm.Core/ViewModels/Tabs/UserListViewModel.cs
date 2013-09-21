@@ -15,8 +15,9 @@ namespace Zxm.Core.ViewModels.Tabs
         public UserListViewModel(UserService userService)
         {
             _userService = userService;
-            LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
             Users = new ObservableCollection<User>();
+
+            LoadUsersCommand = new MvxCommand(LoadUsersCommandExecute);
         }
 
         private void LoadUsersCommandExecute()
@@ -44,6 +45,8 @@ namespace Zxm.Core.ViewModels.Tabs
         }
 
         public ICommand LoadUsersCommand { get; private set; }
+
+        public ICommand ShowUserDetailsCommand { get; private set; }
 
         public override void Start()
         {

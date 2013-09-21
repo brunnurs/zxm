@@ -44,6 +44,7 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\Tabs\UserListViewModel.cs" />
     <Compile Include="Common\ListExtentions.cs" />
+    <Compile Include="ViewModels\UserDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">

@@ -8,33 +8,33 @@ using Zxm.Core.Model;
 
 namespace Zxm.iOS
 {
-	public partial class UserCell : MvxTableViewCell
-	{
-		public static readonly UINib Nib = UINib.FromName ("UserCell", NSBundle.MainBundle);
-		public static readonly NSString Key = new NSString ("UserCell");
+    public partial class UserCell : MvxTableViewCell
+    {
+        public static readonly UINib Nib = UINib.FromName ("UserCell", NSBundle.MainBundle);
+        public static readonly NSString Key = new NSString ("UserCell");
 
-		MvxImageViewLoader imageLoader;
+        MvxImageViewLoader imageLoader;
 
-		public UserCell (IntPtr handle) : base (handle)
-		{
+        public UserCell (IntPtr handle) : base (handle)
+        {
 
-			imageLoader = new MvxImageViewLoader (() => UserImageView);
+            imageLoader = new MvxImageViewLoader (() => UserImageView);
 
-			this.DelayBind(() => {
-				var set = this.CreateBindingSet<UserCell, User> ();
-				set.Bind (UserTitleLabel).To (item => item.Title);
-				set.Bind (UserFirstnameLabel).To (item => item.FirstName); 
-				set.Bind (UserLastnameLabel).To (item => item.LastName);
-				set.Bind(imageLoader).To(User => User.ImageUri);
-				set.Apply();
-			});
+            this.DelayBind(() => {
+                var set = this.CreateBindingSet<UserCell, User> ();
+                set.Bind (UserTitleLabel).To (item => item.Title);
+                set.Bind (UserFirstnameLabel).To (item => item.FirstName);
+                set.Bind (UserLastnameLabel).To (item => item.LastName);
+                set.Bind (UserCompanyLabel).To (item => item.Company);
+                set.Bind(imageLoader).To(User => User.ImageUri);
+                set.Apply();
+            });
 
-		}
+        }
 
-		public static UserCell Create ()
-		{
-			return (UserCell)Nib.Instantiate (null, null) [0];
-		}
-	}
+        public static UserCell Create ()
+        {
+            return (UserCell)Nib.Instantiate (null, null) [0];
+        }
+    }
 }
-
