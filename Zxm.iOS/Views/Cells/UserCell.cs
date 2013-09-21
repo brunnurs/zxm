@@ -25,6 +25,7 @@ namespace Zxm.iOS
                 set.Bind (UserTitleLabel).To (item => item.Title);
                 set.Bind (UserFirstnameLabel).To (item => item.FirstName);
                 set.Bind (UserLastnameLabel).To (item => item.LastName);
+                set.Bind (UserCompanyLabel).To (item => item.Company);
                 set.Bind(imageLoader).To(User => User.ImageUri);
                 set.Apply();
             });

@@ -227,6 +227,14 @@
 					</object>
 					<int key="connectionID">33</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">UserCompanyLabel</string>
+						<reference key="source" ref="368518100"/>
+						<reference key="destination" ref="517719159"/>
+					</object>
+					<int key="connectionID">134</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -720,7 +728,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">133</int>
+			<int key="maxID">134</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -736,12 +744,17 @@
 					<string key="className">UserCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="UserCompanyLabel">UILabel</string>
 						<string key="UserFirstnameLabel">UILabel</string>
 						<string key="UserImageView">UIImageView</string>
 						<string key="UserLastnameLabel">UILabel</string>
 						<string key="UserTitleLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="UserCompanyLabel">
+							<string key="name">UserCompanyLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="UserFirstnameLabel">
 							<string key="name">UserFirstnameLabel</string>
 							<string key="candidateClassName">UILabel</string>
